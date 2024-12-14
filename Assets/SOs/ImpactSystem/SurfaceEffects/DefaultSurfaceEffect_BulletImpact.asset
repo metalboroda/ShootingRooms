@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fae2c45eca88434580a690e36863ba2, type: 3}
+  m_Name: DefaultSurfaceEffect_BulletImpact
+  m_EditorClassIdentifier: 
+  SpawnObjectEffects:
+  - {fileID: 11400000, guid: a05b28e8568780b49a47c3c484d515a4, type: 2}
+  PlayAudioEffects:
+  - {fileID: 11400000, guid: 04d2c860c6eeae24cb81ea2d28c1fbe7, type: 2}
