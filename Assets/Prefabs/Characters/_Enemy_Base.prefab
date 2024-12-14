@@ -4567,7 +4567,7 @@ MonoBehaviour:
     SpringsValue: 1500
     SpringsOnFall: 0
     DampingValue: 40
-    DampingValueOnFall: 0
+    DampingValueOnFall: 40
     HardMatching: 0
     HardMatchPositions: 0
     HardMatchPositionsOnFall: 0
