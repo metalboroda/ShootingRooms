@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.ImpactSystem;
+using Assets.Scripts.Interfaces;
 using System.Collections;
 using UltimatePooling;
 using UnityEngine;
@@ -95,6 +96,11 @@ public class Projectile : MonoBehaviour
           impactType,
           triangleIndex
       );
+
+      if (hitObject.TryGetComponent(out IDamageable damageable))
+      {
+        damageable.Damage(_damage);
+      }
 
       UltimatePool.despawn(gameObject);
     }

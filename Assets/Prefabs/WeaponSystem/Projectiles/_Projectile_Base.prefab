@@ -102,7 +102,7 @@ MonoBehaviour:
   impactType: {fileID: 11400000, guid: d4cd3d557f8fc4d42889b2cb159c2139, type: 2}
   collisionLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 776
   model: {fileID: 5516487209563235403}
   trail: {fileID: 2871905637057220459}
 --- !u!1 &2871905637057220459

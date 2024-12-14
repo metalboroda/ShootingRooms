@@ -2021,15 +2021,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3770953445494980945, guid: 27b7c13bb2ac94f4791bc6df5b8fbe29,
+        type: 3}
+      propertyPath: handler._EditorCategory
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3770953445494980945, guid: 27b7c13bb2ac94f4791bc6df5b8fbe29,
+        type: 3}
+      propertyPath: handler._EditorMotionCategory
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6215997633368586463, guid: 27b7c13bb2ac94f4791bc6df5b8fbe29,
         type: 3}
       propertyPath: m_Name
       value: _Enemy_Base
       objectReference: {fileID: 0}
-    - target: {fileID: 6215997633368586463, guid: 27b7c13bb2ac94f4791bc6df5b8fbe29,
+    - target: {fileID: 8979497738903269334, guid: 27b7c13bb2ac94f4791bc6df5b8fbe29,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_XMotion
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8979497738903269334, guid: 27b7c13bb2ac94f4791bc6df5b8fbe29,
+        type: 3}
+      propertyPath: m_YMotion
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8979497738903269334, guid: 27b7c13bb2ac94f4791bc6df5b8fbe29,
+        type: 3}
+      propertyPath: m_ZMotion
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8979497738903269334, guid: 27b7c13bb2ac94f4791bc6df5b8fbe29,
+        type: 3}
+      propertyPath: m_AngularXMotion
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8979497738903269334, guid: 27b7c13bb2ac94f4791bc6df5b8fbe29,
+        type: 3}
+      propertyPath: m_AngularYMotion
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8979497738903269334, guid: 27b7c13bb2ac94f4791bc6df5b8fbe29,
+        type: 3}
+      propertyPath: m_AngularZMotion
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
