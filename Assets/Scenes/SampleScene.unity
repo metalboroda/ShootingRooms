@@ -816,6 +816,8 @@ MonoBehaviour:
     Surface: {fileID: 11400000, guid: 2dc1d7de228f62b479ee570fc09b2b41, type: 2}
   - Albedo: {fileID: 2800000, guid: 13022bfcdcb15494ebbf362f9b8cdb4d, type: 3}
     Surface: {fileID: 11400000, guid: ccfd8378a3eaefc4992a96eacf0ff27b, type: 2}
+  - Albedo: {fileID: 2800000, guid: 10d6182f000844d4083296b7f6fd0d25, type: 3}
+    Surface: {fileID: 11400000, guid: f490020cfdab8364c9e03c46cc214338, type: 2}
 --- !u!4 &393427281
 Transform:
   m_ObjectHideFlags: 0
@@ -1441,6 +1443,7 @@ GameObject:
   - component: {fileID: 781147847}
   - component: {fileID: 781147848}
   - component: {fileID: 781147849}
+  - component: {fileID: 781147850}
   m_Layer: 0
   m_Name: ImpactSystemPool
   m_TagString: Untagged
@@ -1501,6 +1504,25 @@ MonoBehaviour:
   parentInstances: 1
   eventType: 0
   prefab: {fileID: 180772, guid: 52aa1f2e1567b6e47b50df0d054982a7, type: 3}
+--- !u!114 &781147850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781147846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e6443fb8e29bc48a3ff533cc8558b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prewarmPool: 1
+  prewarmAmount: 20
+  prewarmPerFrame: 10
+  maxAmount: 25
+  parentInstances: 1
+  eventType: 0
+  prefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d, type: 3}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
