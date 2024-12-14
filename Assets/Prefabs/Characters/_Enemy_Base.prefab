@@ -4596,7 +4596,7 @@ MonoBehaviour:
     Calibrate: 1
     AnimatePhysics: 0
     ApplyPositions: 0
-    OptimizeOnZeroBlend: 0
+    OptimizeOnZeroBlend: 1
     HideDummyInSceneView: 0
     IgnoreBoundedColliders: 1
     RagdollDummyLayer: 8
@@ -5696,7 +5696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65aef6ea31a1c1042ba35601de39b157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDeathMusclePower: 0.05
+  minDeathMusclePower: 0.025
   musclePowerDecreasingSpeed: 7.5
 --- !u!1 &6278556400714591621
 GameObject:
