@@ -5713,7 +5713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeathMusclePower: 0.025
-  musclePowerDecreasingSpeed: 2.5
+  musclePowerDecreasingSpeed: 5
 --- !u!1 &6278556400714591621
 GameObject:
   m_ObjectHideFlags: 0
