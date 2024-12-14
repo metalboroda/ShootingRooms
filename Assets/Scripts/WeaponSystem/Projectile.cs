@@ -99,7 +99,7 @@ public class Projectile : MonoBehaviour
 
       if (hitObject.TryGetComponent(out IDamageable damageable))
       {
-        damageable.Damage(_damage);
+        damageable.Damage(_damage, hitPoint);
       }
 
       UltimatePool.despawn(gameObject);

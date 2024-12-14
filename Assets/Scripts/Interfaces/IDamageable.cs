@@ -1,7 +1,9 @@
+using UnityEngine;
+
 namespace Assets.Scripts.Interfaces
 {
   public interface IDamageable
   {
-    public void Damage(int damage);
+    void Damage(int damage, Vector3 hitPoint);
   }
 }

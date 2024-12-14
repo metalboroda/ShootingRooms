@@ -859,6 +859,8 @@ MonoBehaviour:
   hitboxType: 0
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
+  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
 --- !u!1 &1352637338978554614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,6 +1094,8 @@ MonoBehaviour:
   hitboxType: 0
   minDamageModifier: 0.15
   maxDamageModifier: 0.5
+  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
 --- !u!1 &1417089502385105550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,6 +1365,8 @@ MonoBehaviour:
   hitboxType: 0
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
+  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
 --- !u!1 &1741634487360177414
 GameObject:
   m_ObjectHideFlags: 0
@@ -2362,6 +2368,8 @@ MonoBehaviour:
   hitboxType: 0
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
+  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
 --- !u!1 &2476631781286420489
 GameObject:
   m_ObjectHideFlags: 0
@@ -2629,6 +2637,8 @@ MonoBehaviour:
   hitboxType: 0
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
+  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
 --- !u!1 &2932095941407645066
 GameObject:
   m_ObjectHideFlags: 0
@@ -2832,6 +2842,8 @@ MonoBehaviour:
   hitboxType: 2
   minDamageModifier: 0.5
   maxDamageModifier: 1.25
+  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
 --- !u!1 &3131797707005550953
 GameObject:
   m_ObjectHideFlags: 0
@@ -3422,6 +3434,8 @@ MonoBehaviour:
   hitboxType: 0
   minDamageModifier: 0.15
   maxDamageModifier: 0.5
+  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
 --- !u!1 &4667236619806489586
 GameObject:
   m_ObjectHideFlags: 0
@@ -4329,6 +4343,8 @@ MonoBehaviour:
   hitboxType: 0
   minDamageModifier: 0.15
   maxDamageModifier: 0.5
+  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
 --- !u!1 &6215997633368586463
 GameObject:
   m_ObjectHideFlags: 0
@@ -4601,7 +4617,7 @@ MonoBehaviour:
     IgnoreBoundedColliders: 1
     RagdollDummyLayer: 8
     UnscaledTime: 0
-    FadeInAnimation: 0
+    FadeInAnimation: 0.1
     IgnoreSourceSkeletonColliders: 1
     WaitForInit: 1
     AnimationMatchLimits: 0
@@ -5697,7 +5713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeathMusclePower: 0.025
-  musclePowerDecreasingSpeed: 7.5
+  musclePowerDecreasingSpeed: 2.5
 --- !u!1 &6278556400714591621
 GameObject:
   m_ObjectHideFlags: 0
@@ -5901,6 +5917,8 @@ MonoBehaviour:
   hitboxType: 0
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
+  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
 --- !u!1 &6317949354954972554
 GameObject:
   m_ObjectHideFlags: 0
@@ -6261,6 +6279,8 @@ MonoBehaviour:
   hitboxType: 0
   minDamageModifier: 0.15
   maxDamageModifier: 0.5
+  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
 --- !u!1 &6522195844368565887
 GameObject:
   m_ObjectHideFlags: 0
@@ -6494,6 +6514,8 @@ MonoBehaviour:
   hitboxType: 0
   minDamageModifier: 0.5
   maxDamageModifier: 1.25
+  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
 --- !u!1 &6823773367425920187
 GameObject:
   m_ObjectHideFlags: 0
@@ -6729,6 +6751,8 @@ MonoBehaviour:
   hitboxType: 0
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
+  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
 --- !u!1 &7083409290414703909
 GameObject:
   m_ObjectHideFlags: 0
@@ -7291,6 +7315,8 @@ MonoBehaviour:
   hitboxType: 0
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
+  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
 --- !u!1 &7999284822994800496
 GameObject:
   m_ObjectHideFlags: 0
@@ -7557,6 +7583,8 @@ MonoBehaviour:
   hitboxType: 0
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
+  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
 --- !u!1 &8232696626161296447
 GameObject:
   m_ObjectHideFlags: 0
@@ -7990,6 +8018,8 @@ MonoBehaviour:
   hitboxType: 0
   minDamageModifier: 1
   maxDamageModifier: 1.25
+  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
 --- !u!1 &8413797367170817105
 GameObject:
   m_ObjectHideFlags: 0

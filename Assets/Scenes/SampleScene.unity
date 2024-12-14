@@ -816,8 +816,6 @@ MonoBehaviour:
     Surface: {fileID: 11400000, guid: 2dc1d7de228f62b479ee570fc09b2b41, type: 2}
   - Albedo: {fileID: 2800000, guid: 13022bfcdcb15494ebbf362f9b8cdb4d, type: 3}
     Surface: {fileID: 11400000, guid: ccfd8378a3eaefc4992a96eacf0ff27b, type: 2}
-  - Albedo: {fileID: 2800000, guid: 10d6182f000844d4083296b7f6fd0d25, type: 3}
-    Surface: {fileID: 11400000, guid: f490020cfdab8364c9e03c46cc214338, type: 2}
 --- !u!4 &393427281
 Transform:
   m_ObjectHideFlags: 0
@@ -2076,7 +2074,7 @@ PrefabInstance:
     - target: {fileID: 3770953445494980945, guid: 27b7c13bb2ac94f4791bc6df5b8fbe29,
         type: 3}
       propertyPath: handler._EditorCategory
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3770953445494980945, guid: 27b7c13bb2ac94f4791bc6df5b8fbe29,
         type: 3}

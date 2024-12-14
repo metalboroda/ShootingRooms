@@ -8,7 +8,7 @@ namespace Assets.Scripts.Character
   public class CharacterRagdollHandler : MonoBehaviour
   {
     [SerializeField] private float minDeathMusclePower = 0.025f;
-    [SerializeField] private float musclePowerDecreasingSpeed = 10f;
+    [SerializeField] private float musclePowerDecreasingSpeed = 2.5f;
 
     private RagdollAnimator2 _ragdollAnimator;
 
