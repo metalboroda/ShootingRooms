@@ -5,6 +5,7 @@ public class CharacterAnimationDataSO : ScriptableObject
 {
   public string[] IdleAnimations;
   public string[] DeathAnimations;
+  public string[] InjuryAnimations;
 
   public string RandomIdleAnimation()
   {
@@ -14,6 +15,11 @@ public class CharacterAnimationDataSO : ScriptableObject
   public string RandomDeathAnimation()
   {
     return GetRandomAnimation(DeathAnimations);
+  }
+
+  public string RandomInjuryAnimation()
+  {
+    return GetRandomAnimation(InjuryAnimations);
   }
 
   private string GetRandomAnimation(string[] animations)

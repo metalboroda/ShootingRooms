@@ -43,7 +43,7 @@ namespace Assets.Scripts.Character.Enemy
 
     private void OnCharacterDead(Events.CharacterDead characterDead)
     {
-      if (characterDead.ID != transform.GetInstanceID())
+      if (characterDead.ID != transform.GetInstanceID() && FSM.CurrentState is not EnemyDeathState)
       {
         return;
       }

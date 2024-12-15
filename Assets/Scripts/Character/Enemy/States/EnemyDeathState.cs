@@ -9,5 +9,6 @@ public class EnemyDeathState : EnemyBaseState
   {
     CharacterAnimationHandler.CrossfadeAnimation(
         CharacterAnimationHandler.CharacterAnimationData.RandomDeathAnimation());
+    CharacterAnimationHandler.HandleInjury();
   }
 }
