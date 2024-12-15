@@ -1,4 +1,5 @@
-﻿using UltimatePooling;
+﻿using Assets.Scripts.EventBus;
+using UltimatePooling;
 using UnityEngine;
 
 namespace Assets.Scripts.WeaponSystem
@@ -24,6 +25,11 @@ namespace Assets.Scripts.WeaponSystem
         Quaternion finalRotation = Quaternion.LookRotation(direction) * spreadRotation;
 
         //Debug.DrawRay(firePoint.position, direction * 10, Color.red, 2.0f);
+
+        EventBus<Events.WeaponUsed>.Raise(new Events.WeaponUsed
+        {
+          ID = transform.GetInstanceID(),
+        });
 
         muzzleFlash.Play();
 

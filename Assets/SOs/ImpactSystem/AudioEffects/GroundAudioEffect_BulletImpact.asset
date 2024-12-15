@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ab1b7800c4996542b804735c9eff747, type: 3}
-  m_Name: DefaultAudioEffect_BulletImpact
+  m_Name: GroundAudioEffect_BulletImpact
   m_EditorClassIdentifier: 
   AudioSourcePrefab: {fileID: 0}
   VolumeRange: {x: 0, y: 1}

@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 2005453673503387576}
   - component: {fileID: 5629805224322632717}
   - component: {fileID: 2359143408846621725}
-  - component: {fileID: 3463917627696945406}
-  - component: {fileID: 2172174679522536611}
   m_Layer: 7
   m_Name: _Projectile_Base
   m_TagString: Untagged
@@ -47,7 +45,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1727652138600509814}
   serializedVersion: 4
-  m_Mass: 2
+  m_Mass: 0.75
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -107,87 +105,6 @@ MonoBehaviour:
     m_Bits: 776
   model: {fileID: 5516487209563235403}
   trail: {fileID: 2871905637057220459}
---- !u!114 &3463917627696945406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1727652138600509814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8f199dfbf0d6554296aa8137e588e14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emit: 0
-  raycastDistance: 0.0001
-  layers:
-    serializedVersion: 2
-    m_Bits: 513
-  onlyUseFirstContact: 1
-  delay: 0
-  orientation: 0
-  _camera: {fileID: 0}
-  preview: 0
-  threshold: 50
-  pressureMode: 0
-  pressureMin: 50
-  pressureMax: 100
-  pressureConstant: 1
-  pressureMultiplier: 1
-  offset: 0
-  priority: 0
-  root: {fileID: 0}
-  cooldown: 0
---- !u!114 &2172174679522536611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1727652138600509814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b36498e7e45483f478ff74ab3f1cb21c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layers:
-    serializedVersion: 2
-    m_Bits: 1024
-  targetModel: {fileID: 0}
-  group:
-    index: 0
-  targetTexture: {fileID: 0}
-  blendMode:
-    Index: 0
-    Color: {r: 1, g: 1, b: 1, a: 1}
-    Texture: {fileID: 0}
-    Kernel: 1
-    Channels: {x: 1, y: 1, z: 1, w: 1}
-  texture: {fileID: 2800000, guid: b232d88a05fd2304f9ecfb0eaca4f742, type: 3}
-  shape: {fileID: 0}
-  shapeChannel: 3
-  color: {r: 1, g: 0, b: 0, a: 1}
-  opacity: 1
-  angle: 0
-  scale: {x: 1, y: 1, z: 1}
-  radius: 0.2
-  hardness: 3
-  wrapping: 1
-  normalFront: 2
-  normalBack: 2
-  normalFade: 0.01
-  tileTexture: {fileID: 0}
-  tileTransform: {fileID: 0}
-  tileOpacity: 3
-  tileTransition: 4
-  findMask: 1
-  findDepthMask: 1
-  modifiers:
-    modifiers: []
-  references:
-    version: 2
-    RefIds: []
 --- !u!1 &2871905637057220459
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Character.Enemy
 {
+  [SelectionBase]
   public class EnemyController : MonoBehaviour
   {
     public CharacterAnimationHandler CharacterAnimationHandler { get; private set; }

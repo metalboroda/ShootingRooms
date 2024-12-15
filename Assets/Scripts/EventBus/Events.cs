@@ -25,5 +25,12 @@ namespace Assets.Scripts.EventBus
       public CharacterType CharacterType;
     }
     #endregion
+
+    #region Weapon System
+    public struct WeaponUsed : IEvent
+    {
+      public int ID;
+    }
+    #endregion
   }
 }

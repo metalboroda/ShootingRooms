@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fae2c45eca88434580a690e36863ba2, type: 3}
-  m_Name: DefaultSurfaceEffect_BulletImpact
+  m_Name: GroundSurfaceEffect_BulletImpact
   m_EditorClassIdentifier: 
   SpawnObjectEffects:
-  - {fileID: 11400000, guid: a05b28e8568780b49a47c3c484d515a4, type: 2}
+  - {fileID: 11400000, guid: 0973b4b33abe8804f8406c48062ca8e6, type: 2}
   PlayAudioEffects:
-  - {fileID: 11400000, guid: 04d2c860c6eeae24cb81ea2d28c1fbe7, type: 2}
+  - {fileID: 11400000, guid: a5ed135b5497ebf45a696be3525c4317, type: 2}

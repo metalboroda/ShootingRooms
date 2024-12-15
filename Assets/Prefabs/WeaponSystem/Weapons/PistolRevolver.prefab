@@ -30488,8 +30488,57 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 700474595793470950}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1420254433476989625, guid: 9d267e5f90c9cec409382ec785782e9e,
+        type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 4640106558555091056}
+    - targetCorrespondingSourceObject: {fileID: 1420254433476989625, guid: 9d267e5f90c9cec409382ec785782e9e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8165132749211678756}
   m_SourcePrefab: {fileID: 100100000, guid: 9d267e5f90c9cec409382ec785782e9e, type: 3}
+--- !u!1 &882974304889732845 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1420254433476989625, guid: 9d267e5f90c9cec409382ec785782e9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2302805687172738132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4640106558555091056
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882974304889732845}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c5266c31a1f90548bf747fc77c33767, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-8165132749211678756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882974304889732845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33dce75d5a701c341a97eff38d19f656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crossfadeDuration: 0
+  shootAnimation: Shoot
 --- !u!4 &5475129302526906426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6056959443266763886, guid: 9d267e5f90c9cec409382ec785782e9e,

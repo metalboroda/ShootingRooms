@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c4e0d952cb8b444aaa2fe9f89fa3b29, type: 3}
-  m_Name: SpawnDefaultParticleEffect
+  m_Script: {fileID: 11500000, guid: 5e53e4ee3d6475d4792d7f2f1a3e1705, type: 3}
+  m_Name: GroundSurface
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 180772, guid: 697d9a1e52bb99d468a5d727e5a4b435, type: 3}
-  Probability: 1
-  RandomizeRotation: 0
-  RandomizedRotationMultiplier: {x: 0, y: 0, z: 0}
+  ImpactTypeEffects:
+  - ImpactType: {fileID: 11400000, guid: d4cd3d557f8fc4d42889b2cb159c2139, type: 2}
+    SurfaceEffect: {fileID: 11400000, guid: 8197a152938bbae4ebf6e86b4b1bcb19, type: 2}

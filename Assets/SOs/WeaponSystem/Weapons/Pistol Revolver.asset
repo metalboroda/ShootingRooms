@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponName: Pistol Revolver
   Damage: 100
-  PrpojectileSpeed: 75
-  AttackRate: 0.25
+  PrpojectileSpeed: 100
+  AttackRate: 0.5
   Spread: 0.5
   ProjectilesPerShot: 1
   Range: 100
