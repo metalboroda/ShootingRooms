@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyDeathState : EnemyBaseState
 {
-  private int _injuryPossibility = 3;
+  private readonly int _injuryPossibility = 3;
 
   public EnemyDeathState(EnemyController enemyController) : base(enemyController) { }
 

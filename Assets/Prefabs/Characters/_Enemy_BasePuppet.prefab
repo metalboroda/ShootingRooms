@@ -8098,7 +8098,7 @@ MonoBehaviour:
   targetRoot: {fileID: 8888847330061289645}
   state: 0
   stateSettings:
-    killDuration: 10
+    killDuration: 7.5
     deadMuscleWeight: 0.01
     deadMuscleDamper: 25
     maxFreezeSqrVelocity: 0.02

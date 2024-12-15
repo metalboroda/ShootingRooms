@@ -89,7 +89,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Injury_6
-  m_Speed: 0.75
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -101,7 +101,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 8993902097722301239, guid: f32751f1a864cc94bbce7d1a748dd561,
+  m_Motion: {fileID: 8993902097722301239, guid: 90460470156e3a24d88959acbadbddb8,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -203,7 +203,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Injury_5
-  m_Speed: 0.75
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -215,7 +215,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 8993902097722301239, guid: 18c64f586683c8d4f8f72febdc43aac0,
+  m_Motion: {fileID: 8993902097722301239, guid: 2c6a911cb2791574d8386ebfb3796619,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -371,7 +371,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 8993902097722301239, guid: a05a96761ff4db84e91f3a4440fd1e4f,
+  m_Motion: {fileID: 8993902097722301239, guid: 36adc78419d177840ba80d772cfc294e,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -413,7 +413,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Injury_4
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -425,7 +425,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 8993902097722301239, guid: fc3cb6579a1708e469aecef69f7258cc,
+  m_Motion: {fileID: 8993902097722301239, guid: a05a96761ff4db84e91f3a4440fd1e4f,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -440,7 +440,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Injury_2
-  m_Speed: 0.5
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -452,7 +452,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 8993902097722301239, guid: f85aafa58441a0f40b3b2aed3534b25e,
+  m_Motion: {fileID: 8993902097722301239, guid: 35e7582931ad47a49936c485215673d6,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
