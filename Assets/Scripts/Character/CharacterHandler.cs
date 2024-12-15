@@ -1,3 +1,5 @@
+using Assets.Scripts.Character.Enemy;
+using Assets.Scripts.Enums;
 using Assets.Scripts.EventBus;
 using UnityEngine;
 
@@ -9,11 +11,13 @@ namespace Assets.Scripts.Character
 
     private int _currentHealth;
 
+    private EnemyController _enemyController;
+
     private EventBinding<Events.CharacterDamaged> _characterDamaged;
 
     private void Awake()
     {
-
+      _enemyController = GetComponent<EnemyController>();
     }
 
     private void OnEnable()

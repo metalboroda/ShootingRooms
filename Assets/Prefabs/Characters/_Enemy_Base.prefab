@@ -5041,6 +5041,7 @@ GameObject:
   - component: {fileID: 498157815296376115}
   - component: {fileID: 7156658542918648345}
   - component: {fileID: 3770953445494980945}
+  - component: {fileID: 4268758048218500992}
   - component: {fileID: 5000169854758741487}
   - component: {fileID: 1056674266164045609}
   - component: {fileID: 140031745463206641}
@@ -5105,7 +5106,7 @@ MonoBehaviour:
   handler:
     _Editor_SelectedChain: 4
     _Editor_ChainCategory: 1
-    _EditorCategory: 2
+    _EditorCategory: 3
     _EditorMainCategory: 0
     _EditorMotionCategory: 0
     m_hemi: {fileID: -2508796484986968503, guid: 44d994eaad14fdf49a2dd378b4d62094,
@@ -5255,7 +5256,7 @@ MonoBehaviour:
     SpringsValue: 1500
     SpringsOnFall: 0
     DampingValue: 40
-    DampingValueOnFall: 40
+    DampingValueOnFall: 20
     HardMatching: 0
     HardMatchPositions: 0
     HardMatchPositionsOnFall: 0
@@ -5284,7 +5285,7 @@ MonoBehaviour:
     JointLimitSpring: 0
     JointLimitDamper: 0
     ConnectedMassMultiply: 0.5
-    MassMultiplyOnFalling: 1.5
+    MassMultiplyOnFalling: 1
     CollidersPhysicMaterial: {fileID: 0}
     PhysicMaterialOnFall: {fileID: 0}
     MaxAngularVelocity: 50
@@ -6375,6 +6376,18 @@ MonoBehaviour:
       AlternativeTensorsOnFall: 0
       HardMatchMultiply: 1
     parentObject: {fileID: 6215997633368586463}
+--- !u!114 &4268758048218500992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6215997633368586463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d91b9105b92e1b49956db555121b6f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5000169854758741487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6403,7 +6416,7 @@ MonoBehaviour:
   minRagdollActivationDelay: 0
   maxRagdollActivationDelay: 0.15
   minDeathMusclePower: 0
-  musclePowerDecreasingSpeed: 1
+  musclePowerDecreasingSpeed: 2.5
 --- !u!114 &140031745463206641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6448,7 +6461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crossfadeDuration: 0.15
-  characterAnimationData: {fileID: 11400000, guid: a4e07924794494f40a62451a08793331,
+  <CharacterAnimationData>k__BackingField: {fileID: 11400000, guid: a4e07924794494f40a62451a08793331,
     type: 2}
 --- !u!1 &6226979445251917219
 GameObject:

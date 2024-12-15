@@ -2323,11 +2323,26 @@ PrefabInstance:
     - target: {fileID: 3770953445494980945, guid: 27b7c13bb2ac94f4791bc6df5b8fbe29,
         type: 3}
       propertyPath: handler._EditorCategory
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3770953445494980945, guid: 27b7c13bb2ac94f4791bc6df5b8fbe29,
         type: 3}
       propertyPath: handler._EditorMotionCategory
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3770953445494980945, guid: 27b7c13bb2ac94f4791bc6df5b8fbe29,
+        type: 3}
+      propertyPath: handler._Editor_ChainCategory
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3770953445494980945, guid: 27b7c13bb2ac94f4791bc6df5b8fbe29,
+        type: 3}
+      propertyPath: handler._Editor_SelectedChain
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3770953445494980945, guid: 27b7c13bb2ac94f4791bc6df5b8fbe29,
+        type: 3}
+      propertyPath: handler.chains.Array.data[0].BoneSetups.Array.data[2]._EditorCollFoldout
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6215997633368586463, guid: 27b7c13bb2ac94f4791bc6df5b8fbe29,

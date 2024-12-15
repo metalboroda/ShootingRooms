@@ -1,4 +1,3 @@
-using Assets.Scripts.EventBus;
 using UnityEngine;
 
 namespace Assets.Scripts.Character
@@ -7,46 +6,19 @@ namespace Assets.Scripts.Character
   {
     [SerializeField] private float crossfadeDuration = 0.15f;
 
-    [Header("")]
-    [SerializeField] private CharacterAnimationDataSO characterAnimationData;
-
-    private bool _isDead;
+    [field: Header("")]
+    [field: SerializeField] public CharacterAnimationDataSO CharacterAnimationData { get; private set; }
 
     private Animator _animator;
-
-    private EventBinding<Events.CharacterDead> _characterDead;
 
     private void Awake()
     {
       _animator = GetComponent<Animator>();
     }
 
-    private void OnEnable()
+    public void CrossfadeAnimation(string animationName)
     {
-      _characterDead = new EventBinding<Events.CharacterDead>(OnCharacterDead);
-      EventBus<Events.CharacterDead>.Register(_characterDead);
-    }
-
-    private void OnDisable()
-    {
-      EventBus<Events.CharacterDead>.Unregister(_characterDead);
-    }
-
-    private void OnCharacterDead(Events.CharacterDead characterDead)
-    {
-      if (characterDead.ID != transform.GetInstanceID())
-      {
-        return;
-      }
-
-      if (_isDead == true)
-      {
-        return;
-      }
-
-      _animator.CrossFadeInFixedTime(characterAnimationData.RandomDeathAnimation(), crossfadeDuration);
-
-      _isDead = true;
+      _animator.CrossFadeInFixedTime(animationName, crossfadeDuration);
     }
   }
 }

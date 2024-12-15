@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03dd97b4a7d258a458dcc11994882c7d, type: 3}
   m_Name: EnemyAnimationData
   m_EditorClassIdentifier: 
+  IdleAnimations:
+  - Idle_1
+  - Idle_2
   DeathAnimations:
   - Death_1
   - Death_2
