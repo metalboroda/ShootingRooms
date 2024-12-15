@@ -8094,13 +8094,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c86ba130e5a5458a98e3b482192a6dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  humanoidConfig: {fileID: 0}
+  humanoidConfig: {fileID: 11400000, guid: ec93c877e6f836940b0b05babb99d713, type: 2}
   targetRoot: {fileID: 8888847330061289645}
   state: 0
   stateSettings:
-    killDuration: 7.5
+    killDuration: 1
     deadMuscleWeight: 0.01
-    deadMuscleDamper: 25
+    deadMuscleDamper: 2
     maxFreezeSqrVelocity: 0.02
     freezePermanently: 0
     enableAngularLimitsOnKill: 1
@@ -8111,15 +8111,15 @@ MonoBehaviour:
   solverIterationCount: 6
   visualizeTargetPose: 1
   mappingWeight: 1
-  pinWeight: 0.75
+  pinWeight: 1
   muscleWeight: 1
   muscleSpring: 100
-  muscleDamper: 50
+  muscleDamper: 0
   pinPow: 4
   pinDistanceFalloff: 5
   angularPinning: 0
   updateJointAnchors: 1
-  supportTranslationAnimation: 1
+  supportTranslationAnimation: 0
   angularLimits: 0
   internalCollisions: 0
   muscles:
