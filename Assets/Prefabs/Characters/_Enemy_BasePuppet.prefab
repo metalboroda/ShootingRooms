@@ -2747,10 +2747,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 13.593314
-  m_Height: 32.68338
+  m_Radius: 12.573815
+  m_Height: 28.515755
   m_Direction: 1
-  m_Center: {x: -0.000005070848, y: 6.6481595, z: 1.7464938}
+  m_Center: {x: 0.000005688858, y: 7.1969833, z: 1.746473}
 --- !u!153 &2818688758697301974
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -8635,7 +8635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedRigidbody: {fileID: 6883872016027157276}
-  selectedCollider: {fileID: 7245058165410531248}
+  selectedCollider: {fileID: 6538968120811257875}
   symmetry: 1
   mode: 0
 --- !u!1 &8263337406959667043
