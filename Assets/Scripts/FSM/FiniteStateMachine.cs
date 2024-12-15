@@ -8,14 +8,18 @@ namespace Assets.Scripts.FSM
     public State CurrentState { get; private set; }
     public State PreviousState { get; private set; }
 
-    public void Init(State initState) {
+    public void Init(State initState)
+    {
       CurrentState = initState;
       CurrentState.Enter();
     }
 
-    public void ChangeState(State newState, bool overrideState = false) {
+    public void ChangeState(State newState, bool overrideState = false)
+    {
       if (overrideState == false)
+      {
         if (newState == CurrentState) return;
+      }
 
       PreviousState = CurrentState;
       CurrentState.Exit();
@@ -23,11 +27,13 @@ namespace Assets.Scripts.FSM
       CurrentState.Enter();
     }
 
-    public void ChangeStateWithDelay(State newState, float delay, MonoBehaviour monoBehaviour) {
+    public void ChangeStateWithDelay(State newState, float delay, MonoBehaviour monoBehaviour)
+    {
       monoBehaviour.StartCoroutine(DoChangeStateWithDelay(newState, delay));
     }
 
-    private IEnumerator DoChangeStateWithDelay(State newState, float delay) {
+    private IEnumerator DoChangeStateWithDelay(State newState, float delay)
+    {
       yield return new WaitForSeconds(delay);
 
       ChangeState(newState);

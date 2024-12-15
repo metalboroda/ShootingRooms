@@ -43,12 +43,12 @@ namespace Assets.Scripts.Character.Enemy
 
     private void OnCharacterDead(Events.CharacterDead characterDead)
     {
-      if (characterDead.ID != transform.GetInstanceID() && FSM.CurrentState is not EnemyDeathState)
-      {
-        return;
-      }
+      if (characterDead.ID != transform.GetInstanceID()) return;
 
-      FSM.ChangeState(new EnemyDeathState(this));
+      if (FSM.CurrentState is not EnemyDeathState)
+      {
+        FSM.ChangeState(new EnemyDeathState(this));
+      }
     }
   }
 }

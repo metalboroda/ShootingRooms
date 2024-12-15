@@ -14,10 +14,7 @@ namespace Assets.Scripts.Character
 
     private void EnableRandomSkin()
     {
-      if (randomSkin == false)
-      {
-        return;
-      }
+      if (randomSkin == false) return;
 
       foreach (var skin in skins)
       {

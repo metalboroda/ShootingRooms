@@ -1,3 +1,4 @@
+﻿using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,55 +8,45 @@ namespace Assets.Scripts.Character
   {
     [SerializeField] private float crossfadeDuration = 0.15f;
 
-    [Header("Injury Settings")]
-    [SerializeField] private float injuryDelay = 2f;
-    [SerializeField] private float injuryDuration = 5f;
-
     [field: Header("")]
     [field: SerializeField] public CharacterAnimationDataSO CharacterAnimationData { get; private set; }
 
-    private int _injuryPossibility = 3;
-
     private Animator _animator;
-    private CharacterRagdollHandler _characterRagdollHandler;
 
     private void Awake()
     {
       _animator = GetComponent<Animator>();
-      _characterRagdollHandler = GetComponent<CharacterRagdollHandler>();
     }
 
-    public void HandleInjury()
-    {
-      int randomPossibility = Random.Range(0, _injuryPossibility);
-
-      if (randomPossibility == 0)
-      {
-        StartCoroutine(DoHandleInjury(true));
-      }
-
-      StartCoroutine(DoHandleInjury(false));
-    }
-
-    private IEnumerator DoHandleInjury(bool playAnimation)
-    {
-      yield return new WaitForSeconds(injuryDelay);
-
-      if (playAnimation == true)
-      {
-        CrossfadeAnimation(CharacterAnimationData.RandomInjuryAnimation());
-      }
-
-      yield return new WaitForSeconds(injuryDuration);
-
-      yield return new WaitForSeconds(injuryDuration / 2);
-
-      _animator.enabled = false;
-    }
-
-    public void CrossfadeAnimation(string animationName)
+    public void CrossfadeAnimation(string animationName, Action onComplete = null)
     {
       _animator.CrossFadeInFixedTime(animationName, crossfadeDuration);
+
+      if (onComplete != null)
+      {
+        StartCoroutine(WaitForAnimationToEnd(animationName, onComplete));
+      }
+    }
+
+    private IEnumerator WaitForAnimationToEnd(string animationName, Action onComplete)
+    {
+      yield return new WaitForEndOfFrame();
+
+      var currentState = _animator.GetCurrentAnimatorStateInfo(0);
+
+      while (currentState.IsName(animationName) == false)
+      {
+        currentState = _animator.GetCurrentAnimatorStateInfo(0);
+        yield return null;
+      }
+
+      while (currentState.normalizedTime < 1.0f)
+      {
+        currentState = _animator.GetCurrentAnimatorStateInfo(0);
+        yield return null;
+      }
+
+      onComplete?.Invoke();
     }
   }
 }
