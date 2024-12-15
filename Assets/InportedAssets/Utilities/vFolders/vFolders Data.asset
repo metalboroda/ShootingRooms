@@ -196,6 +196,28 @@ MonoBehaviour:
     - b570582a843ea1143a2446d355eda99b
     - f1c25cae5d366b94bba0899612a4ba45
     - e53f870e0a6f50d4aa774929c7ba3555
+    - b4f678e0b0a7f10429e5c8be39c75a94
+    - 1732322e05f7e384087f2edc5637f9f6
+    - 0449b376a8e066f4e9c858546092b18b
+    - 0850d90d451f1004084cb6865efa34aa
+    - be349c00b6b424b42abcaa86c0757367
+    - 08573e4da994a294dac25c77d77dd121
+    - 12d60d7a8f257ba409344da07ec1c9b7
+    - 37d6bafa4d3bf2a44bd8f00e43130310
+    - c5fb4ba710feec34baeec154312c33ee
+    - 2cb279c410b7a3e4dbf4aab42283effa
+    - 23bd7126dad01c64d9d24bc74a9f2917
+    - 2772e80ca8ca2eb438c6fad54e343aca
+    - 7eb11f9df068c2b45bc52cfc0d6e3f25
+    - 7bcd919624a4a0d42ba0b9f016db2163
+    - c662af2c1e85adc41b3fc5e08da4edd8
+    - c310a300a0358f94f81e0eeb585d6cf4
+    - 09f81d62173a5e740ac94844bbe0316e
+    - 814c701abdfcecd4d944ab1fa1eff14d
+    - 2bb4a4b602ff4134aabc3ced27659a55
+    - 852b152062d861b419dad5438facf83e
+    - 7521392c29760f641acbf8d211e567ac
+    - bdfb7ca62f757b14aa24b634aa4be2ef
     values:
     - guid: 00000000000000001000000000000000
       iColor: 0
@@ -1106,4 +1128,114 @@ MonoBehaviour:
       iColor: 0
       autoIcon: ScriptableObject Icon
       customIcon: 
+      autoIconDirty: 0
+    - guid: b4f678e0b0a7f10429e5c8be39c75a94
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 1732322e05f7e384087f2edc5637f9f6
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 0449b376a8e066f4e9c858546092b18b
+      iColor: 0
+      autoIcon: Prefab Icon
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 0850d90d451f1004084cb6865efa34aa
+      iColor: 0
+      autoIcon: cs Script Icon
+      customIcon: 
+      autoIconDirty: 0
+    - guid: be349c00b6b424b42abcaa86c0757367
+      iColor: 0
+      autoIcon: cs Script Icon
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 08573e4da994a294dac25c77d77dd121
+      iColor: 0
+      autoIcon: cs Script Icon
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 12d60d7a8f257ba409344da07ec1c9b7
+      iColor: 0
+      autoIcon: cs Script Icon
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 37d6bafa4d3bf2a44bd8f00e43130310
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: c5fb4ba710feec34baeec154312c33ee
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 2cb279c410b7a3e4dbf4aab42283effa
+      iColor: 0
+      autoIcon: SceneAsset Icon
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 23bd7126dad01c64d9d24bc74a9f2917
+      iColor: 0
+      autoIcon: SceneAsset Icon
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 2772e80ca8ca2eb438c6fad54e343aca
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 7eb11f9df068c2b45bc52cfc0d6e3f25
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 7bcd919624a4a0d42ba0b9f016db2163
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: c662af2c1e85adc41b3fc5e08da4edd8
+      iColor: 0
+      autoIcon: Material Icon
+      customIcon: 
+      autoIconDirty: 0
+    - guid: c310a300a0358f94f81e0eeb585d6cf4
+      iColor: 0
+      autoIcon: Prefab Icon
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 09f81d62173a5e740ac94844bbe0316e
+      iColor: 0
+      autoIcon: Prefab Icon
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 814c701abdfcecd4d944ab1fa1eff14d
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 2bb4a4b602ff4134aabc3ced27659a55
+      iColor: 0
+      autoIcon: 
+      customIcon: AnimationClip Icon
+      autoIconDirty: 0
+    - guid: 852b152062d861b419dad5438facf83e
+      iColor: 0
+      autoIcon: 
+      customIcon: Mesh Icon
+      autoIconDirty: 0
+    - guid: 7521392c29760f641acbf8d211e567ac
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: bdfb7ca62f757b14aa24b634aa4be2ef
+      iColor: 0
+      autoIcon: 
+      customIcon: AnimatorController Icon
       autoIconDirty: 0

@@ -7,6 +7,8 @@ namespace Assets.Scripts.Character
 {
   public class CharacterRagdollHandler : MonoBehaviour
   {
+    [SerializeField] private float minRagdollActivationDelay = 0f;
+    [SerializeField] private float maxRagdollActivationDelay = 0.15f;
     [SerializeField] private float minDeathMusclePower = 0.025f;
     [SerializeField] private float musclePowerDecreasingSpeed = 2.5f;
 
@@ -37,12 +39,20 @@ namespace Assets.Scripts.Character
         return;
       }
 
-      _ragdollAnimator.Actions.AnimatingMode = RagdollHandler.EAnimatingMode.Falling;
-
-      StartCoroutine(DecreaseMusclePowerCoroutine());
+      StartCoroutine(DoActivateRagdoll());
+      StartCoroutine(DoDecreaseMusclePowerCoroutine());
     }
 
-    private IEnumerator DecreaseMusclePowerCoroutine()
+    private IEnumerator DoActivateRagdoll()
+    {
+      float randomRagdollDelay = Random.Range(minRagdollActivationDelay, maxRagdollActivationDelay);
+
+      yield return new WaitForSeconds(randomRagdollDelay);
+
+      _ragdollAnimator.Actions.AnimatingMode = RagdollHandler.EAnimatingMode.Falling;
+    }
+
+    private IEnumerator DoDecreaseMusclePowerCoroutine()
     {
       while (_ragdollAnimator.Actions.MusclesPower > minDeathMusclePower)
       {

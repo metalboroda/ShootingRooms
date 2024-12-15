@@ -5044,6 +5044,7 @@ GameObject:
   - component: {fileID: 5000169854758741487}
   - component: {fileID: 1056674266164045609}
   - component: {fileID: 140031745463206641}
+  - component: {fileID: 613322559264911482}
   m_Layer: 9
   m_Name: _Enemy_Base
   m_TagString: Untagged
@@ -5078,8 +5079,8 @@ Animator:
   m_GameObject: {fileID: 6215997633368586463}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0c526fcf08992a0468ec17df08f9c855, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 2
+  m_Controller: {fileID: 9100000, guid: 7a524e5059190184facdb1260878410c, type: 2}
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -5106,7 +5107,7 @@ MonoBehaviour:
     _Editor_ChainCategory: 1
     _EditorCategory: 2
     _EditorMainCategory: 0
-    _EditorMotionCategory: 1
+    _EditorMotionCategory: 0
     m_hemi: {fileID: -2508796484986968503, guid: 44d994eaad14fdf49a2dd378b4d62094,
       type: 3}
     m_cyli: {fileID: 2534964839176971238, guid: 2ea99bbc50a9266448416f21d645a771,
@@ -6399,8 +6400,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65aef6ea31a1c1042ba35601de39b157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDeathMusclePower: 0.025
-  musclePowerDecreasingSpeed: 5
+  minRagdollActivationDelay: 0
+  maxRagdollActivationDelay: 0.15
+  minDeathMusclePower: 0
+  musclePowerDecreasingSpeed: 1
 --- !u!114 &140031745463206641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6432,6 +6435,21 @@ MonoBehaviour:
   - {fileID: 627904676325868650}
   - {fileID: 8413797367170817105}
   - {fileID: 1847625582328405513}
+--- !u!114 &613322559264911482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6215997633368586463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f8f2cb88f0f4341bce1fbef070e82e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crossfadeDuration: 0.15
+  characterAnimationData: {fileID: 11400000, guid: a4e07924794494f40a62451a08793331,
+    type: 2}
 --- !u!1 &6226979445251917219
 GameObject:
   m_ObjectHideFlags: 0
