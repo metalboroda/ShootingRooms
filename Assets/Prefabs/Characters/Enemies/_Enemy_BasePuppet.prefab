@@ -746,10 +746,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10.184462
+  m_Radius: 6.351242
   m_Height: 37.343025
   m_Direction: 0
-  m_Center: {x: 16.973839, y: 0.072375715, z: 0.07176858}
+  m_Center: {x: 16.973763, y: 1.6848867, z: -0.13639385}
 --- !u!153 &3966197326045807234
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -1168,7 +1168,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 26.246878, y: 24.094099, z: 30.603832}
-  m_Center: {x: -11.928176, y: 3.0588357, z: -0.0000055879354}
+  m_Center: {x: -11.928185, y: 2.3004053, z: -0.0000059371814}
 --- !u!1 &1122717761434228046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1876,10 +1876,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 7.6259575
+  m_Radius: 5.6173553
   m_Height: 22.369474
   m_Direction: 0
-  m_Center: {x: 10.168051, y: -0.000014305115, z: 0.00003821589}
+  m_Center: {x: 10.168049, y: 1.5833144, z: 0.000027567148}
 --- !u!153 &7426253615066177275
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -2984,10 +2984,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10.184447
+  m_Radius: 6.3512278
   m_Height: 37.34297
   m_Direction: 0
-  m_Center: {x: -16.973808, y: -0.07245493, z: -0.07180858}
+  m_Center: {x: -16.974106, y: -1.6848278, z: 0.13758855}
 --- !u!153 &5784939869078313652
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -3447,10 +3447,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 7.625992
+  m_Radius: 5.6173897
   m_Height: 22.369576
   m_Direction: 0
-  m_Center: {x: -10.168061, y: -0.000010870397, z: 0.000011057593}
+  m_Center: {x: -10.169036, y: -1.5833516, z: -0.00035623927}
 --- !u!153 &6863236552401205515
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -3684,10 +3684,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 8.086022
+  m_Radius: 6.7280345
   m_Height: 41.483677
   m_Direction: 0
-  m_Center: {x: -18.85623, y: -0.000020742416, z: -0.000012636185}
+  m_Center: {x: -18.84601, y: 2.03349, z: 0.3539132}
 --- !u!153 &4303727372521870237
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -6590,10 +6590,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 8.984468
+  m_Radius: 7.580881
   m_Height: 43.924065
   m_Direction: 0
-  m_Center: {x: -19.965483, y: -0.000010251999, z: 0.000011444092}
+  m_Center: {x: -19.965519, y: -0.000006198883, z: 0.9347024}
 --- !u!153 &3915521302674572611
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -7775,10 +7775,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 8.984464
+  m_Radius: 7.5808764
   m_Height: 43.92404
   m_Direction: 0
-  m_Center: {x: 19.965477, y: -0.00002670288, z: 0.000019550323}
+  m_Center: {x: 19.969694, y: -0.10229029, z: -0.92904985}
 --- !u!153 &3964693740588348871
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -8098,7 +8098,7 @@ MonoBehaviour:
   targetRoot: {fileID: 8888847330061289645}
   state: 0
   stateSettings:
-    killDuration: 1
+    killDuration: 7.5
     deadMuscleWeight: 0.01
     deadMuscleDamper: 2
     maxFreezeSqrVelocity: 0.02
@@ -8111,10 +8111,10 @@ MonoBehaviour:
   solverIterationCount: 6
   visualizeTargetPose: 1
   mappingWeight: 1
-  pinWeight: 1
+  pinWeight: 0.75
   muscleWeight: 1
   muscleSpring: 100
-  muscleDamper: 0
+  muscleDamper: 50
   pinPow: 4
   pinDistanceFalloff: 5
   angularPinning: 0
@@ -8635,7 +8635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedRigidbody: {fileID: 6883872016027157276}
-  selectedCollider: {fileID: 6538968120811257875}
+  selectedCollider: {fileID: 6261580642951444823}
   symmetry: 1
   mode: 0
 --- !u!1 &8263337406959667043
@@ -9035,10 +9035,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 8.086018
+  m_Radius: 6.7280297
   m_Height: 41.483566
   m_Direction: 0
-  m_Center: {x: 18.856163, y: 0.0000121593475, z: -0.000032901764}
+  m_Center: {x: 18.840748, y: -2.0598493, z: -0.13440275}
 --- !u!153 &7907580520235589820
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -9489,10 +9489,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 9.166002
+  m_Radius: 5.8702836
   m_Height: 29.826096
   m_Direction: 0
-  m_Center: {x: -13.557368, y: -0.0000026747584, z: -0.019051686}
+  m_Center: {x: -13.557597, y: -0.43596965, z: 0.31300083}
 --- !u!153 &7792974638383025390
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -10006,10 +10006,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 9.166014
+  m_Radius: 5.870295
   m_Height: 29.825953
   m_Direction: 0
-  m_Center: {x: 13.557339, y: -0.000020846725, z: 0.01908131}
+  m_Center: {x: 13.557269, y: 0.4361279, z: -0.31273493}
 --- !u!153 &3277796997370125363
 ConfigurableJoint:
   m_ObjectHideFlags: 0

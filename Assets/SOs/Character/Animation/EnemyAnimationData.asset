@@ -22,6 +22,12 @@ MonoBehaviour:
   - Death_4
   - Death_5
   - Death_6
+  - Death_7
+  - Death_8
+  - Death_9
+  - Death_10
+  - Death_11
+  - Death_12
   InjuryAnimations:
   - Injury_1
   - Injury_2
