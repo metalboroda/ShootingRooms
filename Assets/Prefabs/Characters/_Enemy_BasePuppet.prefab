@@ -8106,7 +8106,7 @@ MonoBehaviour:
     enableAngularLimitsOnKill: 1
     enableInternalCollisionsOnKill: 1
   mode: 0
-  blendTime: 0.2
+  blendTime: 0.1
   fixTargetTransforms: 1
   solverIterationCount: 6
   visualizeTargetPose: 1
