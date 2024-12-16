@@ -674,8 +674,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5577501729451266264}
   - component: {fileID: 9136036904225245749}
-  - component: {fileID: 3208454618744437282}
   - component: {fileID: 3966197326045807234}
+  - component: {fileID: 3208454618744437282}
   - component: {fileID: 5858240363921764019}
   m_Layer: 8
   m_Name: Shoulder_R
@@ -727,29 +727,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &3208454618744437282
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 588288539502666912}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 6.351242
-  m_Height: 37.343025
-  m_Direction: 0
-  m_Center: {x: 16.973763, y: 1.6848867, z: -0.13639385}
 --- !u!153 &3966197326045807234
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -852,6 +829,29 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!136 &3208454618744437282
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588288539502666912}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 6.351242
+  m_Height: 37.343025
+  m_Direction: 0
+  m_Center: {x: 16.973763, y: 1.6848867, z: -0.13639385}
 --- !u!114 &5858240363921764019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -868,6 +868,8 @@ MonoBehaviour:
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
   damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
+  woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
 --- !u!1 &606502164996897861
 GameObject:
@@ -975,8 +977,8 @@ GameObject:
   - component: {fileID: 4655154393353851186}
   - component: {fileID: 6883872016027157276}
   - component: {fileID: 5756995921683126858}
-  - component: {fileID: 68572548470265724}
   - component: {fileID: 7245058165410531248}
+  - component: {fileID: 68572548470265724}
   m_Layer: 8
   m_Name: Hips
   m_TagString: Untagged
@@ -1131,23 +1133,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &68572548470265724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1021445353660312992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbe97efcb5146c41b288607fcc30ca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitboxType: 2
-  minDamageModifier: 0.75
-  maxDamageModifier: 1.15
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
-    type: 3}
 --- !u!65 &7245058165410531248
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1169,6 +1154,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 26.246878, y: 24.094099, z: 30.603832}
   m_Center: {x: -11.928185, y: 2.3004053, z: -0.0000059371814}
+--- !u!114 &68572548470265724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021445353660312992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bbe97efcb5146c41b288607fcc30ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitboxType: 2
+  minDamageModifier: 0.75
+  maxDamageModifier: 1.15
+  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
+  woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
+    type: 3}
 --- !u!1 &1122717761434228046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,7 +1429,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2514723347542283808}
-  - component: {fileID: 32612181950986807}
   m_Layer: 9
   m_Name: Shoulder_L
   m_TagString: Untagged
@@ -1449,23 +1452,6 @@ Transform:
   - {fileID: 6834426554787808019}
   m_Father: {fileID: 3455485848879694991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &32612181950986807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1473055278731619518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbe97efcb5146c41b288607fcc30ca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitboxType: 3
-  minDamageModifier: 0.25
-  maxDamageModifier: 0.5
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
-    type: 3}
 --- !u!1 &1678741876287517301
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,7 +1461,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7883434618804187811}
-  - component: {fileID: 601909086776807748}
   m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
@@ -1500,23 +1485,6 @@ Transform:
   - {fileID: 3341528273641542322}
   m_Father: {fileID: 6045353928923421584}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &601909086776807748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1678741876287517301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbe97efcb5146c41b288607fcc30ca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitboxType: 1
-  minDamageModifier: 1
-  maxDamageModifier: 1.15
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
-    type: 3}
 --- !u!1 &1683736801048913000
 GameObject:
   m_ObjectHideFlags: 0
@@ -1805,8 +1773,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6383974531862845462}
   - component: {fileID: 1915627127142136688}
-  - component: {fileID: 1734779112306295957}
   - component: {fileID: 7426253615066177275}
+  - component: {fileID: 1734779112306295957}
   - component: {fileID: 2345195394573617697}
   m_Layer: 8
   m_Name: Hand_R
@@ -1857,29 +1825,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &1734779112306295957
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1894423923741931771}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 5.6173553
-  m_Height: 22.369474
-  m_Direction: 0
-  m_Center: {x: 10.168049, y: 1.5833144, z: 0.000027567148}
 --- !u!153 &7426253615066177275
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -1982,6 +1927,29 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!136 &1734779112306295957
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894423923741931771}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.6173553
+  m_Height: 22.369474
+  m_Direction: 0
+  m_Center: {x: 10.168049, y: 1.5833144, z: 0.000027567148}
 --- !u!114 &2345195394573617697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1998,6 +1966,8 @@ MonoBehaviour:
   minDamageModifier: 0.15
   maxDamageModifier: 0.25
   damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
+  woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
 --- !u!1 &1932873637670448832
 GameObject:
@@ -2308,7 +2278,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6854175394254468327}
-  - component: {fileID: 6298631442625084251}
   m_Layer: 9
   m_Name: UpperLeg_L
   m_TagString: Untagged
@@ -2332,23 +2301,6 @@ Transform:
   - {fileID: 975886465148581272}
   m_Father: {fileID: 2434864135437211749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6298631442625084251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2229697407504236100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbe97efcb5146c41b288607fcc30ca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitboxType: 4
-  minDamageModifier: 0.25
-  maxDamageModifier: 0.5
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
-    type: 3}
 --- !u!1 &2378160863205556591
 GameObject:
   m_ObjectHideFlags: 0
@@ -2358,7 +2310,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1315835682017862901}
-  - component: {fileID: 8049713896577937731}
   m_Layer: 9
   m_Name: Shoulder_R
   m_TagString: Untagged
@@ -2382,23 +2333,6 @@ Transform:
   - {fileID: 9114448983321884202}
   m_Father: {fileID: 4173336896357991418}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8049713896577937731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2378160863205556591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbe97efcb5146c41b288607fcc30ca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitboxType: 3
-  minDamageModifier: 0.25
-  maxDamageModifier: 0.5
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
-    type: 3}
 --- !u!1 &2404500684608840971
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,7 +2507,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2272443894179712852}
-  - component: {fileID: 1168395101125043665}
   m_Layer: 9
   m_Name: Hand_R
   m_TagString: Untagged
@@ -2599,23 +2532,6 @@ Transform:
   - {fileID: 6409079705114843840}
   m_Father: {fileID: 9114448983321884202}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1168395101125043665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2767263485032389370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbe97efcb5146c41b288607fcc30ca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitboxType: 3
-  minDamageModifier: 0.15
-  maxDamageModifier: 0.25
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
-    type: 3}
 --- !u!1 &2828514340853261639
 GameObject:
   m_ObjectHideFlags: 0
@@ -2625,7 +2541,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 103099067938099058}
-  - component: {fileID: 8739556175782786170}
   m_Layer: 9
   m_Name: Spine_02
   m_TagString: Untagged
@@ -2649,23 +2564,6 @@ Transform:
   - {fileID: 5502728041238452586}
   m_Father: {fileID: 1265521339534034543}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8739556175782786170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2828514340853261639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbe97efcb5146c41b288607fcc30ca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitboxType: 2
-  minDamageModifier: 0.75
-  maxDamageModifier: 1.15
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
-    type: 3}
 --- !u!1 &3148371749340138983
 GameObject:
   m_ObjectHideFlags: 0
@@ -2676,8 +2574,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2506302812897696539}
   - component: {fileID: 4566599024684931047}
-  - component: {fileID: 6538968120811257875}
   - component: {fileID: 2818688758697301974}
+  - component: {fileID: 6538968120811257875}
   - component: {fileID: 5814680037640694066}
   m_Layer: 8
   m_Name: Head
@@ -2728,29 +2626,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &6538968120811257875
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3148371749340138983}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 12.573815
-  m_Height: 28.515755
-  m_Direction: 1
-  m_Center: {x: 0.000005688858, y: 7.1969833, z: 1.746473}
 --- !u!153 &2818688758697301974
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -2853,6 +2728,29 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!136 &6538968120811257875
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3148371749340138983}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 12.573815
+  m_Height: 28.515755
+  m_Direction: 1
+  m_Center: {x: 0.000005688858, y: 7.1969833, z: 1.746473}
 --- !u!114 &5814680037640694066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2869,6 +2767,8 @@ MonoBehaviour:
   minDamageModifier: 1
   maxDamageModifier: 1.15
   damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
+  woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
 --- !u!1 &3206691547128889375
 GameObject:
@@ -2912,8 +2812,8 @@ GameObject:
   m_Component:
   - component: {fileID: 601503006974101466}
   - component: {fileID: 6562650339816428479}
-  - component: {fileID: 9111825343423186780}
   - component: {fileID: 5784939869078313652}
+  - component: {fileID: 9111825343423186780}
   - component: {fileID: 6115542819256022762}
   m_Layer: 8
   m_Name: Shoulder_L
@@ -2965,29 +2865,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &9111825343423186780
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3554901274489451687}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 6.3512278
-  m_Height: 37.34297
-  m_Direction: 0
-  m_Center: {x: -16.974106, y: -1.6848278, z: 0.13758855}
 --- !u!153 &5784939869078313652
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -3090,6 +2967,29 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!136 &9111825343423186780
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3554901274489451687}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 6.3512278
+  m_Height: 37.34297
+  m_Direction: 0
+  m_Center: {x: -16.974106, y: -1.6848278, z: 0.13758855}
 --- !u!114 &6115542819256022762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3106,6 +3006,8 @@ MonoBehaviour:
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
   damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
+  woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
 --- !u!1 &3654430227363401701
 GameObject:
@@ -3376,8 +3278,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3599744976749784687}
   - component: {fileID: 8652683588235380137}
-  - component: {fileID: 4114978913341968223}
   - component: {fileID: 6863236552401205515}
+  - component: {fileID: 4114978913341968223}
   - component: {fileID: 7538287568779516065}
   m_Layer: 8
   m_Name: Hand_L
@@ -3428,29 +3330,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &4114978913341968223
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4027425271202182748}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 5.6173897
-  m_Height: 22.369576
-  m_Direction: 0
-  m_Center: {x: -10.169036, y: -1.5833516, z: -0.00035623927}
 --- !u!153 &6863236552401205515
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -3553,6 +3432,29 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!136 &4114978913341968223
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4027425271202182748}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.6173897
+  m_Height: 22.369576
+  m_Direction: 0
+  m_Center: {x: -10.169036, y: -1.5833516, z: -0.00035623927}
 --- !u!114 &7538287568779516065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3569,6 +3471,8 @@ MonoBehaviour:
   minDamageModifier: 0.15
   maxDamageModifier: 0.25
   damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
+  woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
 --- !u!1 &4196364895042563935
 GameObject:
@@ -3807,6 +3711,8 @@ MonoBehaviour:
   maxDamageModifier: 0.5
   damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
+  woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
+    type: 3}
 --- !u!1 &4486278627538260217
 GameObject:
   m_ObjectHideFlags: 0
@@ -4020,6 +3926,8 @@ MonoBehaviour:
   maxDamageModifier: 0.25
   damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
+  woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
+    type: 3}
 --- !u!1 &4721969367459780630
 GameObject:
   m_ObjectHideFlags: 0
@@ -4029,7 +3937,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9114448983321884202}
-  - component: {fileID: 3016001943164446476}
   m_Layer: 9
   m_Name: Elbow_R
   m_TagString: Untagged
@@ -4053,23 +3960,6 @@ Transform:
   - {fileID: 2272443894179712852}
   m_Father: {fileID: 1315835682017862901}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3016001943164446476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4721969367459780630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbe97efcb5146c41b288607fcc30ca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitboxType: 3
-  minDamageModifier: 0.25
-  maxDamageModifier: 0.5
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
-    type: 3}
 --- !u!1 &4765182119386404151
 GameObject:
   m_ObjectHideFlags: 0
@@ -4347,7 +4237,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6834426554787808019}
-  - component: {fileID: 953849511790166421}
   m_Layer: 9
   m_Name: Elbow_L
   m_TagString: Untagged
@@ -4371,23 +4260,6 @@ Transform:
   - {fileID: 818678878507602573}
   m_Father: {fileID: 2514723347542283808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &953849511790166421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4810343334429149480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbe97efcb5146c41b288607fcc30ca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitboxType: 3
-  minDamageModifier: 0.25
-  maxDamageModifier: 0.5
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
-    type: 3}
 --- !u!1 &4940754159426331714
 GameObject:
   m_ObjectHideFlags: 0
@@ -4397,7 +4269,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 975886465148581272}
-  - component: {fileID: 2033972161617066198}
   m_Layer: 9
   m_Name: LowerLeg_L
   m_TagString: Untagged
@@ -4421,23 +4292,6 @@ Transform:
   - {fileID: 1032896900326174230}
   m_Father: {fileID: 6854175394254468327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2033972161617066198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4940754159426331714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbe97efcb5146c41b288607fcc30ca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitboxType: 4
-  minDamageModifier: 0.25
-  maxDamageModifier: 0.5
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
-    type: 3}
 --- !u!1 &5023130700955809241
 GameObject:
   m_ObjectHideFlags: 0
@@ -4447,7 +4301,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1032896900326174230}
-  - component: {fileID: 5305459488801360155}
   m_Layer: 9
   m_Name: Ankle_L
   m_TagString: Untagged
@@ -4472,23 +4325,6 @@ Transform:
   - {fileID: 1601160434533795325}
   m_Father: {fileID: 975886465148581272}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5305459488801360155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5023130700955809241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbe97efcb5146c41b288607fcc30ca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitboxType: 4
-  minDamageModifier: 0.15
-  maxDamageModifier: 0.25
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
-    type: 3}
 --- !u!1 &5098365918586620996
 GameObject:
   m_ObjectHideFlags: 0
@@ -6060,7 +5896,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2434864135437211749}
-  - component: {fileID: 1188557004172094820}
   m_Layer: 9
   m_Name: Hips
   m_TagString: Untagged
@@ -6086,23 +5921,6 @@ Transform:
   - {fileID: 1980347690422666948}
   m_Father: {fileID: 7806653838095712451}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1188557004172094820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6819118837044411786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbe97efcb5146c41b288607fcc30ca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitboxType: 2
-  minDamageModifier: 0.75
-  maxDamageModifier: 1.15
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
-    type: 3}
 --- !u!1 &6882674356505156641
 GameObject:
   m_ObjectHideFlags: 0
@@ -6197,7 +6015,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 818678878507602573}
-  - component: {fileID: 4379081540835158212}
   m_Layer: 9
   m_Name: Hand_L
   m_TagString: Untagged
@@ -6223,23 +6040,6 @@ Transform:
   - {fileID: 469884450861253126}
   m_Father: {fileID: 6834426554787808019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4379081540835158212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6898176454224509264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbe97efcb5146c41b288607fcc30ca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitboxType: 3
-  minDamageModifier: 0.15
-  maxDamageModifier: 0.25
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
-    type: 3}
 --- !u!1 &6898234390695668823
 GameObject:
   m_ObjectHideFlags: 0
@@ -6712,6 +6512,8 @@ MonoBehaviour:
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
   damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
+  woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
 --- !u!1 &7081278333491883138
 GameObject:
@@ -7352,7 +7154,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1980347690422666948}
-  - component: {fileID: 8821088742892702848}
   m_Layer: 9
   m_Name: UpperLeg_R
   m_TagString: Untagged
@@ -7376,23 +7177,6 @@ Transform:
   - {fileID: 8713347087664488851}
   m_Father: {fileID: 2434864135437211749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8821088742892702848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7710019100732361607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbe97efcb5146c41b288607fcc30ca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitboxType: 4
-  minDamageModifier: 0.25
-  maxDamageModifier: 0.5
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
-    type: 3}
 --- !u!1 &7747108703546934292
 GameObject:
   m_ObjectHideFlags: 0
@@ -7897,6 +7681,8 @@ MonoBehaviour:
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
   damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
+  woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
 --- !u!1 &8125107946490918298
 GameObject:
@@ -8953,6 +8739,8 @@ MonoBehaviour:
   maxDamageModifier: 0.25
   damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
+  woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
+    type: 3}
 --- !u!1 &8336501981501448798
 GameObject:
   m_ObjectHideFlags: 0
@@ -9158,6 +8946,8 @@ MonoBehaviour:
   maxDamageModifier: 0.5
   damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
+  woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
+    type: 3}
 --- !u!1 &8379209693793134705
 GameObject:
   m_ObjectHideFlags: 0
@@ -9167,7 +8957,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5861005294210739510}
-  - component: {fileID: 3427290003953898682}
   m_Layer: 9
   m_Name: Ankle_R
   m_TagString: Untagged
@@ -9192,23 +8981,6 @@ Transform:
   - {fileID: 7919928947697946617}
   m_Father: {fileID: 8713347087664488851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3427290003953898682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8379209693793134705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbe97efcb5146c41b288607fcc30ca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitboxType: 4
-  minDamageModifier: 0.15
-  maxDamageModifier: 0.25
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
-    type: 3}
 --- !u!1 &8437963175555208229
 GameObject:
   m_ObjectHideFlags: 0
@@ -9417,8 +9189,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2328602699519654999}
   - component: {fileID: 8589271506508352539}
-  - component: {fileID: 5113940196294689231}
   - component: {fileID: 7792974638383025390}
+  - component: {fileID: 5113940196294689231}
   - component: {fileID: 892447364985837212}
   m_Layer: 8
   m_Name: Elbow_L
@@ -9470,29 +9242,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &5113940196294689231
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8631983737053294286}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 5.8702836
-  m_Height: 29.826096
-  m_Direction: 0
-  m_Center: {x: -13.557597, y: -0.43596965, z: 0.31300083}
 --- !u!153 &7792974638383025390
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -9595,6 +9344,29 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!136 &5113940196294689231
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8631983737053294286}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.8702836
+  m_Height: 29.826096
+  m_Direction: 0
+  m_Center: {x: -13.557597, y: -0.43596965, z: 0.31300083}
 --- !u!114 &892447364985837212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9611,6 +9383,8 @@ MonoBehaviour:
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
   damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
+  woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
 --- !u!1 &8761114145213258812
 GameObject:
@@ -9820,7 +9594,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8713347087664488851}
-  - component: {fileID: 3519019479411728455}
   m_Layer: 9
   m_Name: LowerLeg_R
   m_TagString: Untagged
@@ -9844,23 +9617,6 @@ Transform:
   - {fileID: 5861005294210739510}
   m_Father: {fileID: 1980347690422666948}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3519019479411728455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8912903981471177190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbe97efcb5146c41b288607fcc30ca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitboxType: 4
-  minDamageModifier: 0.25
-  maxDamageModifier: 0.5
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
-    type: 3}
 --- !u!1 &8924562833829150387
 GameObject:
   m_ObjectHideFlags: 0
@@ -9934,8 +9690,8 @@ GameObject:
   m_Component:
   - component: {fileID: 404706061637264626}
   - component: {fileID: 7422805019266365178}
-  - component: {fileID: 3557208582272281910}
   - component: {fileID: 3277796997370125363}
+  - component: {fileID: 3557208582272281910}
   - component: {fileID: 8567324562904753531}
   m_Layer: 8
   m_Name: Elbow_R
@@ -9987,29 +9743,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &3557208582272281910
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9014252798762649242}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 5.870295
-  m_Height: 29.825953
-  m_Direction: 0
-  m_Center: {x: 13.557269, y: 0.4361279, z: -0.31273493}
 --- !u!153 &3277796997370125363
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -10112,6 +9845,29 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!136 &3557208582272281910
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9014252798762649242}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.870295
+  m_Height: 29.825953
+  m_Direction: 0
+  m_Center: {x: 13.557269, y: 0.4361279, z: -0.31273493}
 --- !u!114 &8567324562904753531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10128,6 +9884,8 @@ MonoBehaviour:
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
   damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
+  woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
 --- !u!1 &9113541090364543313
 GameObject:
@@ -10172,8 +9930,8 @@ GameObject:
   - component: {fileID: 5178702242411090996}
   - component: {fileID: 4975168373051694590}
   - component: {fileID: 3384560983179261572}
-  - component: {fileID: 6562258441950349871}
   - component: {fileID: 3502772531973317581}
+  - component: {fileID: 6562258441950349871}
   m_Layer: 8
   m_Name: Spine_02
   m_TagString: Untagged
@@ -10328,23 +10086,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &6562258441950349871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9181667535633677983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbe97efcb5146c41b288607fcc30ca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitboxType: 2
-  minDamageModifier: 0.75
-  maxDamageModifier: 1.15
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
-    type: 3}
 --- !u!65 &3502772531973317581
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10366,3 +10107,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 30.984411, y: 24.806105, z: 34.367928}
   m_Center: {x: -14.1865835, y: 1.3402672, z: -0.000008358255}
+--- !u!114 &6562258441950349871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9181667535633677983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bbe97efcb5146c41b288607fcc30ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitboxType: 2
+  minDamageModifier: 0.75
+  maxDamageModifier: 1.15
+  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+    type: 3}
+  woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
+    type: 3}

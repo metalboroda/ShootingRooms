@@ -14,6 +14,7 @@ namespace Assets.Scripts.Character
 
     [Header("VFX")]
     [SerializeField] private GameObject damagePrefab;
+    [SerializeField] private GameObject woundPrefab;
 
     private int _instanceID;
     private float _randomDamageModifier;
@@ -41,6 +42,13 @@ namespace Assets.Scripts.Character
       if (damagePrefab != null)
       {
         UltimatePool.spawn(damagePrefab, hitPoint, Quaternion.identity);
+      }
+
+      if (woundPrefab != null)
+      {
+        GameObject wound = UltimatePool.spawn(woundPrefab, hitPoint, Quaternion.identity);
+
+        wound.transform.SetParent(transform);
       }
     }
   }

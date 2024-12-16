@@ -226,6 +226,57 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 26
   m_Mesh: {fileID: 1851024649454414260, guid: 82351ef5ae908c544a7c617bf0829ece, type: 2}
+--- !u!1 &18606750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 18606751}
+  - component: {fileID: 18606752}
+  m_Layer: 0
+  m_Name: WoundPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &18606751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18606750}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 903437339}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &18606752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18606750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e6443fb8e29bc48a3ff533cc8558b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prewarmPool: 1
+  prewarmAmount: 20
+  prewarmPerFrame: 10
+  maxAmount: 25
+  parentInstances: 1
+  eventType: 0
+  prefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935, type: 3}
 --- !u!1 &44655957 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6676541122315519047, guid: f86ccc9267b8fb747a9cd4de6e7dcda6,
@@ -4953,6 +5004,7 @@ Transform:
   m_Children:
   - {fileID: 736801818}
   - {fileID: 781147847}
+  - {fileID: 18606751}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &903695148 stripped
@@ -5139,6 +5191,37 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 26
   m_Mesh: {fileID: -8523639852516685686, guid: 82351ef5ae908c544a7c617bf0829ece, type: 2}
+--- !u!1 &1015358956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1015358957}
+  m_Layer: 0
+  m_Name: '-'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1015358957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015358956}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1059128066 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2767263485032389370, guid: f86ccc9267b8fb747a9cd4de6e7dcda6,
@@ -12887,3 +12970,4 @@ SceneRoots:
   - {fileID: 7222052348235666249}
   - {fileID: 1077748336}
   - {fileID: 1183401074}
+  - {fileID: 1015358957}
