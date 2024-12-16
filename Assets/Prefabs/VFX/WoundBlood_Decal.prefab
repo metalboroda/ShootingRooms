@@ -79,7 +79,7 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 3
   TimeMultiplier: 20
-  IsLoop: 0
+  IsLoop: 1
   canUpdate: 0
 --- !u!33 &6347378515149058701
 MeshFilter:
