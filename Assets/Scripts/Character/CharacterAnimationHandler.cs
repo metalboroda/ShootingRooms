@@ -6,7 +6,7 @@ namespace Assets.Scripts.Character
 {
   public class CharacterAnimationHandler : MonoBehaviour
   {
-    [SerializeField] private float crossfadeDuration = 0.15f;
+    [SerializeField] private float crossfadeDuration = 0.2f;
 
     [field: Header("")]
     [field: SerializeField] public CharacterAnimationDataSO CharacterAnimationData { get; private set; }

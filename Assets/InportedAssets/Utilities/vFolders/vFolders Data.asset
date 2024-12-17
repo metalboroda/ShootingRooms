@@ -218,6 +218,15 @@ MonoBehaviour:
     - 852b152062d861b419dad5438facf83e
     - 7521392c29760f641acbf8d211e567ac
     - bdfb7ca62f757b14aa24b634aa4be2ef
+    - c0422cfa295b1a24482dac8e3e90b2f6
+    - fbb916c691bc89f448405a312dfa2a63
+    - 325dc2036c4767d4aa93b4590e7f175b
+    - 4416bb07070ea734584d77ffd1f5ad9d
+    - b31dfe46bbeb2954ca0e50495ca61ca3
+    - ab9f0656f3bda3e49846a44c7a56b66c
+    - 4a4045e0dbc917f42b4b50907a758975
+    - 394ff785fec2f464da463b12dca4ceb3
+    - cce239498d239cd43a5ccf52281eaf48
     values:
     - guid: 00000000000000001000000000000000
       iColor: 0
@@ -1238,4 +1247,49 @@ MonoBehaviour:
       iColor: 0
       autoIcon: 
       customIcon: AnimatorController Icon
+      autoIconDirty: 0
+    - guid: c0422cfa295b1a24482dac8e3e90b2f6
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: fbb916c691bc89f448405a312dfa2a63
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 325dc2036c4767d4aa93b4590e7f175b
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 4416bb07070ea734584d77ffd1f5ad9d
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: b31dfe46bbeb2954ca0e50495ca61ca3
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: ab9f0656f3bda3e49846a44c7a56b66c
+      iColor: 0
+      autoIcon: 
+      customIcon: Shader Icon
+      autoIconDirty: 0
+    - guid: 4a4045e0dbc917f42b4b50907a758975
+      iColor: 0
+      autoIcon: Material Icon
+      customIcon: 
+      autoIconDirty: 0
+    - guid: 394ff785fec2f464da463b12dca4ceb3
+      iColor: 0
+      autoIcon: 
+      customIcon: 
+      autoIconDirty: 0
+    - guid: cce239498d239cd43a5ccf52281eaf48
+      iColor: 0
+      autoIcon: 
+      customIcon: 
       autoIconDirty: 0

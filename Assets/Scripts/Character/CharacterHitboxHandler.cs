@@ -44,12 +44,12 @@ namespace Assets.Scripts.Character
         UltimatePool.spawn(damagePrefab, hitPoint, Quaternion.identity);
       }
 
-      if (woundPrefab != null)
-      {
-        GameObject wound = UltimatePool.spawn(woundPrefab, hitPoint, Quaternion.identity);
+      //if (woundPrefab != null)
+      //{
+      //  GameObject wound = UltimatePool.spawn(woundPrefab, hitPoint, Quaternion.identity);
 
-        wound.transform.SetParent(transform);
-      }
+      //  wound.transform.SetParent(transform);
+      //}
     }
   }
 }

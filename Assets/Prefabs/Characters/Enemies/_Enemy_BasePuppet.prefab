@@ -1760,7 +1760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1f8f2cb88f0f4341bce1fbef070e82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crossfadeDuration: 0.15
+  crossfadeDuration: 0.2
   <CharacterAnimationData>k__BackingField: {fileID: 11400000, guid: a4e07924794494f40a62451a08793331,
     type: 2}
 --- !u!1 &1894423923741931771
