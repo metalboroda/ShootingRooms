@@ -1168,7 +1168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitboxType: 2
   minDamageModifier: 0.75
-  maxDamageModifier: 1.15
+  maxDamageModifier: 1
   bulletDamagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
   woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
@@ -10121,7 +10121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitboxType: 2
   minDamageModifier: 0.75
-  maxDamageModifier: 1.15
+  maxDamageModifier: 1
   bulletDamagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
   woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,

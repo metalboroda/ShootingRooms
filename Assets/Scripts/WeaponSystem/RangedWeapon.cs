@@ -4,42 +4,45 @@ using UnityEngine;
 
 namespace Assets.Scripts.WeaponSystem
 {
-  public class RangedWeapon : WeaponBase
-  {
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private ParticleSystem muzzleFlash;
-    [SerializeField] private GameObject projectilePrefab;
-
-    public override void Attack(Vector3 targetPosition)
+    public class RangedWeapon : WeaponBase
     {
-      if (projectilePrefab == null || firePoint == null)
-      {
-        return;
-      }
+        [SerializeField] private Transform firePoint;
+        [SerializeField] private ParticleSystem muzzleFlash;
+        [SerializeField] private GameObject projectilePrefab;
 
-      for (int i = 0; i < WeaponData.ProjectilesPerShot; i++)
-      {
-        Vector3 direction = (targetPosition - firePoint.position).normalized;
-        float spreadAngle = Random.Range(-WeaponData.Spread, WeaponData.Spread);
-        Quaternion spreadRotation = Quaternion.AngleAxis(spreadAngle, firePoint.up);
-        Quaternion finalRotation = Quaternion.LookRotation(direction) * spreadRotation;
-
-        //Debug.DrawRay(firePoint.position, direction * 10, Color.red, 2.0f);
-
-        EventBus<Events.WeaponUsed>.Raise(new Events.WeaponUsed
+        public override void Attack(Vector3 targetPosition)
         {
-          ID = transform.GetInstanceID(),
-        });
+            if (projectilePrefab == null || firePoint == null)
+            {
+                return;
+            }
 
-        muzzleFlash.Play();
+            for (int i = 0; i < WeaponData.ProjectilesPerShot; i++)
+            {
+                Vector3 direction = (targetPosition - firePoint.position).normalized;
 
-        GameObject projectile = UltimatePool.spawn(projectilePrefab, firePoint.position, finalRotation);
+                float horizontalSpread = Random.Range(-WeaponData.Spread, WeaponData.Spread);
+                float verticalSpread = Random.Range(-WeaponData.Spread, WeaponData.Spread);
 
-        if (projectile.TryGetComponent<Projectile>(out var projectileComponent))
-        {
-          projectileComponent.Initialize(WeaponData.Damage, WeaponData.PrpojectileSpeed, WeaponData.Range);
+                Quaternion horizontalRotation = Quaternion.AngleAxis(horizontalSpread, firePoint.up);
+                Quaternion verticalRotation = Quaternion.AngleAxis(verticalSpread, firePoint.right);
+                Quaternion spreadRotation = horizontalRotation * verticalRotation;
+                Quaternion finalRotation = Quaternion.LookRotation(direction) * spreadRotation;
+
+                EventBus<Events.WeaponUsed>.Raise(new Events.WeaponUsed
+                {
+                    ID = transform.GetInstanceID(),
+                });
+
+                muzzleFlash.Play();
+
+                GameObject projectile = UltimatePool.spawn(projectilePrefab, firePoint.position, finalRotation);
+
+                if (projectile.TryGetComponent<Projectile>(out var projectileComponent))
+                {
+                    projectileComponent.Initialize(WeaponData.Damage, WeaponData.PrpojectileSpeed, WeaponData.Range);
+                }
+            }
         }
-      }
     }
-  }
 }

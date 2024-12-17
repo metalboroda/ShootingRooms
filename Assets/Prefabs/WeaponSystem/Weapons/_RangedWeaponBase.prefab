@@ -71,11 +71,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1253867513425156958}
+  - component: {fileID: -1545610690917602744}
   - component: {fileID: 5554166816661842497}
   - component: {fileID: 620563080139518309}
+  - component: {fileID: -7968028590336994510}
   - component: {fileID: 6417416697586961746}
   m_Layer: 6
-  m_Name: _WeaponBase
+  m_Name: _RangedWeaponBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,6 +101,27 @@ Transform:
   - {fileID: 6056959443266763886}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &-1545610690917602744
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420254433476989625}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!82 &5554166816661842497
 AudioSource:
   m_ObjectHideFlags: 0
@@ -211,6 +234,20 @@ MonoBehaviour:
   firePoint: {fileID: 6056959443266763886}
   muzzleFlash: {fileID: 0}
   projectilePrefab: {fileID: 0}
+--- !u!114 &-7968028590336994510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420254433476989625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33dce75d5a701c341a97eff38d19f656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crossfadeDuration: 0.01
+  shootAnimation: Shoot
 --- !u!114 &6417416697586961746
 MonoBehaviour:
   m_ObjectHideFlags: 0
