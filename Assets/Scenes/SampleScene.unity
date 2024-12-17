@@ -5449,6 +5449,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: _Enemy_BasePuppet (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1777008434303601576, guid: f86ccc9267b8fb747a9cd4de6e7dcda6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2452794814766762608, guid: f86ccc9267b8fb747a9cd4de6e7dcda6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6501,6 +6506,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: _Enemy_BasePuppet (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777008434303601576, guid: f86ccc9267b8fb747a9cd4de6e7dcda6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2452794814766762608, guid: f86ccc9267b8fb747a9cd4de6e7dcda6,
         type: 3}
@@ -12491,6 +12501,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: _Enemy_BasePuppet
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777008434303601576, guid: f86ccc9267b8fb747a9cd4de6e7dcda6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2452794814766762608, guid: f86ccc9267b8fb747a9cd4de6e7dcda6,
         type: 3}

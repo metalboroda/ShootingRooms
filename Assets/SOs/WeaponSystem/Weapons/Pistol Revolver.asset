@@ -15,7 +15,7 @@ MonoBehaviour:
   WeaponName: Pistol Revolver
   Damage: 100
   PrpojectileSpeed: 100
-  AttackRate: 0.5
+  AttackRate: 0.4
   Spread: 0.5
   ProjectilesPerShot: 1
   Range: 100
