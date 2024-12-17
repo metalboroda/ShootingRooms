@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   stateSettings:
-    killDuration: 7.5
-    deadMuscleWeight: 0.01
-    deadMuscleDamper: 2
+    killDuration: 10
+    deadMuscleWeight: 0
+    deadMuscleDamper: 0
     maxFreezeSqrVelocity: 0.02
     freezePermanently: 0
     enableAngularLimitsOnKill: 1
@@ -29,7 +29,7 @@ MonoBehaviour:
   mappingWeight: 1
   pinWeight: 0.75
   muscleWeight: 1
-  muscleSpring: 100
+  muscleSpring: 75
   muscleDamper: 50
   pinPow: 4
   pinDistanceFalloff: 5

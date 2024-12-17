@@ -867,7 +867,7 @@ MonoBehaviour:
   hitboxType: 3
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+  bulletDamagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
   woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
@@ -1169,7 +1169,7 @@ MonoBehaviour:
   hitboxType: 2
   minDamageModifier: 0.75
   maxDamageModifier: 1.15
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+  bulletDamagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
   woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
@@ -1965,7 +1965,7 @@ MonoBehaviour:
   hitboxType: 3
   minDamageModifier: 0.15
   maxDamageModifier: 0.25
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+  bulletDamagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
   woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
@@ -2766,7 +2766,7 @@ MonoBehaviour:
   hitboxType: 1
   minDamageModifier: 1
   maxDamageModifier: 1.15
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+  bulletDamagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
   woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
@@ -3005,7 +3005,7 @@ MonoBehaviour:
   hitboxType: 3
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+  bulletDamagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
   woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
@@ -3470,7 +3470,7 @@ MonoBehaviour:
   hitboxType: 3
   minDamageModifier: 0.15
   maxDamageModifier: 0.25
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+  bulletDamagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
   woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
@@ -3709,7 +3709,7 @@ MonoBehaviour:
   hitboxType: 4
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+  bulletDamagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
   woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
@@ -3924,7 +3924,7 @@ MonoBehaviour:
   hitboxType: 4
   minDamageModifier: 0.15
   maxDamageModifier: 0.25
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+  bulletDamagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
   woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
@@ -6511,7 +6511,7 @@ MonoBehaviour:
   hitboxType: 4
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+  bulletDamagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
   woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
@@ -7680,7 +7680,7 @@ MonoBehaviour:
   hitboxType: 4
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+  bulletDamagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
   woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
@@ -8737,7 +8737,7 @@ MonoBehaviour:
   hitboxType: 4
   minDamageModifier: 0.15
   maxDamageModifier: 0.25
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+  bulletDamagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
   woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
@@ -8944,7 +8944,7 @@ MonoBehaviour:
   hitboxType: 4
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+  bulletDamagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
   woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
@@ -9382,7 +9382,7 @@ MonoBehaviour:
   hitboxType: 3
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+  bulletDamagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
   woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
@@ -9883,7 +9883,7 @@ MonoBehaviour:
   hitboxType: 3
   minDamageModifier: 0.25
   maxDamageModifier: 0.5
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+  bulletDamagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
   woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}
@@ -10122,7 +10122,7 @@ MonoBehaviour:
   hitboxType: 2
   minDamageModifier: 0.75
   maxDamageModifier: 1.15
-  damagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
+  bulletDamagePrefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d,
     type: 3}
   woundPrefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935,
     type: 3}

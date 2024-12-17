@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactType: {fileID: 11400000, guid: d4cd3d557f8fc4d42889b2cb159c2139, type: 2}
+  damageType: 1
   collisionLayer:
     serializedVersion: 2
     m_Bits: 776
