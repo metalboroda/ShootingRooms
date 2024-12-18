@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Submachine Gun
   m_EditorClassIdentifier: 
   <WeaponName>k__BackingField: Submachine Gun
-  <Damage>k__BackingField: 100
+  <Damage>k__BackingField: 50
   <PrpojectileSpeed>k__BackingField: 100
   <AttackRate>k__BackingField: 0.125
   <Spread>k__BackingField: 1.5

@@ -1,10 +1,13 @@
 ﻿using Assets.Scripts.WeaponSystem;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.Character.Player
 {
     public class PlayerWeaponHandler : MonoBehaviour
     {
+        [SerializeField] private List<GameObject> weaponPrefabs = new List<GameObject>();
+
         [Header("Weapon Layers")]
         [SerializeField] private LayerMask aimLayer;
         [SerializeField] private LayerMask ignoreLayer;
@@ -14,6 +17,7 @@ namespace Assets.Scripts.Character.Player
 
         public WeaponBase Weapon { get; private set; }
 
+        private int _currentWeaponIndex = 0;
         private readonly float _defaultRayDistance = 100f;
         private float _nextRecoilTime = 0f;
 
@@ -24,7 +28,8 @@ namespace Assets.Scripts.Character.Player
         {
             _mainCamera = Camera.main;
             _playerWeaponMovementHandler = GetComponent<PlayerWeaponMovementHandler>();
-            Weapon = weaponHolderContainer.GetComponentInChildren<WeaponBase>();
+
+            SpawnWeapon(0);
         }
 
         private void Start()
@@ -36,6 +41,7 @@ namespace Assets.Scripts.Character.Player
         private void Update()
         {
             HandleWeaponUsage();
+            HandleWeaponSwitching();
 
             if (_playerWeaponMovementHandler != null)
             {
@@ -64,6 +70,44 @@ namespace Assets.Scripts.Character.Player
                 Weapon.TryAttack(ray.GetPoint(_defaultRayDistance));
 
                 TryApplyRecoil();
+            }
+        }
+
+        private void HandleWeaponSwitching()
+        {
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+            if (scroll > 0f)
+            {
+                SwitchWeapon((_currentWeaponIndex + 1) % weaponPrefabs.Count);
+            }
+            else if (scroll < 0f)
+            {
+                SwitchWeapon((_currentWeaponIndex - 1 + weaponPrefabs.Count) % weaponPrefabs.Count);
+            }
+        }
+
+        private void SpawnWeapon(int index)
+        {
+            if (index < 0 || index >= weaponPrefabs.Count) return;
+
+            foreach (Transform child in weaponHolderContainer.transform)
+            {
+                Destroy(child.gameObject);
+            }
+
+            GameObject weaponInstance = Instantiate(weaponPrefabs[index], weaponHolderContainer.transform);
+
+            Weapon = weaponInstance.GetComponent<WeaponBase>();
+
+            _currentWeaponIndex = index;
+        }
+
+        private void SwitchWeapon(int newIndex)
+        {
+            if (newIndex != _currentWeaponIndex)
+            {
+                SpawnWeapon(newIndex);
             }
         }
 
