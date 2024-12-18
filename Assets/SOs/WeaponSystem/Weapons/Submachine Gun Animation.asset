@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BobFrequency>k__BackingField: 5
   <BobAmplitude>k__BackingField: 0.0075
-  <BobDamping>k__BackingField: 3
+  <BobDamping>k__BackingField: 5
   <SwayAmount>k__BackingField: 0.025
   <SwaySmoothness>k__BackingField: 5
   <RecoilAmount>k__BackingField: {x: 0.0025, y: -0.0025, z: -0.025}
