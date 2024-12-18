@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Submachine Gun
   m_EditorClassIdentifier: 
   WeaponName: Submachine Gun
-  Damage: 75
+  Damage: 100
   PrpojectileSpeed: 100
   AttackRate: 0.1
-  Spread: 2
+  Spread: 1.5
   ProjectilesPerShot: 1
   Range: 100
