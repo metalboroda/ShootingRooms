@@ -1,14 +1,18 @@
-﻿using Assets.Scripts.SOs.WeaponSystem;
+﻿using Assets.Scripts.EventBus;
+using Assets.Scripts.SOs.WeaponSystem;
 using DG.Tweening;
 using UnityEngine;
 using Sequence = DG.Tweening.Sequence;
 
 namespace Assets.Scripts.Character.Player
 {
+    [RequireComponent(typeof(PlayerWeaponHandler))]
     public class PlayerWeaponMovementHandler : MonoBehaviour
     {
         [SerializeField] private Transform weaponHolder;
 
+        private Vector2 _moveDirection;
+        private Vector2 _lookDirection;
         private Vector3 _originalWeaponPosition;
         private float _bobTimer;
         private float _currentAmplitude;
@@ -17,6 +21,10 @@ namespace Assets.Scripts.Character.Player
         private PlayerWeaponHandler _weaponHandler;
         private WeaponDataSO _weaponData;
         private WeaponAnimationDataSO _weaponAnimationData;
+
+        private EventBinding<Events.MoveInput> _moveInput;
+        private EventBinding<Events.LookInput> _lookInput;
+        private EventBinding<Events.WeaponUsed> _weaponUsed;
 
         private void Awake()
         {
@@ -28,10 +36,50 @@ namespace Assets.Scripts.Character.Player
             }
         }
 
+        private void OnEnable()
+        {
+            _moveInput = new EventBinding<Events.MoveInput>(OnMoveInput);
+            EventBus<Events.MoveInput>.Register(_moveInput);
+            _lookInput = new EventBinding<Events.LookInput>(OnLookInput);
+            EventBus<Events.LookInput>.Register(_lookInput);
+            _weaponUsed = new EventBinding<Events.WeaponUsed>(OnWeaponUsed);
+            EventBus<Events.WeaponUsed>.Register(_weaponUsed);
+        }
+
+        private void OnDisable()
+        {
+            EventBus<Events.MoveInput>.Unregister(_moveInput);
+            EventBus<Events.LookInput>.Unregister(_lookInput);
+            EventBus<Events.WeaponUsed>.Unregister(_weaponUsed);
+        }
+
         private void Start()
         {
             _weaponData = _weaponHandler.Weapon.WeaponData;
             _weaponAnimationData = _weaponData.WeaponAnimationData;
+        }
+
+        private void Update()
+        {
+            ApplyWeaponBob(_moveDirection.x, _moveDirection.y);
+            ApplyWeaponSway(_lookDirection.x, _lookDirection.y);
+        }
+
+        private void OnMoveInput(Events.MoveInput moveInput)
+        {
+            _moveDirection = moveInput.Axis;
+        }
+
+        private void OnLookInput(Events.LookInput lookInput)
+        {
+            _lookDirection = lookInput.Axis;
+        }
+
+        private void OnWeaponUsed(Events.WeaponUsed weaponUsed)
+        {
+            if (weaponUsed.ID != _weaponHandler.Weapon.transform.GetInstanceID()) return;
+
+            ApplyRecoil();
         }
 
         public void ApplyWeaponBob(float horizontalInput, float verticalInput)

@@ -19,7 +19,6 @@ namespace Assets.Scripts.Character.Player
 
         private int _currentWeaponIndex = 0;
         private readonly float _defaultRayDistance = 100f;
-        private float _nextRecoilTime = 0f;
 
         private Camera _mainCamera;
         private PlayerWeaponMovementHandler _playerWeaponMovementHandler;
@@ -42,12 +41,6 @@ namespace Assets.Scripts.Character.Player
         {
             HandleWeaponUsage();
             HandleWeaponSwitching();
-
-            if (_playerWeaponMovementHandler != null)
-            {
-                _playerWeaponMovementHandler.ApplyWeaponBob(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-                _playerWeaponMovementHandler.ApplyWeaponSway(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-            }
         }
 
         private void HandleWeaponUsage()
@@ -62,14 +55,11 @@ namespace Assets.Scripts.Character.Player
                     {
                         Weapon.TryAttack(hit.point);
 
-                        TryApplyRecoil();
                         return;
                     }
                 }
 
                 Weapon.TryAttack(ray.GetPoint(_defaultRayDistance));
-
-                TryApplyRecoil();
             }
         }
 
@@ -108,16 +98,6 @@ namespace Assets.Scripts.Character.Player
             if (newIndex != _currentWeaponIndex)
             {
                 SpawnWeapon(newIndex);
-            }
-        }
-
-        private void TryApplyRecoil()
-        {
-            if (Time.time >= _nextRecoilTime)
-            {
-                _playerWeaponMovementHandler?.ApplyRecoil();
-
-                _nextRecoilTime = Time.time + Weapon.WeaponData.AttackRate;
             }
         }
 

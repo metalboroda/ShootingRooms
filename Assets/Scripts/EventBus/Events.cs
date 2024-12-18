@@ -5,6 +5,18 @@ namespace Assets.Scripts.EventBus
 {
     public static class Events
     {
+        #region Controls
+        public struct MoveInput : IEvent
+        {
+            public Vector2 Axis;
+        }
+
+        public struct LookInput : IEvent
+        {
+            public Vector2 Axis;
+        }
+        #endregion
+
         #region Character
         public struct PlayerInitialized : IEvent
         {

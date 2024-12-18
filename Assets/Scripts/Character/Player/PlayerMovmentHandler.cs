@@ -31,10 +31,16 @@ namespace Assets.Scripts.Character.Player
         [SerializeField] private Transform cameraTarget;
         [SerializeField] private Transform groundCheckingPoint;
 
+        private Vector2 _moveDirection;
+        private Vector2 _lookDirection;
+
         private CharacterController _characterController;
 
         private PlayerControls _playerControls;
         private CharacterControllerMovementComponent _characterControllerMovementComponent;
+
+        private EventBinding<Events.MoveInput> _moveInput;
+        private EventBinding<Events.LookInput> _lookInput;
 
         private void Awake()
         {
@@ -59,6 +65,20 @@ namespace Assets.Scripts.Character.Player
             _playerControls.OnFeet.Enable();
         }
 
+        private void OnEnable()
+        {
+            _moveInput = new EventBinding<Events.MoveInput>(OnMoveInput);
+            EventBus<Events.MoveInput>.Register(_moveInput);
+            _lookInput = new EventBinding<Events.LookInput>(OnLookInput);
+            EventBus<Events.LookInput>.Register(_lookInput);
+        }
+
+        private void OnDisable()
+        {
+            EventBus<Events.MoveInput>.Unregister(_moveInput);
+            EventBus<Events.LookInput>.Unregister(_lookInput);
+        }
+
         private void Start()
         {
             EventBus<Events.PlayerInitialized>.Raise(new Events.PlayerInitialized
@@ -69,12 +89,8 @@ namespace Assets.Scripts.Character.Player
 
         private void Update()
         {
-            Vector2 inputDirection = _playerControls.OnFeet.Move.ReadValue<Vector2>();
-            float mouseDeltaX = _playerControls.OnFeet.Look.ReadValue<Vector2>().x;
-            float mouseDeltaY = _playerControls.OnFeet.Look.ReadValue<Vector2>().y;
-
-            _characterControllerMovementComponent.HandleMovement(inputDirection);
-            _characterControllerMovementComponent.HandleLook(mouseDeltaX, mouseDeltaY);
+            _characterControllerMovementComponent.HandleMovement(_moveDirection);
+            _characterControllerMovementComponent.HandleLook(_lookDirection.x, _lookDirection.y);
             _characterControllerMovementComponent.ApplyGravity();
             _characterControllerMovementComponent.ApplySlipChecking(_characterControllerMovementComponent.IsGrounded());
         }
@@ -82,6 +98,16 @@ namespace Assets.Scripts.Character.Player
         private void OnDestroy()
         {
             _playerControls.OnFeet.Disable();
+        }
+
+        private void OnMoveInput(Events.MoveInput moveInput)
+        {
+            _moveDirection = moveInput.Axis;
+        }
+
+        private void OnLookInput(Events.LookInput lookInput)
+        {
+            _lookDirection = lookInput.Axis;
         }
 
         private void OnDrawGizmosSelected()

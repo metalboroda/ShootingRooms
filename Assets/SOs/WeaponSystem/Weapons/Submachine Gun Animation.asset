@@ -16,7 +16,7 @@ MonoBehaviour:
   <BobAmplitude>k__BackingField: 0.0075
   <BobDamping>k__BackingField: 5
   <SwayAmount>k__BackingField: 0.025
-  <SwaySmoothness>k__BackingField: 5
+  <SwaySmoothness>k__BackingField: 0.25
   <RecoilAmount>k__BackingField: {x: 0.0025, y: -0.0025, z: -0.025}
   <RecoilSpeed>k__BackingField: 0.075
   <RecoilReturnSpeed>k__BackingField: 0.075
