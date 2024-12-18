@@ -16,7 +16,7 @@ MonoBehaviour:
   <Damage>k__BackingField: 50
   <PrpojectileSpeed>k__BackingField: 100
   <AttackRate>k__BackingField: 0.125
-  <Spread>k__BackingField: 1.5
+  <Spread>k__BackingField: 1.25
   <ProjectilesPerShot>k__BackingField: 1
   <Range>k__BackingField: 100
   <WeaponAnimationData>k__BackingField: {fileID: 11400000, guid: 277b10b0d116704488bc796e843095f3,
