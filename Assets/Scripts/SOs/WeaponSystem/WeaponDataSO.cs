@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.SOs.WeaponSystem
 {
-    [CreateAssetMenu(fileName = "WeaponData", menuName = "SOs/Weapon System/Weapon Data")]
+    [CreateAssetMenu(fileName = "Weapon Data", menuName = "SOs/Weapon System/Weapon Data")]
     public class WeaponDataSO : ScriptableObject
     {
         [field: SerializeField] public string WeaponName { get; private set; }

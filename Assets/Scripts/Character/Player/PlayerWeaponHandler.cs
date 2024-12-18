@@ -9,19 +9,22 @@ namespace Assets.Scripts.Character.Player
         [SerializeField] private LayerMask aimLayer;
         [SerializeField] private LayerMask ignoreLayer;
 
-        [field: Header("Weapon Settings")]
-        [field: SerializeField] public WeaponBase Weapon { get; private set; }
+        [Header("Weapon Settings")]
+        [SerializeField] private GameObject weaponHolderContainer;
 
-        [Header("Weapon Movement")]
-        [SerializeField] private PlayerWeaponMovementHandler playerWeaponMovementHandler;
+        public WeaponBase Weapon { get; private set; }
 
         private readonly float _defaultRayDistance = 100f;
+        private float _nextRecoilTime = 0f;
 
         private Camera _mainCamera;
+        private PlayerWeaponMovementHandler _playerWeaponMovementHandler;
 
         private void Awake()
         {
             _mainCamera = Camera.main;
+            _playerWeaponMovementHandler = GetComponent<PlayerWeaponMovementHandler>();
+            Weapon = weaponHolderContainer.GetComponentInChildren<WeaponBase>();
         }
 
         private void Start()
@@ -34,10 +37,10 @@ namespace Assets.Scripts.Character.Player
         {
             HandleWeaponUsage();
 
-            if (playerWeaponMovementHandler != null)
+            if (_playerWeaponMovementHandler != null)
             {
-                playerWeaponMovementHandler.ApplyWeaponBob(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-                playerWeaponMovementHandler.ApplyWeaponSway(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+                _playerWeaponMovementHandler.ApplyWeaponBob(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+                _playerWeaponMovementHandler.ApplyWeaponSway(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
             }
         }
 
@@ -53,15 +56,24 @@ namespace Assets.Scripts.Character.Player
                     {
                         Weapon.TryAttack(hit.point);
 
-                        playerWeaponMovementHandler?.ApplyRecoil();
-
+                        TryApplyRecoil();
                         return;
                     }
                 }
 
                 Weapon.TryAttack(ray.GetPoint(_defaultRayDistance));
 
-                playerWeaponMovementHandler?.ApplyRecoil();
+                TryApplyRecoil();
+            }
+        }
+
+        private void TryApplyRecoil()
+        {
+            if (Time.time >= _nextRecoilTime)
+            {
+                _playerWeaponMovementHandler?.ApplyRecoil();
+
+                _nextRecoilTime = Time.time + Weapon.WeaponData.AttackRate;
             }
         }
 

@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3429b3004a43cf144a141bd6e4ae4bc8, type: 3}
   m_Name: Pistol Revolver
   m_EditorClassIdentifier: 
-  WeaponName: Pistol Revolver
-  Damage: 100
-  PrpojectileSpeed: 100
-  AttackRate: 0.4
-  Spread: 0.5
-  ProjectilesPerShot: 1
-  Range: 100
+  <WeaponName>k__BackingField: Pistol Revolver
+  <Damage>k__BackingField: 100
+  <PrpojectileSpeed>k__BackingField: 100
+  <AttackRate>k__BackingField: 0.5
+  <Spread>k__BackingField: 1
+  <ProjectilesPerShot>k__BackingField: 1
+  <Range>k__BackingField: 100
+  <WeaponAnimationData>k__BackingField: {fileID: 11400000, guid: fe76aea992af5ed42995e4025f82479e,
+    type: 2}
