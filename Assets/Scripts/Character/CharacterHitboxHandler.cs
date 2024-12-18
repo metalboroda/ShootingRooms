@@ -9,6 +9,7 @@ namespace Assets.Scripts.Character
     public class CharacterHitboxHandler : MonoBehaviour, IDamageable
     {
         [SerializeField] private HitboxType hitboxType;
+        [Space]
         [SerializeField] private float minDamageModifier = 0.1f;
         [SerializeField] private float maxDamageModifier = 1f;
 

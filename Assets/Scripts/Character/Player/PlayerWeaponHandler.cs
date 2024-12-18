@@ -10,7 +10,7 @@ namespace Assets.Scripts.Character.Player
         [Space]
         [SerializeField] private WeaponBase weapon;
 
-        [Header("Weapon Holder Settings")]
+        [Header("")]
         [SerializeField] private GameObject weaponHolder;
 
         private readonly float _defaultRayDistance = 100f;
