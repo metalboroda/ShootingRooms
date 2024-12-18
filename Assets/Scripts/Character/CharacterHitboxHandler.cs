@@ -13,6 +13,9 @@ namespace Assets.Scripts.Character
         [SerializeField] private float minDamageModifier = 0.1f;
         [SerializeField] private float maxDamageModifier = 1f;
 
+        [Header("")]
+        [SerializeField] private GameObject parentObject;
+
         [Header("VFX")]
         [SerializeField] private GameObject bulletDamagePrefab;
         [SerializeField] private GameObject woundPrefab;
@@ -22,7 +25,7 @@ namespace Assets.Scripts.Character
 
         private void Awake()
         {
-            _instanceID = transform.root.GetInstanceID();
+            _instanceID = parentObject.transform.GetInstanceID();
         }
 
         private void Start()

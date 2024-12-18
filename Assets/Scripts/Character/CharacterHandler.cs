@@ -1,4 +1,3 @@
-using Assets.Scripts.Character.Enemy;
 using Assets.Scripts.EventBus;
 using UnityEngine;
 
@@ -10,14 +9,7 @@ namespace Assets.Scripts.Character
 
         private int _currentHealth;
 
-        private EnemyController _enemyController;
-
         private EventBinding<Events.CharacterDamaged> _characterDamaged;
-
-        private void Awake()
-        {
-            _enemyController = GetComponent<EnemyController>();
-        }
 
         private void OnEnable()
         {
@@ -39,10 +31,7 @@ namespace Assets.Scripts.Character
 
         private void OnCharacterDamaged(Events.CharacterDamaged characterDamaged)
         {
-            if (characterDamaged.ID != transform.GetInstanceID())
-            {
-                return;
-            }
+            if (characterDamaged.ID != transform.GetInstanceID()) return;
 
             _currentHealth -= characterDamaged.Damage;
 
