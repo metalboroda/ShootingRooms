@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   stateSettings:
-    killDuration: 10
+    killDuration: 7.5
     deadMuscleWeight: 0
     deadMuscleDamper: 0
     maxFreezeSqrVelocity: 0.02
