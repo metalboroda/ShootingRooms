@@ -274,6 +274,7 @@ GameObject:
   - component: {fileID: 4402982430789968432}
   - component: {fileID: 1957546124494805201}
   - component: {fileID: 5534587900478124500}
+  - component: {fileID: 3957323596414511208}
   m_Layer: 0
   m_Name: _Player_Base
   m_TagString: Untagged
@@ -373,10 +374,28 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   weapon: {fileID: 3601700093134029867}
-  baseRotationDelay: 10
-  maxRotationDelay: 100
-  minRotationDelay: 5
-  weaponHolder: {fileID: 3066573890512687470}
+  playerWeaponMovementHandler: {fileID: 3957323596414511208}
+--- !u!114 &3957323596414511208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6530178500020043239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed562622c8102fb4c9b3741732d10168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponHolder: {fileID: 1041276359630381325}
+  bobFrequency: 5
+  bobAmplitude: 0.005
+  bobDamping: 10
+  swayAmount: 0.025
+  swaySmoothness: 3
+  recoilAmount: {x: 0.01, y: -0.005, z: -0.015}
+  recoilSpeed: 0.1
+  recoilReturnSpeed: 0.1
 --- !u!1 &6907955509291189494
 GameObject:
   m_ObjectHideFlags: 0

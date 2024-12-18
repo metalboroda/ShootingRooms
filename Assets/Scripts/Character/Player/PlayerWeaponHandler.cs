@@ -5,13 +5,15 @@ namespace Assets.Scripts.Character.Player
 {
     public class PlayerWeaponHandler : MonoBehaviour
     {
+        [Header("Weapon Layers")]
         [SerializeField] private LayerMask aimLayer;
         [SerializeField] private LayerMask ignoreLayer;
-        [Space]
+
+        [Header("Weapon Settings")]
         [SerializeField] private WeaponBase weapon;
 
-        [Header("")]
-        [SerializeField] private GameObject weaponHolder;
+        [Header("Weapon Movement")]
+        [SerializeField] private PlayerWeaponMovementHandler playerWeaponMovementHandler;
 
         private readonly float _defaultRayDistance = 100f;
 
@@ -30,10 +32,16 @@ namespace Assets.Scripts.Character.Player
 
         private void Update()
         {
-            HandleWeaponUseInput();
+            HandleWeaponUsage();
+
+            if (playerWeaponMovementHandler != null)
+            {
+                playerWeaponMovementHandler.ApplyWeaponBob(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+                playerWeaponMovementHandler.ApplyWeaponSway(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+            }
         }
 
-        private void HandleWeaponUseInput()
+        private void HandleWeaponUsage()
         {
             if (Input.GetMouseButton(0) && _mainCamera != null)
             {
@@ -44,11 +52,16 @@ namespace Assets.Scripts.Character.Player
                     if (IsIgnoredLayer(hit.collider.gameObject.layer) == false)
                     {
                         weapon.TryAttack(hit.point);
+
+                        playerWeaponMovementHandler?.ApplyRecoil();
+
                         return;
                     }
                 }
 
                 weapon.TryAttack(ray.GetPoint(_defaultRayDistance));
+
+                playerWeaponMovementHandler?.ApplyRecoil();
             }
         }
 
