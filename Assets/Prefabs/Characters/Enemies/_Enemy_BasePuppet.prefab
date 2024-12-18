@@ -848,7 +848,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6.351242
+  m_Radius: 5.3111997
   m_Height: 37.343025
   m_Direction: 0
   m_Center: {x: 16.973763, y: 1.6848867, z: -0.13639385}
@@ -1948,7 +1948,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5.6173553
+  m_Radius: 4.492082
   m_Height: 22.369474
   m_Direction: 0
   m_Center: {x: 10.168049, y: 1.5833144, z: 0.000027567148}
@@ -2990,7 +2990,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6.3512278
+  m_Radius: 5.3111854
   m_Height: 37.34297
   m_Direction: 0
   m_Center: {x: -16.974106, y: -1.6848278, z: 0.13758855}
@@ -3456,7 +3456,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5.6173897
+  m_Radius: 4.4921165
   m_Height: 22.369576
   m_Direction: 0
   m_Center: {x: -10.169036, y: -1.5833516, z: -0.00035623927}
@@ -3594,7 +3594,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6.7280345
+  m_Radius: 6.097048
   m_Height: 41.483677
   m_Direction: 0
   m_Center: {x: -18.84601, y: 2.03349, z: 0.3539132}
@@ -6398,7 +6398,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 7.580881
+  m_Radius: 7.1085486
   m_Height: 43.924065
   m_Direction: 0
   m_Center: {x: -19.965519, y: -0.000006198883, z: 0.9347024}
@@ -7568,7 +7568,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 7.5808764
+  m_Radius: 7.108544
   m_Height: 43.92404
   m_Direction: 0
   m_Center: {x: 19.969694, y: -0.10229029, z: -0.92904985}
@@ -8834,7 +8834,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6.7280297
+  m_Radius: 6.097043
   m_Height: 41.483566
   m_Direction: 0
   m_Center: {x: 18.840748, y: -2.0598493, z: -0.13440275}
@@ -9375,7 +9375,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5.8702836
+  m_Radius: 5.1282554
   m_Height: 29.826096
   m_Direction: 0
   m_Center: {x: -13.557597, y: -0.43596965, z: 0.31300083}
@@ -9877,7 +9877,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5.870295
+  m_Radius: 5.128267
   m_Height: 29.825953
   m_Direction: 0
   m_Center: {x: 13.557269, y: 0.4361279, z: -0.31273493}
