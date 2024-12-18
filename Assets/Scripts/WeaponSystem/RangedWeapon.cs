@@ -6,8 +6,11 @@ namespace Assets.Scripts.WeaponSystem
 {
     public class RangedWeapon : WeaponBase
     {
+        [Space]
         [SerializeField] private Transform firePoint;
+        [Space]
         [SerializeField] private ParticleSystem muzzleFlash;
+        [Space]
         [SerializeField] private GameObject projectilePrefab;
 
         public override void Attack(Vector3 targetPosition)

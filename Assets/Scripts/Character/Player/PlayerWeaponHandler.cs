@@ -9,8 +9,8 @@ namespace Assets.Scripts.Character.Player
         [SerializeField] private LayerMask aimLayer;
         [SerializeField] private LayerMask ignoreLayer;
 
-        [Header("Weapon Settings")]
-        [SerializeField] private WeaponBase weapon;
+        [field: Header("Weapon Settings")]
+        [field: SerializeField] public WeaponBase Weapon { get; private set; }
 
         [Header("Weapon Movement")]
         [SerializeField] private PlayerWeaponMovementHandler playerWeaponMovementHandler;
@@ -51,7 +51,7 @@ namespace Assets.Scripts.Character.Player
                 {
                     if (IsIgnoredLayer(hit.collider.gameObject.layer) == false)
                     {
-                        weapon.TryAttack(hit.point);
+                        Weapon.TryAttack(hit.point);
 
                         playerWeaponMovementHandler?.ApplyRecoil();
 
@@ -59,7 +59,7 @@ namespace Assets.Scripts.Character.Player
                     }
                 }
 
-                weapon.TryAttack(ray.GetPoint(_defaultRayDistance));
+                Weapon.TryAttack(ray.GetPoint(_defaultRayDistance));
 
                 playerWeaponMovementHandler?.ApplyRecoil();
             }
