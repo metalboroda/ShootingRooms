@@ -29590,7 +29590,7 @@ Transform:
   m_GameObject: {fileID: 869302356456394854}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29788,7 +29788,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 9c5266c31a1f90548bf747fc77c33767, type: 2}
+      objectReference: {fileID: 9100000, guid: befb0f01426e6314a890637f5444039e, type: 2}
     - target: {fileID: 620563080139518309, guid: 9d267e5f90c9cec409382ec785782e9e,
         type: 3}
       propertyPath: WeaponData
