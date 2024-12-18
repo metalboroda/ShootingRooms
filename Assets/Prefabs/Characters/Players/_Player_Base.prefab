@@ -393,9 +393,13 @@ MonoBehaviour:
   bobDamping: 10
   swayAmount: 0.025
   swaySmoothness: 3
-  recoilAmount: {x: 0.01, y: -0.005, z: -0.015}
+  recoilAmount: {x: 0.01, y: -0.005, z: -0.01}
   recoilSpeed: 0.1
   recoilReturnSpeed: 0.1
+  shakeStrength: {x: 0.005, y: 0.005, z: 0}
+  shakeDuration: 0.1
+  shakeVibrato: 25
+  shakeRandomness: 90
 --- !u!1 &6907955509291189494
 GameObject:
   m_ObjectHideFlags: 0

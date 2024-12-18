@@ -20856,6 +20856,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3957323596414511208, guid: 221028a2d75da8b4da21e623eed80951,
         type: 3}
+      propertyPath: shakeDelay
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3957323596414511208, guid: 221028a2d75da8b4da21e623eed80951,
+        type: 3}
       propertyPath: returnSpeed
       value: 1
       objectReference: {fileID: 0}
