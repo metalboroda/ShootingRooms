@@ -18,6 +18,9 @@ namespace Assets.Scripts.Character.Player
         private float _currentAmplitude;
         private Vector3 _currentRecoilOffset;
 
+        private const float BobSinMultiplier = 2f;
+        private const float IdleBobDampingDivider = 4f;
+
         private PlayerWeaponHandler _weaponHandler;
         private WeaponDataSO _weaponData;
         private WeaponAnimationDataSO _weaponAnimationData;
@@ -91,7 +94,7 @@ namespace Assets.Scripts.Character.Player
                     _currentAmplitude, _weaponAnimationData.BobAmplitude, Time.deltaTime * _weaponAnimationData.BobDamping);
 
                 float horizontalBob = Mathf.Cos(_bobTimer) * _currentAmplitude;
-                float verticalBob = Mathf.Sin(_bobTimer * 2) * _currentAmplitude;
+                float verticalBob = Mathf.Sin(_bobTimer * BobSinMultiplier) * _currentAmplitude;
 
                 Vector3 bobPosition = new Vector3(horizontalBob, verticalBob, 0);
 
@@ -104,12 +107,12 @@ namespace Assets.Scripts.Character.Player
                 _bobTimer += Time.deltaTime * _weaponAnimationData.BobFrequency;
 
                 float horizontalBob = Mathf.Cos(_bobTimer) * _currentAmplitude;
-                float verticalBob = Mathf.Sin(_bobTimer / 4) * _currentAmplitude;
+                float verticalBob = Mathf.Sin(_bobTimer / IdleBobDampingDivider) * _currentAmplitude;
 
                 Vector3 bobPosition = new Vector3(horizontalBob, verticalBob, 0);
 
                 weaponHolder.localPosition = Vector3.Lerp(
-                    weaponHolder.localPosition, _originalWeaponPosition + bobPosition + _currentRecoilOffset, Time.deltaTime * _weaponAnimationData.BobDamping / 4);
+                    weaponHolder.localPosition, _originalWeaponPosition + bobPosition + _currentRecoilOffset, Time.deltaTime * (_weaponAnimationData.BobDamping / IdleBobDampingDivider));
             }
         }
 
