@@ -33,6 +33,16 @@ namespace Assets.Scripts.GameManagement
             {
                 Axis = _playerControls.OnFeet.Look.ReadValue<Vector2>(),
             });
+
+            EventBus<Events.ScrollInput>.Raise(new Events.ScrollInput
+            {
+                Axis = new Vector2(0, _playerControls.OnFeet.WeaponSwitch.ReadValue<Vector2>().y),
+            });
+
+            if (_playerControls.OnFeet.Shoot.ReadValue<float>() > 0)
+            {
+                EventBus<Events.ShootPressed>.Raise(new Events.ShootPressed());
+            }
         }
     }
 }

@@ -6884,7 +6884,7 @@ MonoBehaviour:
   maxAmount: 100
   parentInstances: 1
   eventType: 0
-  prefab: {fileID: 5472228990827644921, guid: 07d1995063aa6b44da0d40b929567ff1, type: 3}
+  prefab: {fileID: 1727652138600509814, guid: be404feaa0f2a6341a941a1a79b41892, type: 3}
 --- !u!4 &736801818
 Transform:
   m_ObjectHideFlags: 0

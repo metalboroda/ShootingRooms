@@ -15,6 +15,13 @@ namespace Assets.Scripts.EventBus
         {
             public Vector2 Axis;
         }
+
+        public struct ShootPressed : IEvent { }
+
+        public struct ScrollInput : IEvent
+        {
+            public Vector2 Axis;
+        }
         #endregion
 
         #region Character

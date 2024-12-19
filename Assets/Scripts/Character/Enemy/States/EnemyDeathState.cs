@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class EnemyDeathState : EnemyBaseState
 {
-  private readonly int _injuryPossibility = 3;
+    private readonly int _injuryPossibility = 3;
 
-  public EnemyDeathState(EnemyController enemyController) : base(enemyController) { }
+    public EnemyDeathState(EnemyController enemyController) : base(enemyController) { }
 
-  public override void Enter()
-  {
-    int injuryRandom = Random.Range(0, _injuryPossibility);
+    public override void Enter()
+    {
+        int injuryRandom = Random.Range(0, _injuryPossibility);
 
-    CharacterAnimationHandler.CrossfadeAnimation(
-        CharacterAnimationHandler.CharacterAnimationData.RandomDeathAnimation(), () =>
-        {
-          if (injuryRandom == 0)
-          {
-            CharacterAnimationHandler.CrossfadeAnimation(
-              CharacterAnimationHandler.CharacterAnimationData.RandomInjuryAnimation());
-          }
-        });
-  }
+        CharacterAnimationHandler.CrossfadeAnimation(
+            CharacterAnimationHandler.CharacterAnimationData.RandomDeathAnimation(), () =>
+            {
+                if (injuryRandom == 0)
+                {
+                    CharacterAnimationHandler.CrossfadeAnimation(
+                  CharacterAnimationHandler.CharacterAnimationData.RandomInjuryAnimation());
+                }
+            });
+    }
 }

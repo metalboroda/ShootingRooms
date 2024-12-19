@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.WeaponSystem;
+﻿using Assets.Scripts.EventBus;
+using Assets.Scripts.WeaponSystem;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,10 +19,15 @@ namespace Assets.Scripts.Character.Player
         public WeaponBase Weapon { get; private set; }
 
         private int _currentWeaponIndex = 0;
+        private readonly float _weaponSwitchCooldown = 0.2f;
+        private float _lastWeaponSwitchTime = 0f;
         private readonly float _defaultRayDistance = 100f;
 
         private Camera _mainCamera;
         private PlayerWeaponAnimationHandler _playerWeaponMovementHandler;
+
+        private EventBinding<Events.ShootPressed> _shootPressed;
+        private EventBinding<Events.ScrollInput> _scrollInput;
 
         private void Awake()
         {
@@ -31,49 +37,70 @@ namespace Assets.Scripts.Character.Player
             SpawnWeapon(0);
         }
 
+        private void OnEnable()
+        {
+            _shootPressed = new EventBinding<Events.ShootPressed>(OnShootPressed);
+            EventBus<Events.ShootPressed>.Register(_shootPressed);
+            _scrollInput = new EventBinding<Events.ScrollInput>(OnScrollInput);
+            EventBus<Events.ScrollInput>.Register(_scrollInput);
+        }
+
+        private void OnDisable()
+        {
+            EventBus<Events.ShootPressed>.Unregister(_shootPressed);
+            EventBus<Events.ScrollInput>.Unregister(_scrollInput);
+        }
+
         private void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
 
-        private void Update()
+        private void OnShootPressed(Events.ShootPressed shootPressed)
         {
             HandleWeaponUsage();
-            HandleWeaponSwitching();
+        }
+
+        private void OnScrollInput(Events.ScrollInput scrollInput)
+        {
+            HandleWeaponSwitching(scrollInput.Axis.y);
         }
 
         private void HandleWeaponUsage()
         {
-            if (Input.GetMouseButton(0) && _mainCamera != null)
+            if (_mainCamera == null) return;
+
+            Ray ray = _mainCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+
+            if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, aimLayer))
             {
-                Ray ray = _mainCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
-
-                if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, aimLayer))
+                if (IsIgnoredLayer(hit.collider.gameObject.layer) == false)
                 {
-                    if (IsIgnoredLayer(hit.collider.gameObject.layer) == false)
-                    {
-                        Weapon.TryAttack(hit.point);
+                    Weapon.TryAttack(hit.point);
 
-                        return;
-                    }
+                    return;
                 }
-
-                Weapon.TryAttack(ray.GetPoint(_defaultRayDistance));
             }
+
+            Weapon.TryAttack(ray.GetPoint(_defaultRayDistance));
         }
 
-        private void HandleWeaponSwitching()
+        private void HandleWeaponSwitching(float value)
         {
-            float scroll = Input.GetAxis("Mouse ScrollWheel");
+            if (Time.time - _lastWeaponSwitchTime < _weaponSwitchCooldown) return;
 
-            if (scroll > 0f)
+            if (value > 0f)
             {
                 SwitchWeapon((_currentWeaponIndex + 1) % weaponPrefabs.Count);
+
+                _lastWeaponSwitchTime = Time.time;
             }
-            else if (scroll < 0f)
+            else if (value < 0f)
             {
                 SwitchWeapon((_currentWeaponIndex - 1 + weaponPrefabs.Count) % weaponPrefabs.Count);
+
+                _lastWeaponSwitchTime = Time.time;
             }
         }
 
