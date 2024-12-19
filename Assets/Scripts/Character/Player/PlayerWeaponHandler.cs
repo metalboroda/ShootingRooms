@@ -21,12 +21,12 @@ namespace Assets.Scripts.Character.Player
         private readonly float _defaultRayDistance = 100f;
 
         private Camera _mainCamera;
-        private PlayerWeaponMovementHandler _playerWeaponMovementHandler;
+        private PlayerWeaponAnimationHandler _playerWeaponMovementHandler;
 
         private void Awake()
         {
             _mainCamera = Camera.main;
-            _playerWeaponMovementHandler = GetComponent<PlayerWeaponMovementHandler>();
+            _playerWeaponMovementHandler = GetComponent<PlayerWeaponAnimationHandler>();
 
             SpawnWeapon(0);
         }

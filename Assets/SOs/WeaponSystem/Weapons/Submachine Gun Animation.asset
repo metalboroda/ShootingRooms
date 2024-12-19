@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 858ee54c499a1ee4cbb48f0970ef2898, type: 3}
   m_Name: Submachine Gun Animation
   m_EditorClassIdentifier: 
-  <BobFrequency>k__BackingField: 5
+  <BobFrequency>k__BackingField: 7.5
   <BobAmplitude>k__BackingField: 0.0075
-  <BobDamping>k__BackingField: 5
+  <BobDamping>k__BackingField: 10
   <SwayAmount>k__BackingField: 0.025
-  <SwaySmoothness>k__BackingField: 0.25
+  <SwaySmoothness>k__BackingField: 0.2
   <RecoilAmount>k__BackingField: {x: 0.0025, y: -0.0025, z: -0.025}
   <RecoilSpeed>k__BackingField: 0.075
   <RecoilReturnSpeed>k__BackingField: 0.075

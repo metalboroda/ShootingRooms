@@ -7,7 +7,7 @@ using Sequence = DG.Tweening.Sequence;
 namespace Assets.Scripts.Character.Player
 {
     [RequireComponent(typeof(PlayerWeaponHandler))]
-    public class PlayerWeaponMovementHandler : MonoBehaviour
+    public class PlayerWeaponAnimationHandler : MonoBehaviour
     {
         [SerializeField] private Transform weaponHolder;
 
@@ -104,12 +104,12 @@ namespace Assets.Scripts.Character.Player
                 _bobTimer += Time.deltaTime * _weaponAnimationData.BobFrequency;
 
                 float horizontalBob = Mathf.Cos(_bobTimer) * _currentAmplitude;
-                float verticalBob = Mathf.Sin(_bobTimer * 2) * _currentAmplitude;
+                float verticalBob = Mathf.Sin(_bobTimer / 4) * _currentAmplitude;
 
                 Vector3 bobPosition = new Vector3(horizontalBob, verticalBob, 0);
 
                 weaponHolder.localPosition = Vector3.Lerp(
-                    weaponHolder.localPosition, _originalWeaponPosition + bobPosition + _currentRecoilOffset, Time.deltaTime * _weaponAnimationData.BobDamping);
+                    weaponHolder.localPosition, _originalWeaponPosition + bobPosition + _currentRecoilOffset, Time.deltaTime * _weaponAnimationData.BobDamping / 4);
             }
         }
 
