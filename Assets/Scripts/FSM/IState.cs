@@ -2,10 +2,10 @@ namespace Assets.Scripts.FSM
 {
     public interface IState
     {
-        void Init(object context);
-        void Enter();
-        void Exit();
-        void Update();
-        void FixedUpdate();
+        public void Init(object context);
+        public void Enter();
+        public void Exit();
+        public void Update();
+        public void FixedUpdate();
     }
 }

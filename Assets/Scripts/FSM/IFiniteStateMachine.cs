@@ -4,11 +4,11 @@ namespace Assets.Scripts.FSM
 {
     public interface IFiniteStateMachine
     {
-        IState CurrentState { get; }
-        IState PreviousState { get; }
+        public IState CurrentState { get; }
+        public IState PreviousState { get; }
 
-        void Init(IState initState);
-        void ChangeState(IState newState, bool overrideState = false);
-        void ChangeStateWithDelay(IState newState, float delay, MonoBehaviour monoBehaviour);
+        public void Init(IState initState);
+        public void ChangeState(IState newState, bool overrideState = false);
+        public void ChangeStateWithDelay(IState newState, float delay, MonoBehaviour monoBehaviour);
     }
 }
