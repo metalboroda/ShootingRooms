@@ -17,7 +17,7 @@ namespace Assets.Scripts.FSM
         {
             var type = typeof(U);
 
-            if (!_states.ContainsKey(type))
+            if (_states.ContainsKey(type) == false)
             {
                 var state = new U();
 
