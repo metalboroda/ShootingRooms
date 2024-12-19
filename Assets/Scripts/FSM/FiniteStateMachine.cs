@@ -1,42 +1,37 @@
+using Assets.Scripts.FSM;
 using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts.FSM
+public class FiniteStateMachine : IFiniteStateMachine
 {
-    public class FiniteStateMachine
+    public IState CurrentState { get; private set; }
+    public IState PreviousState { get; private set; }
+
+    public void Init(IState initState)
     {
-        public State CurrentState { get; private set; }
-        public State PreviousState { get; private set; }
+        CurrentState = initState;
+        CurrentState.Enter();
+    }
 
-        public void Init(State initState)
-        {
-            CurrentState = initState;
-            CurrentState.Enter();
-        }
+    public void ChangeState(IState newState, bool overrideState = false)
+    {
+        if (overrideState == false && newState == CurrentState) return;
 
-        public void ChangeState(State newState, bool overrideState = false)
-        {
-            if (overrideState == false)
-            {
-                if (newState == CurrentState) return;
-            }
+        PreviousState = CurrentState;
+        CurrentState.Exit();
+        CurrentState = newState;
+        CurrentState.Enter();
+    }
 
-            PreviousState = CurrentState;
-            CurrentState.Exit();
-            CurrentState = newState;
-            CurrentState.Enter();
-        }
+    public void ChangeStateWithDelay(IState newState, float delay, MonoBehaviour monoBehaviour)
+    {
+        monoBehaviour.StartCoroutine(DoChangeStateWithDelay(newState, delay));
+    }
 
-        public void ChangeStateWithDelay(State newState, float delay, MonoBehaviour monoBehaviour)
-        {
-            monoBehaviour.StartCoroutine(DoChangeStateWithDelay(newState, delay));
-        }
+    private IEnumerator DoChangeStateWithDelay(IState newState, float delay)
+    {
+        yield return new WaitForSeconds(delay);
 
-        private IEnumerator DoChangeStateWithDelay(State newState, float delay)
-        {
-            yield return new WaitForSeconds(delay);
-
-            ChangeState(newState);
-        }
+        ChangeState(newState);
     }
 }

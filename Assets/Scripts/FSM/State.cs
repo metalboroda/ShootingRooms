@@ -1,6 +1,6 @@
 namespace Assets.Scripts.FSM
 {
-    public abstract class State
+    public abstract class State : IState
     {
         protected object Context;
 

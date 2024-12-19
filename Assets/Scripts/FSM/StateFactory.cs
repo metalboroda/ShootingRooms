@@ -5,7 +5,7 @@ namespace Assets.Scripts.FSM
 {
     public class StateFactory<T> where T : class
     {
-        private readonly Dictionary<Type, State> _states = new Dictionary<Type, State>();
+        private readonly Dictionary<Type, IState> _states = new Dictionary<Type, IState>();
         private readonly T _context;
 
         public StateFactory(T context)
@@ -13,11 +13,11 @@ namespace Assets.Scripts.FSM
             _context = context;
         }
 
-        public U GetState<U>() where U : State, new()
+        public U GetState<U>() where U : IState, new()
         {
             var type = typeof(U);
 
-            if (_states.ContainsKey(type) == false)
+            if (!_states.ContainsKey(type))
             {
                 var state = new U();
 

@@ -44,6 +44,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""88a1cdcd-ceba-4ead-a784-c2f9b36a60ad"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WeaponSwitch"",
+                    ""type"": ""Value"",
+                    ""id"": ""458aa38d-6cd7-4f77-a7c8-89529b214826"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -112,6 +130,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fda48a6d-4b2b-4640-9dce-bad912b7a741"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59604401-ba09-4e2d-9f99-e43e91be516f"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WeaponSwitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +162,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_OnFeet = asset.FindActionMap("OnFeet", throwIfNotFound: true);
         m_OnFeet_Move = m_OnFeet.FindAction("Move", throwIfNotFound: true);
         m_OnFeet_Look = m_OnFeet.FindAction("Look", throwIfNotFound: true);
+        m_OnFeet_Shoot = m_OnFeet.FindAction("Shoot", throwIfNotFound: true);
+        m_OnFeet_WeaponSwitch = m_OnFeet.FindAction("WeaponSwitch", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -190,12 +232,16 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private List<IOnFeetActions> m_OnFeetActionsCallbackInterfaces = new List<IOnFeetActions>();
     private readonly InputAction m_OnFeet_Move;
     private readonly InputAction m_OnFeet_Look;
+    private readonly InputAction m_OnFeet_Shoot;
+    private readonly InputAction m_OnFeet_WeaponSwitch;
     public struct OnFeetActions
     {
         private @PlayerControls m_Wrapper;
         public OnFeetActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_OnFeet_Move;
         public InputAction @Look => m_Wrapper.m_OnFeet_Look;
+        public InputAction @Shoot => m_Wrapper.m_OnFeet_Shoot;
+        public InputAction @WeaponSwitch => m_Wrapper.m_OnFeet_WeaponSwitch;
         public InputActionMap Get() { return m_Wrapper.m_OnFeet; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -211,6 +257,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+            @WeaponSwitch.started += instance.OnWeaponSwitch;
+            @WeaponSwitch.performed += instance.OnWeaponSwitch;
+            @WeaponSwitch.canceled += instance.OnWeaponSwitch;
         }
 
         private void UnregisterCallbacks(IOnFeetActions instance)
@@ -221,6 +273,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+            @WeaponSwitch.started -= instance.OnWeaponSwitch;
+            @WeaponSwitch.performed -= instance.OnWeaponSwitch;
+            @WeaponSwitch.canceled -= instance.OnWeaponSwitch;
         }
 
         public void RemoveCallbacks(IOnFeetActions instance)
@@ -242,5 +300,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
+        void OnWeaponSwitch(InputAction.CallbackContext context);
     }
 }
