@@ -404,7 +404,7 @@ MonoBehaviour:
   weaponHolder: {fileID: 1041276359630381325}
   cameraTarget: {fileID: 4447062659055091367}
   cameraRecoilAmountMultiplier: 250
-  cameraRecoilSpeedMultiplier: 0.5
+  cameraRecoilSpeedMultiplier: 0.3
 --- !u!1 &6907955509291189494
 GameObject:
   m_ObjectHideFlags: 0

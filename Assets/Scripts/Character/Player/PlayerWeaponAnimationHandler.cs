@@ -15,7 +15,7 @@ namespace Assets.Scripts.Character.Player
         [SerializeField] private Transform cameraTarget;
         [Space]
         [SerializeField] private float cameraRecoilAmountMultiplier = 250f;
-        [SerializeField] private float cameraRecoilSpeedMultiplier = 0.5f;
+        [SerializeField] private float cameraRecoilSpeedMultiplier = 0.3f;
 
         private Vector2 _moveDirection;
         private Vector2 _lookDirection;
