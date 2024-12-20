@@ -1707,9 +1707,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  injuryDelay: 2
+  injuryDelay: 0
   injuryHealthThrashold: 30
-  injuryDeathDelay: 7.5
+  injuryDeathDelay: 10
 --- !u!114 &3183671071297099168
 MonoBehaviour:
   m_ObjectHideFlags: 0

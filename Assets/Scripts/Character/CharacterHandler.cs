@@ -6,111 +6,121 @@ namespace Assets.Scripts.Character
 {
     public class CharacterHandler : MonoBehaviour
     {
+        [Header("Health Settings")]
         [SerializeField] private int maxHealth = 100;
 
         [Header("Injury Settings")]
-        [SerializeField] private float injuryDelay = 2f;
-        [SerializeField] private int injuryHealthThrashold = 30;
-        [SerializeField] private float injuryDeathDelay = 7.5f;
+        [SerializeField] private float injuryDelay = 0f;
+        [SerializeField] private int injuryHealthThreshold = 30;
+        [SerializeField] private float injuryDeathDelay = 10f;
 
         private int _currentHealth;
 
         private Coroutine _injuryRoutine;
         private Coroutine _injuryDeathRoutine;
 
-        private EventBinding<Events.CharacterDamaged> _characterDamaged;
+        private EventBinding<Events.CharacterDamaged> _characterDamagedBinding;
 
         private void OnEnable()
         {
-            _characterDamaged = new EventBinding<Events.CharacterDamaged>(OnCharacterDamaged);
-            EventBus<Events.CharacterDamaged>.Register(_characterDamaged);
+            _characterDamagedBinding = new EventBinding<Events.CharacterDamaged>(OnCharacterDamaged);
+            EventBus<Events.CharacterDamaged>.Register(_characterDamagedBinding);
         }
 
         private void OnDisable()
         {
-            EventBus<Events.CharacterDamaged>.Unregister(_characterDamaged);
+            EventBus<Events.CharacterDamaged>.Unregister(_characterDamagedBinding);
         }
 
         private void Start()
         {
             _currentHealth = maxHealth;
 
-            SendCharacterHealthChangedEvent();
+            RaiseHealthChangedEvent();
         }
 
         private void OnCharacterDamaged(Events.CharacterDamaged characterDamaged)
         {
             if (characterDamaged.ID != transform.GetInstanceID()) return;
 
-            _currentHealth -= characterDamaged.Damage;
+            _currentHealth = Mathf.Max(_currentHealth - characterDamaged.Damage, 0);
 
-            if (_currentHealth <= injuryHealthThrashold)
-            {
-                _injuryRoutine = StartCoroutine(DoInjury());
-            }
+            HandleInjury();
 
             if (_currentHealth <= 0)
             {
-                _currentHealth = 0;
-
-                if (_injuryRoutine != null)
-                {
-                    StopCoroutine(_injuryRoutine);
-
-                    _injuryRoutine = null;
-                }
-
-                EventBus<Events.CharacterDead>.Raise(new Events.CharacterDead
-                {
-                    ID = transform.GetInstanceID(),
-                });
+                HandleDeath();
             }
 
-            SendCharacterHealthChangedEvent();
+            RaiseHealthChangedEvent();
         }
 
-        private IEnumerator DoInjury()
+        private void HandleInjury()
+        {
+            if (_currentHealth > 0 && _currentHealth <= injuryHealthThreshold && _injuryRoutine == null)
+            {
+                _injuryRoutine = StartCoroutine(DoInjuryRoutine());
+            }
+        }
+
+        private void HandleDeath()
+        {
+            StopRoutine(ref _injuryRoutine);
+
+            EventBus<Events.CharacterDead>.Raise(new Events.CharacterDead
+            {
+                ID = transform.GetInstanceID()
+            });
+        }
+
+        private IEnumerator DoInjuryRoutine()
         {
             yield return new WaitForSeconds(injuryDelay);
 
             EventBus<Events.CharacterInjured>.Raise(new Events.CharacterInjured
             {
-                ID = transform.GetInstanceID(),
+                ID = transform.GetInstanceID()
             });
         }
 
         public void InjuryDeath()
         {
-            _injuryDeathRoutine = StartCoroutine(DoInjuryDeath());
+            _injuryDeathRoutine ??= StartCoroutine(DoInjuryDeath());
         }
 
         private IEnumerator DoInjuryDeath()
         {
             yield return new WaitForSeconds(injuryDeathDelay);
 
-            EventBus<Events.CharacterDead>.Raise(new Events.CharacterDead
-            {
-                ID = transform.GetInstanceID(),
-            });
-
-            if (_injuryRoutine != null)
-            {
-                StopCoroutine(_injuryRoutine);
-
-                _injuryRoutine = null;
-            }
+            HandleDeath();
 
             _injuryDeathRoutine = null;
         }
 
-        private void SendCharacterHealthChangedEvent()
+        private void RaiseHealthChangedEvent()
         {
             EventBus<Events.CharacterHealthChanged>.Raise(new Events.CharacterHealthChanged
             {
                 ID = transform.GetInstanceID(),
                 MaxHealth = maxHealth,
-                CurrentHealth = _currentHealth,
+                CurrentHealth = _currentHealth
             });
+        }
+
+        public void StopAllRoutines()
+        {
+            StopRoutine(ref _injuryRoutine);
+            StopRoutine(ref _injuryDeathRoutine);
+        }
+
+        private void StopRoutine(ref Coroutine routine)
+        {
+            if (routine != null)
+            {
+                StopCoroutine(routine);
+
+                routine = null;
+            }
         }
     }
 }
