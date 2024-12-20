@@ -45,6 +45,11 @@ namespace Assets.Scripts.EventBus
             public int CurrentHealth;
         }
 
+        public struct CharacterInjured : IEvent
+        {
+            public int ID;
+        }
+
         public struct CharacterDead : IEvent
         {
             public int ID;
