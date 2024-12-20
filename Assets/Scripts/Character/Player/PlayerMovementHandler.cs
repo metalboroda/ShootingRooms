@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Assets.Scripts.Character.Player
 {
     [RequireComponent(typeof(CharacterController))]
-    public class PlayerMovmentHandler : MonoBehaviour
+    public class PlayerMovementHandler : MonoBehaviour
     {
         [Header("Movement")]
         [SerializeField] public float movementSpeed;
@@ -31,13 +31,14 @@ namespace Assets.Scripts.Character.Player
         [SerializeField] private Transform cameraTarget;
         [SerializeField] private Transform groundCheckingPoint;
 
-        private Vector2 _moveDirection;
-        private Vector2 _lookDirection;
+        public Vector2 MoveDirection { get; private set; }
+        public Vector2 LookDirection { get; private set; }
+
+        public CharacterControllerMovementComponent CharacterControllerMovementComponent { get; private set; }
 
         private CharacterController _characterController;
 
         private PlayerControls _playerControls;
-        private CharacterControllerMovementComponent _characterControllerMovementComponent;
 
         private EventBinding<Events.MoveInput> _moveInput;
         private EventBinding<Events.LookInput> _lookInput;
@@ -47,7 +48,8 @@ namespace Assets.Scripts.Character.Player
             _characterController = GetComponent<CharacterController>();
 
             _playerControls = new PlayerControls();
-            _characterControllerMovementComponent = new CharacterControllerMovementComponent()
+
+            CharacterControllerMovementComponent = new CharacterControllerMovementComponent()
              .SetCharacterController(_characterController)
              .SetCameraTarget(cameraTarget)
              .SetGroundCheckingPoint(groundCheckingPoint)
@@ -87,14 +89,6 @@ namespace Assets.Scripts.Character.Player
             });
         }
 
-        private void Update()
-        {
-            _characterControllerMovementComponent.HandleMovement(_moveDirection);
-            _characterControllerMovementComponent.HandleLook(_lookDirection.x, _lookDirection.y);
-            _characterControllerMovementComponent.ApplyGravity();
-            _characterControllerMovementComponent.ApplySlipChecking(_characterControllerMovementComponent.IsGrounded());
-        }
-
         private void OnDestroy()
         {
             _playerControls.OnFeet.Disable();
@@ -102,15 +96,15 @@ namespace Assets.Scripts.Character.Player
 
         private void OnMoveInput(Events.MoveInput moveInput)
         {
-            _moveDirection = moveInput.Axis;
+            MoveDirection = moveInput.Axis;
         }
 
         private void OnLookInput(Events.LookInput lookInput)
         {
-            _lookDirection = lookInput.Axis;
+            LookDirection = lookInput.Axis;
         }
 
-        private void OnDrawGizmosSelected()
+        /*private void OnDrawGizmosSelected()
         {
             // Ground Checking
             Gizmos.color = Color.red;
@@ -122,9 +116,9 @@ namespace Assets.Scripts.Character.Player
             Gizmos.DrawWireSphere(groundCheckEnd, groundCheckRadius);
 
             // Grounded Ray
-            if (_characterControllerMovementComponent != null)
+            if (CharacterControllerMovementComponent != null)
             {
-                Gizmos.color = _characterControllerMovementComponent.IsGroundedRay() ? Color.green : Color.red;
+                Gizmos.color = CharacterControllerMovementComponent.IsGroundedRay() ? Color.green : Color.red;
             }
 
             Gizmos.DrawRay(groundCheckStart, Vector3.down * groundCheckRayDistance);
@@ -155,6 +149,6 @@ namespace Assets.Scripts.Character.Player
             Gizmos.DrawRay(_slipRayPosition, frontRight);
             Gizmos.DrawRay(_slipRayPosition, backLeft);
             Gizmos.DrawRay(_slipRayPosition, backRight);
-        }
+        }*/
     }
 }
