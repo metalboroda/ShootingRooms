@@ -11,6 +11,12 @@ namespace Assets.Scripts.Character.Player
     {
         [SerializeField] private Transform weaponHolder;
 
+        [Header("Camera Recoil Settings")]
+        [SerializeField] private Transform cameraTarget;
+        [Space]
+        [SerializeField] private float cameraRecoilAmountMultiplier = 250f;
+        [SerializeField] private float cameraRecoilSpeedMultiplier = 0.5f;
+
         private Vector2 _moveDirection;
         private Vector2 _lookDirection;
         private Vector3 _originalWeaponPosition;
@@ -83,6 +89,7 @@ namespace Assets.Scripts.Character.Player
             if (weaponUsed.ID != _weaponHandler.Weapon.transform.GetInstanceID()) return;
 
             ApplyRecoil();
+            ApplyCameraRecoil();
         }
 
         public void ApplyWeaponBob(float horizontalInput, float verticalInput)
@@ -142,6 +149,22 @@ namespace Assets.Scripts.Character.Player
             }
 
             recoilSequence.Play();
+
+            EventBus<Events.PlayerWeaponRecoiled>.Raise(new Events.PlayerWeaponRecoiled());
+        }
+
+        public void ApplyCameraRecoil()
+        {
+            if (cameraTarget == null || _weaponAnimationData.RecoilAmount == Vector3.zero)
+                return;
+
+            cameraTarget.DOKill();
+
+            float newRotationX = cameraTarget.localEulerAngles.x - (_weaponAnimationData.RecoilAmount.y * cameraRecoilAmountMultiplier);
+
+            cameraTarget.DOLocalRotate(
+                new Vector3(newRotationX, cameraTarget.localEulerAngles.y, cameraTarget.localEulerAngles.z), _weaponAnimationData.RecoilSpeed * cameraRecoilSpeedMultiplier)
+                .SetEase(Ease.OutQuad);
         }
     }
 }

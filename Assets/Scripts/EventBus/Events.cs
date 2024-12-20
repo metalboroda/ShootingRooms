@@ -57,6 +57,8 @@ namespace Assets.Scripts.EventBus
         {
             public int ID;
         }
+
+        public struct PlayerWeaponRecoiled : IEvent { }
         #endregion
     }
 }
