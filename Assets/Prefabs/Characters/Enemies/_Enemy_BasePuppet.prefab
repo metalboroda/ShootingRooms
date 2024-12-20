@@ -1707,7 +1707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  injuryDelay: 0
+  injuryDelay: 0.5
   injuryHealthThreshold: 25
   injuryDeathDelay: 10
 --- !u!114 &3183671071297099168
