@@ -11,6 +11,8 @@ namespace Assets.Scripts.Character
         [field: Header("")]
         [field: SerializeField] public CharacterAnimationDataSO CharacterAnimationData { get; private set; }
 
+        private Coroutine _animationRoutine;
+
         private Animator _animator;
 
         private void Awake()
@@ -24,7 +26,12 @@ namespace Assets.Scripts.Character
 
             if (onComplete != null)
             {
-                StartCoroutine(WaitForAnimationToEnd(animationName, onComplete));
+                if (_animationRoutine != null)
+                {
+                    StopCoroutine(_animationRoutine);
+                }
+
+                _animationRoutine = StartCoroutine(WaitForAnimationToEnd(animationName, onComplete));
             }
         }
 
@@ -47,6 +54,16 @@ namespace Assets.Scripts.Character
             }
 
             onComplete?.Invoke();
+        }
+
+        public void StopAnimationRoutine()
+        {
+            if (_animationRoutine != null)
+            {
+                StopCoroutine(_animationRoutine);
+
+                _animationRoutine = null; 
+            }
         }
     }
 }

@@ -13,5 +13,10 @@ namespace Assets.Scripts.Character.Enemy.States
 
             CharacterHandler.InjuryDeath();
         }
+
+        public override void Exit()
+        {
+            CharacterAnimationHandler.StopAnimationRoutine();
+        }
     }
 }

@@ -84,6 +84,8 @@ namespace Assets.Scripts.Character.Enemy
 
             newState.Init(this);
             _stateMachine.ChangeState(newState);
+
+            Debug.Log(newState);
         }
     }
 }
