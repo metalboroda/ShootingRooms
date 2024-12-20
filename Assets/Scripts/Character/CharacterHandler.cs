@@ -10,7 +10,7 @@ namespace Assets.Scripts.Character
         [SerializeField] private int maxHealth = 100;
 
         [Header("Injury Settings")]
-        [SerializeField] private float injuryDelay = 0.5f;
+        [SerializeField] private float injuryDelay = 0f;
         [SerializeField] private int injuryHealthThreshold = 30;
         [SerializeField] private float injuryDeathDelay = 10f;
 
