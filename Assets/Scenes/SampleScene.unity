@@ -8153,6 +8153,7 @@ Transform:
   - {fileID: 736801818}
   - {fileID: 781147847}
   - {fileID: 18606751}
+  - {fileID: 1469847271}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &903695148 stripped
@@ -14772,6 +14773,57 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 26
   m_Mesh: {fileID: 774465717688461179, guid: 82351ef5ae908c544a7c617bf0829ece, type: 2}
+--- !u!1 &1469847270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1469847271}
+  - component: {fileID: 1469847272}
+  m_Layer: 0
+  m_Name: ExplosionPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1469847271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469847270}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 903437339}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1469847272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469847270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e6443fb8e29bc48a3ff533cc8558b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prewarmPool: 1
+  prewarmAmount: 20
+  prewarmPerFrame: 10
+  maxAmount: 25
+  parentInstances: 1
+  eventType: 0
+  prefab: {fileID: 5028806422025081559, guid: 80afd235737dc23479dcd00a0da33b79, type: 3}
 --- !u!54 &1479158547
 Rigidbody:
   m_ObjectHideFlags: 0

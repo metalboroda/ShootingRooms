@@ -75,6 +75,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WeaponData>k__BackingField: {fileID: 0}
   <WeaponAnimationData>k__BackingField: {fileID: 0}
+  explosionPrefab: {fileID: 0}
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 9
 --- !u!1 &5905400725546153604
 GameObject:
   m_ObjectHideFlags: 0

@@ -316,6 +316,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8143411075146633718, guid: ebc9dff1abb695144aa1485e669b540d,
         type: 3}
+      propertyPath: explosionPrefab
+      value: 
+      objectReference: {fileID: 5028806422025081559, guid: 80afd235737dc23479dcd00a0da33b79,
+        type: 3}
+    - target: {fileID: 8143411075146633718, guid: ebc9dff1abb695144aa1485e669b540d,
+        type: 3}
       propertyPath: <WeaponData>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 1647db0331e34a34f934faa7eb03b50b,

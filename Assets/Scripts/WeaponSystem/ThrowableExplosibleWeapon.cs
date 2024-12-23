@@ -2,6 +2,7 @@
 using Assets.Scripts.Interfaces;
 using Assets.Scripts.SOs.WeaponSystem;
 using System.Collections;
+using UltimatePooling;
 using UnityEngine;
 
 namespace Assets.Scripts.WeaponSystem
@@ -9,6 +10,11 @@ namespace Assets.Scripts.WeaponSystem
     [RequireComponent(typeof(Rigidbody))]
     public class ThrowableExplosibleWeapon : WeaponBase
     {
+        [Space]
+        [SerializeField] private GameObject explosionPrefab;
+        [Space]
+        [SerializeField] private LayerMask obstacleLayer;
+
         private static readonly Collider[] _hitColliders = new Collider[50];
 
         private ThrowableExplosibleDataSO throwableExplosibleData;
@@ -55,6 +61,8 @@ namespace Assets.Scripts.WeaponSystem
             yield return new WaitForEndOfFrame();
             yield return new WaitForEndOfFrame();
             yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
 
             _meshCollider.enabled = true;
         }
@@ -68,8 +76,16 @@ namespace Assets.Scripts.WeaponSystem
             for (int i = 0; i < hitCount; i++)
             {
                 Collider collider = _hitColliders[i];
+
                 float distanceToCenter = Vector3.Distance(transform.position, collider.transform.position);
                 float distanceFactor = Mathf.Clamp01(1 - (distanceToCenter / throwableExplosibleData.Radius));
+
+                Vector3 directionToTarget = (collider.transform.position - transform.position).normalized;
+
+                if (Physics.Raycast(transform.position, directionToTarget, out RaycastHit forceHit, throwableExplosibleData.Radius, obstacleLayer))
+                {
+                    if (forceHit.collider != collider) continue;
+                }
 
                 if (collider.attachedRigidbody != null)
                 {
@@ -84,18 +100,18 @@ namespace Assets.Scripts.WeaponSystem
 
                 if (collider.TryGetComponent<IDamageable>(out var damageable))
                 {
-                    Vector3 directionToTarget = (collider.transform.position - transform.position).normalized;
-
-                    if (Physics.Raycast(transform.position, directionToTarget, out RaycastHit hit, throwableExplosibleData.Radius))
+                    if (Physics.Raycast(transform.position, directionToTarget, out RaycastHit damageHit, throwableExplosibleData.Radius, obstacleLayer))
                     {
-                        if (hit.collider == collider)
-                        {
-                            int scaledDamage = Mathf.RoundToInt(throwableExplosibleData.Damage * distanceFactor);
-                            damageable.Damage(scaledDamage, hit.point, DamageType.Explosion);
-                        }
+                        if (damageHit.collider != collider) continue;
                     }
+
+                    int scaledDamage = Mathf.RoundToInt(throwableExplosibleData.Damage * distanceFactor);
+
+                    damageable.Damage(scaledDamage, collider.transform.position, DamageType.Explosion);
                 }
             }
+
+            UltimatePool.spawn(explosionPrefab, transform.position, Quaternion.identity);
 
             Destroy(gameObject);
         }
