@@ -62,7 +62,6 @@ namespace Assets.Scripts.WeaponSystem
             yield return new WaitForEndOfFrame();
             yield return new WaitForEndOfFrame();
             yield return new WaitForEndOfFrame();
-            yield return new WaitForEndOfFrame();
 
             _meshCollider.enabled = true;
         }
