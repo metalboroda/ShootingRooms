@@ -7,13 +7,19 @@ namespace Assets.Scripts.WeaponSystem
 {
     public class RangedWeapon : WeaponBase
     {
-        [SerializeField] private RangedWeaponDataSO rangedWeaponData;
         [Space]
         [SerializeField] private Transform firePoint;
         [Space]
         [SerializeField] private ParticleSystem muzzleFlash;
         [Space]
         [SerializeField] private GameObject projectilePrefab;
+
+        private RangedWeaponDataSO _rangedWeaponData;
+
+        private void Awake()
+        {
+            _rangedWeaponData = WeaponData as RangedWeaponDataSO;
+        }
 
         public override void Attack(Vector3 targetPosition)
         {
@@ -22,12 +28,12 @@ namespace Assets.Scripts.WeaponSystem
                 return;
             }
 
-            for (int i = 0; i < rangedWeaponData.ProjectilesPerShot; i++)
+            for (int i = 0; i < _rangedWeaponData.ProjectilesPerShot; i++)
             {
                 Vector3 direction = (targetPosition - firePoint.position).normalized;
 
-                float horizontalSpread = Random.Range(-rangedWeaponData.Spread, rangedWeaponData.Spread);
-                float verticalSpread = Random.Range(-rangedWeaponData.Spread, rangedWeaponData.Spread);
+                float horizontalSpread = Random.Range(-_rangedWeaponData.Spread, _rangedWeaponData.Spread);
+                float verticalSpread = Random.Range(-_rangedWeaponData.Spread, _rangedWeaponData.Spread);
 
                 Quaternion horizontalRotation = Quaternion.AngleAxis(horizontalSpread, firePoint.up);
                 Quaternion verticalRotation = Quaternion.AngleAxis(verticalSpread, firePoint.right);
@@ -45,7 +51,7 @@ namespace Assets.Scripts.WeaponSystem
 
                 if (projectile.TryGetComponent<Projectile>(out var projectileComponent))
                 {
-                    projectileComponent.Initialize(WeaponData.Damage, rangedWeaponData.PrpojectileSpeed, WeaponData.Range);
+                    projectileComponent.Initialize(WeaponData.Damage, _rangedWeaponData.PrpojectileSpeed, WeaponData.Range);
                 }
             }
         }
