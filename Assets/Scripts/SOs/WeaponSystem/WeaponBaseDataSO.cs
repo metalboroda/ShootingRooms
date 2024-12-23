@@ -8,8 +8,5 @@ namespace Assets.Scripts.SOs.WeaponSystem
         [field: SerializeField] public int Damage { get; private set; }
         [field: SerializeField] public float AttackRate { get; private set; }
         [field: SerializeField] public float Range { get; private set; }
-
-        [field: Header("Animation")]
-        [field: SerializeField] public WeaponAnimationDataSO WeaponAnimationData { get; private set; }
     }
 }

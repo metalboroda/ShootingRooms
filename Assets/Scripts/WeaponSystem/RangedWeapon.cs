@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.EventBus;
+using Assets.Scripts.SOs.WeaponSystem;
 using UltimatePooling;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ namespace Assets.Scripts.WeaponSystem
 {
     public class RangedWeapon : WeaponBase
     {
+        [SerializeField] private RangedWeaponDataSO rangedWeaponData;
         [Space]
         [SerializeField] private Transform firePoint;
         [Space]
@@ -20,12 +22,12 @@ namespace Assets.Scripts.WeaponSystem
                 return;
             }
 
-            for (int i = 0; i < WeaponData.ProjectilesPerShot; i++)
+            for (int i = 0; i < rangedWeaponData.ProjectilesPerShot; i++)
             {
                 Vector3 direction = (targetPosition - firePoint.position).normalized;
 
-                float horizontalSpread = Random.Range(-WeaponData.Spread, WeaponData.Spread);
-                float verticalSpread = Random.Range(-WeaponData.Spread, WeaponData.Spread);
+                float horizontalSpread = Random.Range(-rangedWeaponData.Spread, rangedWeaponData.Spread);
+                float verticalSpread = Random.Range(-rangedWeaponData.Spread, rangedWeaponData.Spread);
 
                 Quaternion horizontalRotation = Quaternion.AngleAxis(horizontalSpread, firePoint.up);
                 Quaternion verticalRotation = Quaternion.AngleAxis(verticalSpread, firePoint.right);
@@ -43,7 +45,7 @@ namespace Assets.Scripts.WeaponSystem
 
                 if (projectile.TryGetComponent<Projectile>(out var projectileComponent))
                 {
-                    projectileComponent.Initialize(WeaponData.Damage, WeaponData.PrpojectileSpeed, WeaponData.Range);
+                    projectileComponent.Initialize(WeaponData.Damage, rangedWeaponData.PrpojectileSpeed, WeaponData.Range);
                 }
             }
         }

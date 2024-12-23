@@ -29806,6 +29806,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5472228990827644921, guid: c0973d45cef72c740bf1f1ecae387242,
         type: 3}
+    - target: {fileID: 620563080139518309, guid: 9d267e5f90c9cec409382ec785782e9e,
+        type: 3}
+      propertyPath: rangedWeaponData
+      value: 
+      objectReference: {fileID: 11400000, guid: a04b3e9f9fab97b4db36d0ea5a6042dc,
+        type: 2}
+    - target: {fileID: 620563080139518309, guid: 9d267e5f90c9cec409382ec785782e9e,
+        type: 3}
+      propertyPath: <WeaponData>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: a04b3e9f9fab97b4db36d0ea5a6042dc,
+        type: 2}
+    - target: {fileID: 620563080139518309, guid: 9d267e5f90c9cec409382ec785782e9e,
+        type: 3}
+      propertyPath: <WeaponAnimationData>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 277b10b0d116704488bc796e843095f3,
+        type: 2}
     - target: {fileID: 1253867513425156958, guid: 9d267e5f90c9cec409382ec785782e9e,
         type: 3}
       propertyPath: m_LocalPosition.x

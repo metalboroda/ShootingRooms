@@ -28,7 +28,6 @@ namespace Assets.Scripts.Character.Player
         private const float IdleBobDampingDivider = 4f;
 
         private PlayerWeaponHandler _weaponHandler;
-        private RangedWeaponDataSO _weaponData;
         private WeaponAnimationDataSO _weaponAnimationData;
 
         private EventBinding<Events.MoveInput> _moveInput;
@@ -64,8 +63,7 @@ namespace Assets.Scripts.Character.Player
 
         private void Start()
         {
-            _weaponData = _weaponHandler.Weapon.WeaponData;
-            _weaponAnimationData = _weaponData.WeaponAnimationData;
+            _weaponAnimationData = _weaponHandler.Weapon.WeaponAnimationData;
         }
 
         private void Update()
