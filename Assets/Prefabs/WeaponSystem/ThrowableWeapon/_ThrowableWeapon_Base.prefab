@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1322026716159881044}
   - component: {fileID: 2071646134036765254}
   - component: {fileID: 8143411075146633718}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: _ThrowableWeapon_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}

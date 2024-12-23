@@ -111,7 +111,9 @@ namespace Assets.Scripts.WeaponSystem
                 }
             }
 
-            UltimatePool.spawn(explosionPrefab, transform.position, Quaternion.identity);
+            GameObject spawnedExplosion = UltimatePool.spawn(explosionPrefab, transform.position, Quaternion.identity);
+
+            spawnedExplosion.transform.parent = null;
 
             Destroy(gameObject);
         }
