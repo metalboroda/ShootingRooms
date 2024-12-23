@@ -5,7 +5,7 @@ namespace Assets.Scripts.WeaponSystem
 {
   public abstract class WeaponBase : MonoBehaviour
   {
-    public WeaponDataSO WeaponData;
+    public RangedWeaponDataSO WeaponData;
 
     private float nextAttackTime = 0f;
 
