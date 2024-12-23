@@ -43,7 +43,7 @@ namespace Assets.Scripts.Character
                 Damage = modifiedDamage,
             });
 
-            if (bulletDamagePrefab != null && damageType == DamageType.Bullet || damageType == DamageType.Explosion)
+            if (bulletDamagePrefab != null && damageType == DamageType.Bullet)
             {
                 UltimatePool.spawn(bulletDamagePrefab, hitPoint, Quaternion.identity);
             }
