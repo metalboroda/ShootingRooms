@@ -1,5 +1,6 @@
-using Assets.Scripts.EventBus;
+﻿using Assets.Scripts.EventBus;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Assets.Scripts.GameManagement
 {
@@ -15,34 +16,74 @@ namespace Assets.Scripts.GameManagement
         private void OnEnable()
         {
             _playerControls.OnFeet.Enable();
+
+            _playerControls.OnFeet.Move.performed += OnMovePerformed;
+            _playerControls.OnFeet.Move.canceled += OnMoveCanceled;
+
+            _playerControls.OnFeet.Look.performed += OnLookPerformed;
+            _playerControls.OnFeet.Look.canceled += OnLookCanceled;
+
+            _playerControls.OnFeet.WeaponSwitch.performed += OnWeaponSwitchPerformed;
+            _playerControls.OnFeet.Shoot.performed += OnShootPerformed;
         }
 
         private void OnDisable()
         {
+            _playerControls.OnFeet.Move.performed -= OnMovePerformed;
+            _playerControls.OnFeet.Move.canceled -= OnMoveCanceled;
+
+            _playerControls.OnFeet.Look.performed -= OnLookPerformed;
+            _playerControls.OnFeet.Look.canceled -= OnLookCanceled;
+
+            _playerControls.OnFeet.WeaponSwitch.performed -= OnWeaponSwitchPerformed;
+            _playerControls.OnFeet.Shoot.performed -= OnShootPerformed;
+
             _playerControls.OnFeet.Disable();
         }
 
-        private void Update()
+        private void OnMovePerformed(InputAction.CallbackContext ctx)
         {
             EventBus<Events.MoveInput>.Raise(new Events.MoveInput
             {
-                Axis = _playerControls.OnFeet.Move.ReadValue<Vector2>(),
+                Axis = ctx.ReadValue<Vector2>(),
             });
+        }
 
+        private void OnMoveCanceled(InputAction.CallbackContext ctx)
+        {
+            EventBus<Events.MoveInput>.Raise(new Events.MoveInput
+            {
+                Axis = Vector2.zero,
+            });
+        }
+
+        private void OnLookPerformed(InputAction.CallbackContext ctx)
+        {
             EventBus<Events.LookInput>.Raise(new Events.LookInput
             {
-                Axis = _playerControls.OnFeet.Look.ReadValue<Vector2>(),
+                Axis = ctx.ReadValue<Vector2>(),
             });
+        }
 
+        private void OnLookCanceled(InputAction.CallbackContext ctx)
+        {
+            EventBus<Events.LookInput>.Raise(new Events.LookInput
+            {
+                Axis = Vector2.zero,
+            });
+        }
+
+        private void OnWeaponSwitchPerformed(InputAction.CallbackContext ctx)
+        {
             EventBus<Events.ScrollInput>.Raise(new Events.ScrollInput
             {
-                Axis = new Vector2(0, _playerControls.OnFeet.WeaponSwitch.ReadValue<Vector2>().y),
+                Axis = new Vector2(0, ctx.ReadValue<Vector2>().y),
             });
+        }
 
-            if (_playerControls.OnFeet.Shoot.ReadValue<float>() > 0)
-            {
-                EventBus<Events.ShootPressed>.Raise(new Events.ShootPressed());
-            }
+        private void OnShootPerformed(InputAction.CallbackContext ctx)
+        {
+            EventBus<Events.ShootPressed>.Raise(new Events.ShootPressed());
         }
     }
 }
