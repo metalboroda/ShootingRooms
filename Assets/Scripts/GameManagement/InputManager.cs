@@ -19,33 +19,35 @@ namespace Assets.Scripts.GameManagement
 
             _playerControls.OnFeet.Move.performed += OnMovePerformed;
             _playerControls.OnFeet.Move.canceled += OnMoveCanceled;
-
             _playerControls.OnFeet.Look.performed += OnLookPerformed;
             _playerControls.OnFeet.Look.canceled += OnLookCanceled;
-
             _playerControls.OnFeet.WeaponSwitch.performed += OnWeaponSwitchPerformed;
-            _playerControls.OnFeet.Shoot.performed += OnShootPerformed;
         }
 
         private void OnDisable()
         {
             _playerControls.OnFeet.Move.performed -= OnMovePerformed;
             _playerControls.OnFeet.Move.canceled -= OnMoveCanceled;
-
             _playerControls.OnFeet.Look.performed -= OnLookPerformed;
             _playerControls.OnFeet.Look.canceled -= OnLookCanceled;
-
             _playerControls.OnFeet.WeaponSwitch.performed -= OnWeaponSwitchPerformed;
-            _playerControls.OnFeet.Shoot.performed -= OnShootPerformed;
 
             _playerControls.OnFeet.Disable();
+        }
+
+        private void Update()
+        {
+            if (_playerControls.OnFeet.Shoot.ReadValue<float>() > 0)
+            {
+                EventBus<Events.ShootPressed>.Raise(new Events.ShootPressed());
+            }
         }
 
         private void OnMovePerformed(InputAction.CallbackContext ctx)
         {
             EventBus<Events.MoveInput>.Raise(new Events.MoveInput
             {
-                Axis = ctx.ReadValue<Vector2>(),
+                Axis = ctx.ReadValue<Vector2>()
             });
         }
 
@@ -53,7 +55,7 @@ namespace Assets.Scripts.GameManagement
         {
             EventBus<Events.MoveInput>.Raise(new Events.MoveInput
             {
-                Axis = Vector2.zero,
+                Axis = Vector2.zero
             });
         }
 
@@ -61,7 +63,7 @@ namespace Assets.Scripts.GameManagement
         {
             EventBus<Events.LookInput>.Raise(new Events.LookInput
             {
-                Axis = ctx.ReadValue<Vector2>(),
+                Axis = ctx.ReadValue<Vector2>()
             });
         }
 
@@ -69,7 +71,7 @@ namespace Assets.Scripts.GameManagement
         {
             EventBus<Events.LookInput>.Raise(new Events.LookInput
             {
-                Axis = Vector2.zero,
+                Axis = Vector2.zero
             });
         }
 
@@ -77,13 +79,8 @@ namespace Assets.Scripts.GameManagement
         {
             EventBus<Events.ScrollInput>.Raise(new Events.ScrollInput
             {
-                Axis = new Vector2(0, ctx.ReadValue<Vector2>().y),
+                Axis = new Vector2(0, ctx.ReadValue<Vector2>().y)
             });
-        }
-
-        private void OnShootPerformed(InputAction.CallbackContext ctx)
-        {
-            EventBus<Events.ShootPressed>.Raise(new Events.ShootPressed());
         }
     }
 }
