@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.EventBus;
+﻿using Assets.Scripts.Components.Character;
+using Assets.Scripts.EventBus;
 using Assets.Scripts.WeaponSystem;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,18 +16,17 @@ namespace Assets.Scripts.Character.Player
         [SerializeField] private LayerMask ignoreLayer;
 
         [Header("Weapon Settings")]
-        [SerializeField] private GameObject weaponHolderContainer;
+        [SerializeField] private Transform weaponHolderContainer;
 
-        public WeaponBase Weapon { get; private set; }
-        public WeaponBase ThrowableWeapon { get; private set; }
+        [SerializeField] private float switchCooldown = 0.2f;
+        [SerializeField] private float defaultRayDistance = 100f;
 
-        private int _currentWeaponIndex = 0;
-        private int _currentThrowableWeaponIndex = 0;
-        private readonly float _weaponSwitchCooldown = 0.2f;
-        private float _lastWeaponSwitchTime = 0f;
-        private readonly float _defaultRayDistance = 100f;
+        public WeaponBase Weapon => _weaponController.CurrentWeapon;
 
-        private Camera _mainCamera;
+        private CharacterWeaponController _weaponController;
+        private CharacterThrowableController _throwableController;
+        private CharacterWeaponSwitcher _weaponSwitcher;
+        private PlayerRaycastProvider _raycastProvider;
 
         private EventBinding<Events.ShootPressed> _shootPressed;
         private EventBinding<Events.ShootThrowablePressed> _shootThrowablePressed;
@@ -34,9 +34,12 @@ namespace Assets.Scripts.Character.Player
 
         private void Awake()
         {
-            _mainCamera = Camera.main;
+            _raycastProvider = new PlayerRaycastProvider(Camera.main, aimLayer, ignoreLayer, defaultRayDistance);
+            _weaponController = new CharacterWeaponController(weaponPrefabs, weaponHolderContainer);
+            _throwableController = new CharacterThrowableController(throwablePrefabs, weaponHolderContainer);
+            _weaponSwitcher = new CharacterWeaponSwitcher(_weaponController, switchCooldown);
 
-            SpawnWeapon(0);
+            _weaponController.SpawnWeapon(0);
         }
 
         private void OnEnable()
@@ -79,94 +82,23 @@ namespace Assets.Scripts.Character.Player
 
         private void HandleWeaponUsage()
         {
-            if (_mainCamera == null) return;
+            Vector3 targetPoint = _raycastProvider.GetTargetPoint();
 
-            Vector3 targetPoint = GetRaycastHitPoint();
-
-            Weapon.TryAttack(targetPoint);
+            _weaponController.TryAttack(targetPoint);
         }
 
         private void HandleThrowableWeaponUsage()
         {
-            if (_mainCamera == null) return;
+            Vector3 targetPoint = _raycastProvider.GetTargetPoint();
 
-            Vector3 targetPoint = GetRaycastHitPoint();
-
-            SpawnAndUseThrowableWeapon(targetPoint);
+            _throwableController.TryThrow(targetPoint);
         }
 
-        private void SpawnAndUseThrowableWeapon(Vector3 targetPoint)
+        private void HandleWeaponSwitching(float scrollValue)
         {
-            if (_currentThrowableWeaponIndex < 0 || _currentThrowableWeaponIndex >= throwablePrefabs.Count) return;
+            int direction = Mathf.RoundToInt(Mathf.Sign(scrollValue));
 
-            GameObject weaponInstance = Instantiate(throwablePrefabs[_currentThrowableWeaponIndex], weaponHolderContainer.transform);
-
-            ThrowableWeapon = weaponInstance.GetComponent<WeaponBase>();
-            ThrowableWeapon.TryAttack(targetPoint);
-
-            ThrowableWeapon = null;
-        }
-
-        private void SpawnWeapon(int index)
-        {
-            if (index < 0 || index >= weaponPrefabs.Count) return;
-
-            foreach (Transform child in weaponHolderContainer.transform)
-            {
-                Destroy(child.gameObject);
-            }
-
-            GameObject weaponInstance = Instantiate(weaponPrefabs[index], weaponHolderContainer.transform);
-
-            Weapon = weaponInstance.GetComponent<WeaponBase>();
-
-            _currentWeaponIndex = index;
-        }
-
-        private void HandleWeaponSwitching(float value)
-        {
-            if (Time.time - _lastWeaponSwitchTime < _weaponSwitchCooldown) return;
-
-            if (value > 0f)
-            {
-                SwitchWeapon((_currentWeaponIndex + 1) % weaponPrefabs.Count);
-
-                _lastWeaponSwitchTime = Time.time;
-            }
-            else if (value < 0f)
-            {
-                SwitchWeapon((_currentWeaponIndex - 1 + weaponPrefabs.Count) % weaponPrefabs.Count);
-
-                _lastWeaponSwitchTime = Time.time;
-            }
-        }
-
-        private void SwitchWeapon(int newIndex)
-        {
-            if (newIndex != _currentWeaponIndex)
-            {
-                SpawnWeapon(newIndex);
-            }
-        }
-
-        private Vector3 GetRaycastHitPoint()
-        {
-            Ray ray = _mainCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
-
-            if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, aimLayer))
-            {
-                if (IsIgnoredLayer(hit.collider.gameObject.layer) == false)
-                {
-                    return hit.point;
-                }
-            }
-
-            return ray.GetPoint(_defaultRayDistance);
-        }
-
-        private bool IsIgnoredLayer(int layer)
-        {
-            return (ignoreLayer.value & (1 << layer)) != 0;
+            _weaponSwitcher.SwitchWeapon(direction);
         }
     }
 }

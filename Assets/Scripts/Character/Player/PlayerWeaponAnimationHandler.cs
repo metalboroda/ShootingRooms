@@ -22,7 +22,7 @@ namespace Assets.Scripts.Character.Player
         private Vector3 _originalWeaponPosition;
         private float _bobTimer;
         private float _currentAmplitude;
-        private Vector3 _currentRecoilOffset;
+        private readonly Vector3 _currentRecoilOffset;
 
         private const float BobSinMultiplier = 2f;
         private const float IdleBobDampingDivider = 4f;
@@ -153,8 +153,7 @@ namespace Assets.Scripts.Character.Player
 
         public void ApplyCameraRecoil()
         {
-            if (cameraTarget == null || _weaponAnimationData.RecoilAmount == Vector3.zero)
-                return;
+            if (cameraTarget == null || _weaponAnimationData.RecoilAmount == Vector3.zero) return;
 
             cameraTarget.DOKill();
 
