@@ -787,12 +787,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clipCapacity: {fileID: 1720946228}
   totalCapacity: {fileID: 305409381}
---- !u!4 &48394458 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6303795559405038864, guid: 221028a2d75da8b4da21e623eed80951,
-    type: 3}
-  m_PrefabInstance: {fileID: 7830257908971717871}
-  m_PrefabAsset: {fileID: 0}
 --- !u!54 &54049913
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25953,11 +25947,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3957323596414511208, guid: 221028a2d75da8b4da21e623eed80951,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3957323596414511208, guid: 221028a2d75da8b4da21e623eed80951,
-        type: 3}
       propertyPath: shakeDelay
       value: 0.1
       objectReference: {fileID: 0}
@@ -25966,16 +25955,6 @@ PrefabInstance:
       propertyPath: returnSpeed
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5534587900478124500, guid: 221028a2d75da8b4da21e623eed80951,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5534587900478124500, guid: 221028a2d75da8b4da21e623eed80951,
-        type: 3}
-      propertyPath: weaponHolderContainer
-      value: 
-      objectReference: {fileID: 48394458}
     - target: {fileID: 6530178500020043239, guid: 221028a2d75da8b4da21e623eed80951,
         type: 3}
       propertyPath: m_Name
@@ -25989,7 +25968,7 @@ PrefabInstance:
     - target: {fileID: 7842323084902462082, guid: 221028a2d75da8b4da21e623eed80951,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7842323084902462082, guid: 221028a2d75da8b4da21e623eed80951,
         type: 3}

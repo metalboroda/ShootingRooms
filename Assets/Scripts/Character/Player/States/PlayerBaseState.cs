@@ -8,14 +8,14 @@ namespace Assets.Scripts.Character.Player.States
         protected PlayerController PlayerController;
         protected PlayerMovementHandler PlayerMovementHandler;
 
-        protected RigidbodyMovementComponent RigidbodyMovementComponent;
+        protected CharacterControllerMovementComponent CharacterControllerMovementComponent;
 
         public override void Init(object context)
         {
             PlayerController = context as PlayerController;
             PlayerMovementHandler = PlayerController.PlayerMovmentHandler;
 
-            RigidbodyMovementComponent = PlayerMovementHandler.RigidbodyMovementComponent;
+            CharacterControllerMovementComponent = PlayerMovementHandler.CharacterControllerMovementComponent;
         }
 
         public override void Enter()

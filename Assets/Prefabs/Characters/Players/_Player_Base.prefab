@@ -355,7 +355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   lookSensitivity: 0.3
-  gravity: -9.81
+  gravity: -19.62
   groundLayer:
     serializedVersion: 2
     m_Bits: 9
@@ -390,7 +390,7 @@ MonoBehaviour:
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 1
-  weaponHolderContainer: {fileID: 5856488756848840201}
+  weaponHolderContainer: {fileID: 6303795559405038864}
   switchCooldown: 0.2
   defaultRayDistance: 100
 --- !u!114 &3957323596414511208
