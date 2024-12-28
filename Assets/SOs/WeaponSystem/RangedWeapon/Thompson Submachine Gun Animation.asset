@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 858ee54c499a1ee4cbb48f0970ef2898, type: 3}
-  m_Name: Submachine Gun Animation
+  m_Name: Thompson Submachine Gun Animation
   m_EditorClassIdentifier: 
   <BobFrequency>k__BackingField: 7.5
   <BobAmplitude>k__BackingField: 0.0075
