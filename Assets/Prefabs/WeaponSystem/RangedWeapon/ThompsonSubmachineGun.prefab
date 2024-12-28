@@ -29898,7 +29898,7 @@ PrefabInstance:
         type: 3}
       propertyPath: shotClip
       value: 
-      objectReference: {fileID: 8300000, guid: 839e03f43038128498709d2486c30a97, type: 3}
+      objectReference: {fileID: 8300000, guid: d38b3b80f553b214eb06f2df0346ccb0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
