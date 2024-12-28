@@ -134,7 +134,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -230,7 +230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d211e6ffd2ff0e4580496800d14fe43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponData: {fileID: 0}
+  <WeaponData>k__BackingField: {fileID: 0}
+  <WeaponAnimationData>k__BackingField: {fileID: 0}
   firePoint: {fileID: 6056959443266763886}
   muzzleFlash: {fileID: 0}
   projectilePrefab: {fileID: 0}
