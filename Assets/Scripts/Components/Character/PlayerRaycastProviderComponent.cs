@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerRaycastProvider
+public class PlayerRaycastProviderComponent
 {
     private readonly LayerMask _aimLayer;
     private readonly LayerMask _ignoreLayer;
@@ -8,7 +8,7 @@ public class PlayerRaycastProvider
 
     private readonly Camera _mainCamera;
 
-    public PlayerRaycastProvider(Camera mainCamera, LayerMask aimLayer, LayerMask ignoreLayer, float defaultRayDistance = 100f)
+    public PlayerRaycastProviderComponent(Camera mainCamera, LayerMask aimLayer, LayerMask ignoreLayer, float defaultRayDistance = 100f)
     {
         _mainCamera = mainCamera;
         _aimLayer = aimLayer;

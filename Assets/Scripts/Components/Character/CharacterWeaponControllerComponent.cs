@@ -4,7 +4,7 @@ using Assets.Scripts.WeaponSystem;
 
 namespace Assets.Scripts.Components.Character
 {
-    public class CharacterWeaponController
+    public class CharacterWeaponControllerComponent
     {
         private readonly List<GameObject> _weaponPrefabs;
         private int _currentWeaponIndex = 0;
@@ -16,7 +16,7 @@ namespace Assets.Scripts.Components.Character
         public int WeaponCount => _weaponPrefabs.Count;
         public int CurrentWeaponIndex => _currentWeaponIndex;
 
-        public CharacterWeaponController(List<GameObject> weaponPrefabs, Transform weaponHolder)
+        public CharacterWeaponControllerComponent(List<GameObject> weaponPrefabs, Transform weaponHolder)
         {
             _weaponPrefabs = weaponPrefabs;
             _weaponHolder = weaponHolder;

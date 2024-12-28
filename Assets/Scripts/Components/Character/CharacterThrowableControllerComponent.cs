@@ -2,7 +2,7 @@
 using UnityEngine;
 using Assets.Scripts.WeaponSystem;
 
-public class CharacterThrowableController
+public class CharacterThrowableControllerComponent
 {
     private readonly List<GameObject> _throwablePrefabs;
     private readonly int _currentThrowableWeaponIndex = 0;
@@ -12,7 +12,7 @@ public class CharacterThrowableController
     public int ThrowableWeaponCount => _throwablePrefabs.Count;
     public int CurrentThrowableWeaponIndex => _currentThrowableWeaponIndex;
 
-    public CharacterThrowableController(List<GameObject> throwablePrefabs, Transform weaponHolder)
+    public CharacterThrowableControllerComponent(List<GameObject> throwablePrefabs, Transform weaponHolder)
     {
         _throwablePrefabs = throwablePrefabs;
         _weaponHolder = weaponHolder;

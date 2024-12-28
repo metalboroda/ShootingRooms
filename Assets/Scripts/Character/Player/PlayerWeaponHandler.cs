@@ -23,10 +23,10 @@ namespace Assets.Scripts.Character.Player
 
         public WeaponBase Weapon => _weaponController.CurrentWeapon;
 
-        private CharacterWeaponController _weaponController;
-        private CharacterThrowableController _throwableController;
-        private CharacterWeaponSwitcher _weaponSwitcher;
-        private PlayerRaycastProvider _raycastProvider;
+        private CharacterWeaponControllerComponent _weaponController;
+        private CharacterThrowableControllerComponent _throwableController;
+        private CharacterWeaponSwitcherComponent _weaponSwitcher;
+        private PlayerRaycastProviderComponent _raycastProvider;
 
         private EventBinding<Events.ShootPressed> _shootPressed;
         private EventBinding<Events.ShootThrowablePressed> _shootThrowablePressed;
@@ -34,10 +34,10 @@ namespace Assets.Scripts.Character.Player
 
         private void Awake()
         {
-            _raycastProvider = new PlayerRaycastProvider(Camera.main, aimLayer, ignoreLayer, defaultRayDistance);
-            _weaponController = new CharacterWeaponController(weaponPrefabs, weaponHolderContainer);
-            _throwableController = new CharacterThrowableController(throwablePrefabs, weaponHolderContainer);
-            _weaponSwitcher = new CharacterWeaponSwitcher(_weaponController, switchCooldown);
+            _raycastProvider = new PlayerRaycastProviderComponent(Camera.main, aimLayer, ignoreLayer, defaultRayDistance);
+            _weaponController = new CharacterWeaponControllerComponent(weaponPrefabs, weaponHolderContainer);
+            _throwableController = new CharacterThrowableControllerComponent(throwablePrefabs, weaponHolderContainer);
+            _weaponSwitcher = new CharacterWeaponSwitcherComponent(_weaponController, switchCooldown);
 
             _weaponController.SpawnWeapon(0);
         }

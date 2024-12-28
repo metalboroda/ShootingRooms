@@ -1,14 +1,14 @@
 using Assets.Scripts.Components.Character;
 using UnityEngine;
 
-public class CharacterWeaponSwitcher
+public class CharacterWeaponSwitcherComponent
 {
     private readonly float _switchCooldown;
     private float _lastSwitchTime;
 
-    private readonly CharacterWeaponController _weaponController;
+    private readonly CharacterWeaponControllerComponent _weaponController;
 
-    public CharacterWeaponSwitcher(CharacterWeaponController weaponController, float switchCooldown = 0.2f)
+    public CharacterWeaponSwitcherComponent(CharacterWeaponControllerComponent weaponController, float switchCooldown = 0.2f)
     {
         _switchCooldown = switchCooldown;
         _lastSwitchTime = -switchCooldown;
