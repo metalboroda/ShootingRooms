@@ -23,6 +23,8 @@ namespace Assets.Scripts.EventBus
         {
             public Vector2 Axis;
         }
+
+        public struct ReloadWeaponPressed : IEvent { }
         #endregion
 
         #region Character

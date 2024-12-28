@@ -71,6 +71,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ReloadWeapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""144dc7bb-ebb8-459a-bcfc-7a6ee299dbf9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -260,6 +269,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""ShootThrowable"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b3ce2faf-5f9c-4936-9a2c-2db0d5077ea7"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShootThrowable"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""13f5be7b-dcca-4afd-bc6e-b666f1366b29"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ReloadWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -273,6 +304,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_OnFeet_Shoot = m_OnFeet.FindAction("Shoot", throwIfNotFound: true);
         m_OnFeet_ShootThrowable = m_OnFeet.FindAction("ShootThrowable", throwIfNotFound: true);
         m_OnFeet_WeaponSwitch = m_OnFeet.FindAction("WeaponSwitch", throwIfNotFound: true);
+        m_OnFeet_ReloadWeapon = m_OnFeet.FindAction("ReloadWeapon", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -344,6 +376,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_OnFeet_Shoot;
     private readonly InputAction m_OnFeet_ShootThrowable;
     private readonly InputAction m_OnFeet_WeaponSwitch;
+    private readonly InputAction m_OnFeet_ReloadWeapon;
     public struct OnFeetActions
     {
         private @PlayerControls m_Wrapper;
@@ -353,6 +386,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Shoot => m_Wrapper.m_OnFeet_Shoot;
         public InputAction @ShootThrowable => m_Wrapper.m_OnFeet_ShootThrowable;
         public InputAction @WeaponSwitch => m_Wrapper.m_OnFeet_WeaponSwitch;
+        public InputAction @ReloadWeapon => m_Wrapper.m_OnFeet_ReloadWeapon;
         public InputActionMap Get() { return m_Wrapper.m_OnFeet; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -377,6 +411,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @WeaponSwitch.started += instance.OnWeaponSwitch;
             @WeaponSwitch.performed += instance.OnWeaponSwitch;
             @WeaponSwitch.canceled += instance.OnWeaponSwitch;
+            @ReloadWeapon.started += instance.OnReloadWeapon;
+            @ReloadWeapon.performed += instance.OnReloadWeapon;
+            @ReloadWeapon.canceled += instance.OnReloadWeapon;
         }
 
         private void UnregisterCallbacks(IOnFeetActions instance)
@@ -396,6 +433,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @WeaponSwitch.started -= instance.OnWeaponSwitch;
             @WeaponSwitch.performed -= instance.OnWeaponSwitch;
             @WeaponSwitch.canceled -= instance.OnWeaponSwitch;
+            @ReloadWeapon.started -= instance.OnReloadWeapon;
+            @ReloadWeapon.performed -= instance.OnReloadWeapon;
+            @ReloadWeapon.canceled -= instance.OnReloadWeapon;
         }
 
         public void RemoveCallbacks(IOnFeetActions instance)
@@ -420,5 +460,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnShootThrowable(InputAction.CallbackContext context);
         void OnWeaponSwitch(InputAction.CallbackContext context);
+        void OnReloadWeapon(InputAction.CallbackContext context);
     }
 }

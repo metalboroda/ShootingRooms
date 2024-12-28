@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WeaponName>k__BackingField: Pistol Revolver
   <Damage>k__BackingField: 100
-  <PrpojectileSpeed>k__BackingField: 100
   <AttackRate>k__BackingField: 0.5
+  <Range>k__BackingField: 100
+  <PrpojectileSpeed>k__BackingField: 100
   <Spread>k__BackingField: 1
   <ProjectilesPerShot>k__BackingField: 1
-  <Range>k__BackingField: 100
-  <WeaponAnimationData>k__BackingField: {fileID: 11400000, guid: fe76aea992af5ed42995e4025f82479e,
-    type: 2}
+  <MaxAmmoCapacity>k__BackingField: 30
+  <ClipCapacity>k__BackingField: 6

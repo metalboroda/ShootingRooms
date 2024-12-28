@@ -4,7 +4,7 @@ public class PlayerRaycastProviderComponent
 {
     private readonly LayerMask _aimLayer;
     private readonly LayerMask _ignoreLayer;
-    private readonly float _defaultRayDistance;
+    private readonly float _defaultRayDistance = 100f;
 
     private readonly Camera _mainCamera;
 
@@ -22,7 +22,7 @@ public class PlayerRaycastProviderComponent
 
         if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, _aimLayer))
         {
-            if (!IsIgnoredLayer(hit.collider.gameObject.layer))
+            if (IsIgnoredLayer(hit.collider.gameObject.layer) == false)
             {
                 return hit.point;
             }

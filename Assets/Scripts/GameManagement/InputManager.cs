@@ -23,7 +23,10 @@ namespace Assets.Scripts.GameManagement
             _playerControls.OnFeet.Look.canceled += OnLookCanceled;
             _playerControls.OnFeet.ShootThrowable.performed += OnShootThrowable;
             _playerControls.OnFeet.WeaponSwitch.performed += OnWeaponSwitchPerformed;
+            _playerControls.OnFeet.ReloadWeapon.performed += OnReloadWeaponPerformed;
         }
+
+
 
         private void OnDisable()
         {
@@ -33,6 +36,7 @@ namespace Assets.Scripts.GameManagement
             _playerControls.OnFeet.Look.canceled -= OnLookCanceled;
             _playerControls.OnFeet.ShootThrowable.performed -= OnShootThrowable;
             _playerControls.OnFeet.WeaponSwitch.performed -= OnWeaponSwitchPerformed;
+            _playerControls.OnFeet.ReloadWeapon.performed -= OnReloadWeaponPerformed;
 
             _playerControls.OnFeet.Disable();
         }
@@ -88,6 +92,11 @@ namespace Assets.Scripts.GameManagement
             {
                 Axis = new Vector2(0, ctx.ReadValue<Vector2>().y)
             });
+        }
+
+        private void OnReloadWeaponPerformed(InputAction.CallbackContext obj)
+        {
+            EventBus<Events.ReloadWeaponPressed>.Raise(new Events.ReloadWeaponPressed());
         }
     }
 }

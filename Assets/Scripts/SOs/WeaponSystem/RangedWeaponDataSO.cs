@@ -8,5 +8,9 @@ namespace Assets.Scripts.SOs.WeaponSystem
         [field: SerializeField] public int PrpojectileSpeed { get; private set; }
         [field: SerializeField] public float Spread { get; private set; }
         [field: SerializeField] public int ProjectilesPerShot { get; private set; }
+
+        [field: Header("Ammo Settings")]
+        [field: SerializeField] public int MaxAmmoCapacity { get; private set; }
+        [field: SerializeField] public int ClipCapacity { get; private set; }
     }
 }

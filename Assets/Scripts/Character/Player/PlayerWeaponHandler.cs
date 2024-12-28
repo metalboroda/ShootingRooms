@@ -31,6 +31,7 @@ namespace Assets.Scripts.Character.Player
         private EventBinding<Events.ShootPressed> _shootPressed;
         private EventBinding<Events.ShootThrowablePressed> _shootThrowablePressed;
         private EventBinding<Events.ScrollInput> _scrollInput;
+        private EventBinding<Events.ReloadWeaponPressed> _reloadWeaponPressed;
 
         private void Awake()
         {
@@ -50,6 +51,8 @@ namespace Assets.Scripts.Character.Player
             EventBus<Events.ShootThrowablePressed>.Register(_shootThrowablePressed);
             _scrollInput = new EventBinding<Events.ScrollInput>(OnScrollInput);
             EventBus<Events.ScrollInput>.Register(_scrollInput);
+            _reloadWeaponPressed = new EventBinding<Events.ReloadWeaponPressed>(OnReloadWeaponPressed);
+            EventBus<Events.ReloadWeaponPressed>.Register(_reloadWeaponPressed);
         }
 
         private void OnDisable()
@@ -57,6 +60,7 @@ namespace Assets.Scripts.Character.Player
             EventBus<Events.ShootPressed>.Unregister(_shootPressed);
             EventBus<Events.ShootThrowablePressed>.Unregister(_shootThrowablePressed);
             EventBus<Events.ScrollInput>.Unregister(_scrollInput);
+            EventBus<Events.ReloadWeaponPressed>.Unregister(_reloadWeaponPressed);
         }
 
         private void Start()
@@ -78,6 +82,13 @@ namespace Assets.Scripts.Character.Player
         private void OnScrollInput(Events.ScrollInput scrollInput)
         {
             HandleWeaponSwitching(scrollInput.Axis.y);
+        }
+
+        private void OnReloadWeaponPressed(Events.ReloadWeaponPressed reloadWeaponPressed)
+        {
+            RangedWeapon rangedWeapon = Weapon as RangedWeapon;
+
+            rangedWeapon.Reload();
         }
 
         private void HandleWeaponUsage()

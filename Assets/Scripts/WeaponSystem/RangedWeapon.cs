@@ -14,19 +14,25 @@ namespace Assets.Scripts.WeaponSystem
         [Space]
         [SerializeField] private GameObject projectilePrefab;
 
+        private int _currentClipCapacity;
+        private int _totalAmmo;
+
         private RangedWeaponDataSO _rangedWeaponData;
 
         private void Awake()
         {
             _rangedWeaponData = WeaponData as RangedWeaponDataSO;
+
+            if (_rangedWeaponData != null)
+            {
+                _currentClipCapacity = _rangedWeaponData.ClipCapacity;
+                _totalAmmo = _rangedWeaponData.MaxAmmoCapacity;
+            }
         }
 
         public override void Attack(Vector3 targetPosition)
         {
-            if (projectilePrefab == null || firePoint == null)
-            {
-                return;
-            }
+            if (projectilePrefab == null || firePoint == null || _currentClipCapacity <= 0) return;
 
             for (int i = 0; i < _rangedWeaponData.ProjectilesPerShot; i++)
             {
@@ -54,6 +60,19 @@ namespace Assets.Scripts.WeaponSystem
                     projectileComponent.Initialize(WeaponData.Damage, _rangedWeaponData.PrpojectileSpeed, WeaponData.Range);
                 }
             }
+
+            _currentClipCapacity--;
+        }
+
+        public void Reload()
+        {
+            if (_totalAmmo <= 0) return;
+
+            int neededAmmo = _rangedWeaponData.ClipCapacity - _currentClipCapacity;
+            int ammoToReload = Mathf.Min(neededAmmo, _totalAmmo);
+
+            _currentClipCapacity += ammoToReload;
+            _totalAmmo -= ammoToReload;
         }
     }
 }
