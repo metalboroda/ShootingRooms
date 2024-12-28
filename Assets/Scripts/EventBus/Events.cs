@@ -67,6 +67,12 @@ namespace Assets.Scripts.EventBus
         }
 
         public struct PlayerWeaponRecoiled : IEvent { }
+
+        public struct WeaponAmmoEvent : IEvent
+        {
+            public int CurrentAmmo;
+            public int MaxAmmo;
+        }
         #endregion
     }
 }

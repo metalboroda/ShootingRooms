@@ -27,6 +27,8 @@ namespace Assets.Scripts.WeaponSystem
             {
                 _currentClipCapacity = _rangedWeaponData.ClipCapacity;
                 _totalAmmo = _rangedWeaponData.MaxAmmoCapacity;
+
+                RaiseWeaponAmmoEvent();
             }
         }
 
@@ -62,6 +64,8 @@ namespace Assets.Scripts.WeaponSystem
             }
 
             _currentClipCapacity--;
+
+            RaiseWeaponAmmoEvent();
         }
 
         public void Reload()
@@ -73,6 +77,17 @@ namespace Assets.Scripts.WeaponSystem
 
             _currentClipCapacity += ammoToReload;
             _totalAmmo -= ammoToReload;
+
+            RaiseWeaponAmmoEvent();
+        }
+
+        private void RaiseWeaponAmmoEvent()
+        {
+            EventBus<Events.WeaponAmmoEvent>.Raise(new Events.WeaponAmmoEvent
+            {
+                CurrentAmmo = _currentClipCapacity,
+                MaxAmmo = _totalAmmo,
+            });
         }
     }
 }
