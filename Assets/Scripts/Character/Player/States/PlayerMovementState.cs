@@ -7,7 +7,7 @@ namespace Assets.Scripts.Character.Player.States
             CharacterControllerMovementComponent.HandleMovement(PlayerMovementHandler.MoveDirection);
             CharacterControllerMovementComponent.HandleLook(PlayerMovementHandler.LookDirection.x, PlayerMovementHandler.LookDirection.y);
             CharacterControllerMovementComponent.ApplyGravity();
-            CharacterControllerMovementComponent.ApplySlipChecking(CharacterControllerMovementComponent.IsGrounded());
+            CharacterControllerMovementComponent.ApplySlipChecking(CharacterControllerMovementComponent.IsGroundedRay());
         }
     }
 }

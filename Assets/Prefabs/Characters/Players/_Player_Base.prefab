@@ -355,7 +355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   lookSensitivity: 0.3
-  gravity: -19.62
+  gravity: -9.81
   groundLayer:
     serializedVersion: 2
     m_Bits: 9
@@ -363,7 +363,7 @@ MonoBehaviour:
   groundCheckRadius: 0.125
   groundCheckRayDistance: 0.5
   groundCheckOffset: {x: 0, y: 0.125, z: 0}
-  slipSpeed: 0.5
+  slipSpeed: 1
   wallCheckOffset: {x: 0.5, y: -0.125, z: 0.5}
   cameraTarget: {fileID: 4447062659055091367}
   groundCheckingPoint: {fileID: 6525858578286571576}
@@ -391,6 +391,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   weaponHolderContainer: {fileID: 5856488756848840201}
+  switchCooldown: 0.2
+  defaultRayDistance: 100
 --- !u!114 &3957323596414511208
 MonoBehaviour:
   m_ObjectHideFlags: 0

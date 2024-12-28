@@ -104,7 +104,7 @@ namespace Assets.Scripts.Character.Player
             LookDirection = lookInput.Axis;
         }
 
-        /*private void OnDrawGizmosSelected()
+        private void OnDrawGizmosSelected()
         {
             // Ground Checking
             Gizmos.color = Color.red;
@@ -116,11 +116,6 @@ namespace Assets.Scripts.Character.Player
             Gizmos.DrawWireSphere(groundCheckEnd, groundCheckRadius);
 
             // Grounded Ray
-            if (CharacterControllerMovementComponent != null)
-            {
-                Gizmos.color = CharacterControllerMovementComponent.IsGroundedRay() ? Color.green : Color.red;
-            }
-
             Gizmos.DrawRay(groundCheckStart, Vector3.down * groundCheckRayDistance);
 
             // Slip Checking
@@ -149,6 +144,6 @@ namespace Assets.Scripts.Character.Player
             Gizmos.DrawRay(_slipRayPosition, frontRight);
             Gizmos.DrawRay(_slipRayPosition, backLeft);
             Gizmos.DrawRay(_slipRayPosition, backRight);
-        }*/
+        }
     }
 }
