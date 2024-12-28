@@ -37,6 +37,11 @@ namespace Assets.Scripts.Character.Player
             _stateMachine.CurrentState?.FixedUpdate();
         }
 
+        private void LateUpdate()
+        {
+            _stateMachine.CurrentState?.LateUpdate();
+        }
+
         public void ChangeState<T>() where T : IState, new()
         {
             var newState = _stateFactory.GetState<T>();

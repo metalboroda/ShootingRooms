@@ -3564,10 +3564,10 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
+  m_UpdateMethod: 1
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
-    m_Style: 1
+    m_Style: 0
     m_Time: 2
     m_CustomCurve:
       serializedVersion: 2
@@ -10643,12 +10643,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 26
   m_Mesh: {fileID: -1843230256438530003, guid: 82351ef5ae908c544a7c617bf0829ece, type: 2}
---- !u!4 &999816914 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7842323084902462082, guid: 221028a2d75da8b4da21e623eed80951,
-    type: 3}
-  m_PrefabInstance: {fileID: 7830257908971717871}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1004367569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21259,7 +21253,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 999816914}
   - {fileID: 408706719}
   - {fileID: 2062316047}
   - {fileID: 2080203873}
@@ -25956,8 +25949,13 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1762270751}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3957323596414511208, guid: 221028a2d75da8b4da21e623eed80951,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3957323596414511208, guid: 221028a2d75da8b4da21e623eed80951,
         type: 3}
       propertyPath: shakeDelay
@@ -25966,6 +25964,11 @@ PrefabInstance:
     - target: {fileID: 3957323596414511208, guid: 221028a2d75da8b4da21e623eed80951,
         type: 3}
       propertyPath: returnSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534587900478124500, guid: 221028a2d75da8b4da21e623eed80951,
+        type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5534587900478124500, guid: 221028a2d75da8b4da21e623eed80951,
@@ -25986,7 +25989,7 @@ PrefabInstance:
     - target: {fileID: 7842323084902462082, guid: 221028a2d75da8b4da21e623eed80951,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7842323084902462082, guid: 221028a2d75da8b4da21e623eed80951,
         type: 3}
@@ -26051,3 +26054,4 @@ SceneRoots:
   - {fileID: 1445751804}
   - {fileID: 1762270751}
   - {fileID: 1015358957}
+  - {fileID: 7830257908971717871}

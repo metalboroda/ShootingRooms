@@ -106,11 +106,6 @@ namespace Assets.Scripts.Components.Character
             return this;
         }
 
-        // Public Methods
-
-        /// <summary>
-        /// Handles player movement based on input.
-        /// </summary>
         public void HandleMovement(Vector2 inputDirection)
         {
             if (_characterController == null) return;
@@ -123,9 +118,6 @@ namespace Assets.Scripts.Components.Character
             _characterController.Move(moveDirection * Time.deltaTime);
         }
 
-        /// <summary>
-        /// Handles player look rotation based on mouse input.
-        /// </summary>
         public void HandleLook(float mouseDeltaX, float mouseDeltaY)
         {
             if (_characterController == null || _cameraTarget == null) return;
@@ -138,9 +130,6 @@ namespace Assets.Scripts.Components.Character
             _cameraTarget.localEulerAngles = new Vector3(_verticalLookRotation, 0f, 0f);
         }
 
-        /// <summary>
-        /// Applies gravity to the character.
-        /// </summary>
         public void ApplyGravity()
         {
             if (_characterController == null || _characterController.isGrounded)
@@ -155,9 +144,6 @@ namespace Assets.Scripts.Components.Character
             _characterController.Move(_velocity * Time.deltaTime);
         }
 
-        /// <summary>
-        /// Checks if the character is grounded using capsule check.
-        /// </summary>
         public bool IsGrounded()
         {
             Vector3 groundCheckStart = _characterController.transform.position + _groundCheckOffset;
@@ -167,9 +153,6 @@ namespace Assets.Scripts.Components.Character
                 groundCheckStart, groundCheckEnd, _groundCheckRadius, _groundLayer);
         }
 
-        /// <summary>
-        /// Checks if the character is grounded using raycast.
-        /// </summary>
         public bool IsGroundedRay()
         {
             Vector3 groundCheckStart = _characterController.transform.position + _groundCheckOffset;
@@ -178,9 +161,6 @@ namespace Assets.Scripts.Components.Character
                 groundCheckStart, Vector3.down, _groundCheckRayDistance, _groundLayer);
         }
 
-        /// <summary>
-        /// Checks for slip and applies movement to counteract it.
-        /// </summary>
         public void ApplySlipChecking(bool isGrounded)
         {
             if (isGrounded == true) return;
@@ -220,11 +200,6 @@ namespace Assets.Scripts.Components.Character
             }
         }
 
-        // Private Methods
-
-        /// <summary>
-        /// Moves character in the direction of the slip.
-        /// </summary>
         private void HitForSlip(Vector3 slipDirection)
         {
             _characterController.Move(((slipDirection * _slipSpeed) + Vector3.down) * Time.deltaTime);
