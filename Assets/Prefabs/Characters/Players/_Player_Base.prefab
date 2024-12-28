@@ -382,6 +382,7 @@ MonoBehaviour:
   weaponPrefabs:
   - {fileID: 882974304889732845, guid: 8662105f62a8b1b49a360de532c318e9, type: 3}
   - {fileID: 882974304889732845, guid: 6c504070eae9adf4ba02a730fbf0ccdd, type: 3}
+  throwablePrefabs:
   - {fileID: 5430458379595797348, guid: b021df52827c83f4cafe204881656061, type: 3}
   aimLayer:
     serializedVersion: 2

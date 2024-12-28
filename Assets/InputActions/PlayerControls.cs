@@ -55,6 +55,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""ShootThrowable"",
+                    ""type"": ""Button"",
+                    ""id"": ""12ea99a5-d39e-4427-b16f-6765e5069ff9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""WeaponSwitch"",
                     ""type"": ""Value"",
                     ""id"": ""458aa38d-6cd7-4f77-a7c8-89529b214826"",
@@ -240,6 +249,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""WeaponSwitch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0d6990bd-e8d2-4b09-940b-e2322ccc72fa"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShootThrowable"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -251,6 +271,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_OnFeet_Move = m_OnFeet.FindAction("Move", throwIfNotFound: true);
         m_OnFeet_Look = m_OnFeet.FindAction("Look", throwIfNotFound: true);
         m_OnFeet_Shoot = m_OnFeet.FindAction("Shoot", throwIfNotFound: true);
+        m_OnFeet_ShootThrowable = m_OnFeet.FindAction("ShootThrowable", throwIfNotFound: true);
         m_OnFeet_WeaponSwitch = m_OnFeet.FindAction("WeaponSwitch", throwIfNotFound: true);
     }
 
@@ -321,6 +342,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_OnFeet_Move;
     private readonly InputAction m_OnFeet_Look;
     private readonly InputAction m_OnFeet_Shoot;
+    private readonly InputAction m_OnFeet_ShootThrowable;
     private readonly InputAction m_OnFeet_WeaponSwitch;
     public struct OnFeetActions
     {
@@ -329,6 +351,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_OnFeet_Move;
         public InputAction @Look => m_Wrapper.m_OnFeet_Look;
         public InputAction @Shoot => m_Wrapper.m_OnFeet_Shoot;
+        public InputAction @ShootThrowable => m_Wrapper.m_OnFeet_ShootThrowable;
         public InputAction @WeaponSwitch => m_Wrapper.m_OnFeet_WeaponSwitch;
         public InputActionMap Get() { return m_Wrapper.m_OnFeet; }
         public void Enable() { Get().Enable(); }
@@ -348,6 +371,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @ShootThrowable.started += instance.OnShootThrowable;
+            @ShootThrowable.performed += instance.OnShootThrowable;
+            @ShootThrowable.canceled += instance.OnShootThrowable;
             @WeaponSwitch.started += instance.OnWeaponSwitch;
             @WeaponSwitch.performed += instance.OnWeaponSwitch;
             @WeaponSwitch.canceled += instance.OnWeaponSwitch;
@@ -364,6 +390,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @ShootThrowable.started -= instance.OnShootThrowable;
+            @ShootThrowable.performed -= instance.OnShootThrowable;
+            @ShootThrowable.canceled -= instance.OnShootThrowable;
             @WeaponSwitch.started -= instance.OnWeaponSwitch;
             @WeaponSwitch.performed -= instance.OnWeaponSwitch;
             @WeaponSwitch.canceled -= instance.OnWeaponSwitch;
@@ -389,6 +418,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnShootThrowable(InputAction.CallbackContext context);
         void OnWeaponSwitch(InputAction.CallbackContext context);
     }
 }

@@ -18,6 +18,6 @@ MonoBehaviour:
   <Range>k__BackingField: 100
   <PrpojectileSpeed>k__BackingField: 25
   <Spread>k__BackingField: 1
-  <ExplosionTime>k__BackingField: 5
+  <ExplosionTime>k__BackingField: 3.5
   <Radius>k__BackingField: 5
   <ExplosionPower>k__BackingField: 50

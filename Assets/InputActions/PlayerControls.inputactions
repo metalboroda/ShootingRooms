@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "ShootThrowable",
+                    "type": "Button",
+                    "id": "12ea99a5-d39e-4427-b16f-6765e5069ff9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "WeaponSwitch",
                     "type": "Value",
                     "id": "458aa38d-6cd7-4f77-a7c8-89529b214826",
@@ -218,6 +227,17 @@
                     "action": "WeaponSwitch",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "0d6990bd-e8d2-4b09-940b-e2322ccc72fa",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShootThrowable",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

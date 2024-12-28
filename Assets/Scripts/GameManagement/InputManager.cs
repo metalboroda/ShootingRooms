@@ -21,6 +21,7 @@ namespace Assets.Scripts.GameManagement
             _playerControls.OnFeet.Move.canceled += OnMoveCanceled;
             _playerControls.OnFeet.Look.performed += OnLookPerformed;
             _playerControls.OnFeet.Look.canceled += OnLookCanceled;
+            _playerControls.OnFeet.ShootThrowable.performed += OnShootThrowable;
             _playerControls.OnFeet.WeaponSwitch.performed += OnWeaponSwitchPerformed;
         }
 
@@ -30,6 +31,7 @@ namespace Assets.Scripts.GameManagement
             _playerControls.OnFeet.Move.canceled -= OnMoveCanceled;
             _playerControls.OnFeet.Look.performed -= OnLookPerformed;
             _playerControls.OnFeet.Look.canceled -= OnLookCanceled;
+            _playerControls.OnFeet.ShootThrowable.performed -= OnShootThrowable;
             _playerControls.OnFeet.WeaponSwitch.performed -= OnWeaponSwitchPerformed;
 
             _playerControls.OnFeet.Disable();
@@ -73,6 +75,11 @@ namespace Assets.Scripts.GameManagement
             {
                 Axis = Vector2.zero
             });
+        }
+
+        private void OnShootThrowable(InputAction.CallbackContext ctx)
+        {
+            EventBus<Events.ShootThrowablePressed>.Raise(new Events.ShootThrowablePressed());
         }
 
         private void OnWeaponSwitchPerformed(InputAction.CallbackContext ctx)

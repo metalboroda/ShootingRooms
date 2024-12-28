@@ -17,6 +17,7 @@ namespace Assets.Scripts.EventBus
         }
 
         public struct ShootPressed : IEvent { }
+        public struct ShootThrowablePressed : IEvent { }
 
         public struct ScrollInput : IEvent
         {
