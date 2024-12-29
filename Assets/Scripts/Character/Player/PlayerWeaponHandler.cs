@@ -3,6 +3,7 @@ using Assets.Scripts.EventBus;
 using Assets.Scripts.WeaponSystem;
 using System.Collections.Generic;
 using UnityEngine;
+using WeaponSystem;
 
 namespace Assets.Scripts.Character.Player
 {

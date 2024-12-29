@@ -1,20 +1,22 @@
 using Assets.Scripts.EventBus;
+using Components.Audio;
 using UnityEngine;
 
-namespace Assets.Scripts.WeaponSystem
+namespace WeaponSystem
 {
     [RequireComponent(typeof(AudioSource))]
     public class WeaponAudioHandler : MonoBehaviour
     {
         [SerializeField] private AudioClip shotClip;
 
-        private AudioSource _audioSource;
+        private AudioComponent _audioComponent;
 
         private EventBinding<Events.WeaponUsed> _weaponUsed;
 
         private void Awake()
         {
-            _audioSource = GetComponent<AudioSource>();
+            _audioComponent = new AudioComponent()
+                .SetAudioSource(GetComponent<AudioSource>());
         }
 
         private void OnEnable()
@@ -32,19 +34,7 @@ namespace Assets.Scripts.WeaponSystem
         {
             if (weaponUsed.ID != transform.GetInstanceID()) return;
 
-            PlayClipOneShot(shotClip, true);
-        }
-
-        private void PlayClipOneShot(AudioClip audioClip, bool randomPitch = false)
-        {
-            float newPitch = Random.Range(0.99f, 1.01f);
-
-            if (randomPitch == true)
-            {
-                _audioSource.pitch = newPitch;
-            }
-
-            _audioSource.PlayOneShot(audioClip);
+            _audioComponent.PlayClipOneShot(shotClip, true);
         }
     }
 }

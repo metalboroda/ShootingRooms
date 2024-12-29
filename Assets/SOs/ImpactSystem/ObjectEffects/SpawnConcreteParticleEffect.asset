@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c4e0d952cb8b444aaa2fe9f89fa3b29, type: 3}
   m_Name: SpawnConcreteParticleEffect
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 108086, guid: 547c2e12da8d4214098216299e70a3ba, type: 3}
+  Prefab: {fileID: 108086, guid: e4ed01af280d76248a9d0e72030c40c6, type: 3}
   Probability: 1
   RandomizeRotation: 0
   RandomizedRotationMultiplier: {x: 0, y: 0, z: 0}

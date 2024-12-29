@@ -1,23 +1,20 @@
 ﻿using Assets.Scripts.Enums;
 using Assets.Scripts.EventBus;
 using Assets.Scripts.Interfaces;
-using UltimatePooling;
+using Lean.Pool;
 using UnityEngine;
 
-namespace Assets.Scripts.Character
+namespace Character
 {
     public class CharacterHitboxHandler : MonoBehaviour, IDamageable
     {
         [SerializeField] private HitboxType hitboxType;
-        [Space]
-        [SerializeField] private float minDamageModifier = 0.1f;
+        [Space] [SerializeField] private float minDamageModifier = 0.1f;
         [SerializeField] private float maxDamageModifier = 1f;
 
-        [Header("")]
-        [SerializeField] private GameObject parentObject;
+        [Header("")] [SerializeField] private GameObject parentObject;
 
-        [Header("VFX")]
-        [SerializeField] private GameObject bulletDamagePrefab;
+        [Header("VFX")] [SerializeField] private GameObject bulletDamagePrefab;
         [SerializeField] private GameObject woundPrefab;
 
         private int _instanceID;
@@ -45,12 +42,12 @@ namespace Assets.Scripts.Character
 
             if (bulletDamagePrefab != null && damageType == DamageType.Bullet)
             {
-                UltimatePool.spawn(bulletDamagePrefab, hitPoint, Quaternion.identity);
+                LeanPool.Spawn(bulletDamagePrefab, hitPoint, Quaternion.identity);
             }
 
             if (woundPrefab != null)
             {
-                GameObject wound = UltimatePool.spawn(woundPrefab, hitPoint, Quaternion.identity);
+                GameObject wound = LeanPool.Spawn(woundPrefab, hitPoint, Quaternion.identity);
 
                 wound.transform.SetParent(transform);
             }

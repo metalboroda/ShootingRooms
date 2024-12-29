@@ -316,16 +316,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 18606750}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79e6443fb8e29bc48a3ff533cc8558b2, type: 3}
+  m_Script: {fileID: 11500000, guid: eea08375da243a441b88d1e6b0713006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prewarmPool: 1
-  prewarmAmount: 20
-  prewarmPerFrame: 10
-  maxAmount: 25
-  parentInstances: 1
-  eventType: 0
   prefab: {fileID: 4381208383224205770, guid: 2e29926f24e8aff40b353b681e16d935, type: 3}
+  notification: 3
+  strategy: 0
+  preload: 10
+  capacity: 25
+  recycle: 1
+  persist: 0
+  stamp: 0
+  warnings: 1
+  spawnedClonesList: []
+  despawnedClones: []
+  delays: []
+  deactivatedChild: {fileID: 0}
 --- !u!1001 &19423729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8661,7 +8667,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 736801818}
-  - component: {fileID: 736801817}
+  - component: {fileID: 736801819}
   m_Layer: 0
   m_Name: ProjectilePool
   m_TagString: Untagged
@@ -8669,25 +8675,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &736801817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 736801816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79e6443fb8e29bc48a3ff533cc8558b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prewarmPool: 1
-  prewarmAmount: 20
-  prewarmPerFrame: 10
-  maxAmount: 100
-  parentInstances: 1
-  eventType: 0
-  prefab: {fileID: 1727652138600509814, guid: be404feaa0f2a6341a941a1a79b41892, type: 3}
 --- !u!4 &736801818
 Transform:
   m_ObjectHideFlags: 0
@@ -8703,6 +8690,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 903437339}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &736801819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736801816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea08375da243a441b88d1e6b0713006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1727652138600509814, guid: be404feaa0f2a6341a941a1a79b41892, type: 3}
+  notification: 3
+  strategy: 0
+  preload: 50
+  capacity: 250
+  recycle: 1
+  persist: 0
+  stamp: 0
+  warnings: 1
+  spawnedClonesList: []
+  despawnedClones: []
+  delays: []
+  deactivatedChild: {fileID: 0}
 --- !u!43 &738098191
 Mesh:
   m_ObjectHideFlags: 0
@@ -8877,9 +8889,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 781147847}
-  - component: {fileID: 781147848}
-  - component: {fileID: 781147849}
-  - component: {fileID: 781147850}
+  - component: {fileID: 781147852}
+  - component: {fileID: 781147853}
+  - component: {fileID: 781147854}
+  - component: {fileID: 781147855}
   m_Layer: 0
   m_Name: ImpactSystemPool
   m_TagString: Untagged
@@ -8902,7 +8915,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 903437339}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &781147848
+--- !u!114 &781147852
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8911,17 +8924,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 781147846}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79e6443fb8e29bc48a3ff533cc8558b2, type: 3}
+  m_Script: {fileID: 11500000, guid: eea08375da243a441b88d1e6b0713006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prewarmPool: 1
-  prewarmAmount: 20
-  prewarmPerFrame: 10
-  maxAmount: 25
-  parentInstances: 1
-  eventType: 0
   prefab: {fileID: 108086, guid: e4ed01af280d76248a9d0e72030c40c6, type: 3}
---- !u!114 &781147849
+  notification: 3
+  strategy: 0
+  preload: 10
+  capacity: 25
+  recycle: 1
+  persist: 0
+  stamp: 0
+  warnings: 1
+  spawnedClonesList: []
+  despawnedClones: []
+  delays: []
+  deactivatedChild: {fileID: 0}
+--- !u!114 &781147853
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8930,17 +8949,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 781147846}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79e6443fb8e29bc48a3ff533cc8558b2, type: 3}
+  m_Script: {fileID: 11500000, guid: eea08375da243a441b88d1e6b0713006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prewarmPool: 1
-  prewarmAmount: 20
-  prewarmPerFrame: 10
-  maxAmount: 25
-  parentInstances: 1
-  eventType: 0
   prefab: {fileID: 180772, guid: 52aa1f2e1567b6e47b50df0d054982a7, type: 3}
---- !u!114 &781147850
+  notification: 3
+  strategy: 0
+  preload: 10
+  capacity: 25
+  recycle: 1
+  persist: 0
+  stamp: 0
+  warnings: 1
+  spawnedClonesList: []
+  despawnedClones: []
+  delays: []
+  deactivatedChild: {fileID: 0}
+--- !u!114 &781147854
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8949,16 +8974,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 781147846}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79e6443fb8e29bc48a3ff533cc8558b2, type: 3}
+  m_Script: {fileID: 11500000, guid: eea08375da243a441b88d1e6b0713006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prewarmPool: 1
-  prewarmAmount: 20
-  prewarmPerFrame: 10
-  maxAmount: 25
-  parentInstances: 1
-  eventType: 0
+  prefab: {fileID: 186004, guid: 1fad06db51ffb86458cb3de2b4fc05c2, type: 3}
+  notification: 3
+  strategy: 0
+  preload: 10
+  capacity: 25
+  recycle: 1
+  persist: 0
+  stamp: 0
+  warnings: 1
+  spawnedClonesList: []
+  despawnedClones: []
+  delays: []
+  deactivatedChild: {fileID: 0}
+--- !u!114 &781147855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781147846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea08375da243a441b88d1e6b0713006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   prefab: {fileID: 6668225457367407552, guid: 875289d6becc47f43851330ba4d7831d, type: 3}
+  notification: 3
+  strategy: 0
+  preload: 10
+  capacity: 25
+  recycle: 1
+  persist: 0
+  stamp: 0
+  warnings: 1
+  spawnedClonesList: []
+  despawnedClones: []
+  delays: []
+  deactivatedChild: {fileID: 0}
 --- !u!54 &781256265
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17655,16 +17711,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1469847270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79e6443fb8e29bc48a3ff533cc8558b2, type: 3}
+  m_Script: {fileID: 11500000, guid: eea08375da243a441b88d1e6b0713006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prewarmPool: 1
-  prewarmAmount: 20
-  prewarmPerFrame: 10
-  maxAmount: 25
-  parentInstances: 1
-  eventType: 0
   prefab: {fileID: 5028806422025081559, guid: 80afd235737dc23479dcd00a0da33b79, type: 3}
+  notification: 3
+  strategy: 0
+  preload: 10
+  capacity: 25
+  recycle: 1
+  persist: 0
+  stamp: 0
+  warnings: 1
+  spawnedClonesList: []
+  despawnedClones: []
+  delays: []
+  deactivatedChild: {fileID: 0}
 --- !u!54 &1479158547
 Rigidbody:
   m_ObjectHideFlags: 0

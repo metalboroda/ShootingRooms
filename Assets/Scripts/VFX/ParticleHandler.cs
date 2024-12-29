@@ -1,20 +1,20 @@
-using UltimatePooling;
+using Lean.Pool;
 using UnityEngine;
 
-namespace Assets.Scripts.VFX
+namespace VFX
 {
-  public class ParticleHandler : MonoBehaviour
-  {
-    private ParticleSystem _particleSystem;
-
-    private void Awake()
+    public class ParticleHandler : MonoBehaviour
     {
-      _particleSystem = GetComponent<ParticleSystem>();
-    }
+        private ParticleSystem _particleSystem;
 
-    private void OnParticleSystemStopped()
-    {
-      UltimatePool.despawn(gameObject);
+        private void Awake()
+        {
+            _particleSystem = GetComponent<ParticleSystem>();
+        }
+
+        private void OnParticleSystemStopped()
+        {
+            LeanPool.Despawn(gameObject);
+        }
     }
-  }
 }

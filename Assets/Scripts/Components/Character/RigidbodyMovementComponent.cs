@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.Scripts.Components.Character
+namespace Components.Character
 {
     public class RigidbodyMovementComponent
     {

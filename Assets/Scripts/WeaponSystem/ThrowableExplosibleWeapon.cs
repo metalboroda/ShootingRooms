@@ -1,11 +1,12 @@
-﻿using Assets.Scripts.Enums;
+﻿using System.Collections;
+using Assets.Scripts.Enums;
 using Assets.Scripts.Interfaces;
 using Assets.Scripts.SOs.WeaponSystem;
-using System.Collections;
-using UltimatePooling;
+using Assets.Scripts.WeaponSystem;
+using Lean.Pool;
 using UnityEngine;
 
-namespace Assets.Scripts.WeaponSystem
+namespace WeaponSystem
 {
     [RequireComponent(typeof(Rigidbody))]
     public class ThrowableExplosibleWeapon : WeaponBase
@@ -15,9 +16,9 @@ namespace Assets.Scripts.WeaponSystem
         [Space]
         [SerializeField] private LayerMask obstacleLayer;
 
-        private static readonly Collider[] _hitColliders = new Collider[50];
+        private static readonly Collider[] HitColliders = new Collider[50];
 
-        private ThrowableExplosibleDataSO throwableExplosibleData;
+        private ThrowableExplosibleDataSO _throwableExplosibleData;
 
         private Rigidbody _rigidbody;
         private MeshCollider _meshCollider;
@@ -27,7 +28,7 @@ namespace Assets.Scripts.WeaponSystem
             _rigidbody = GetComponent<Rigidbody>();
             _meshCollider = GetComponent<MeshCollider>();
 
-            throwableExplosibleData = WeaponData as ThrowableExplosibleDataSO;
+            _throwableExplosibleData = WeaponData as ThrowableExplosibleDataSO;
         }
 
         private void Start()
@@ -37,20 +38,20 @@ namespace Assets.Scripts.WeaponSystem
 
         public override void Attack(Vector3 targetPosition)
         {
-            if (_rigidbody == null || throwableExplosibleData == null) return;
+            if (_rigidbody == null || _throwableExplosibleData == null) return;
 
             transform.parent = null;
             _rigidbody.isKinematic = false;
 
             Vector3 throwDirection = (targetPosition - transform.position).normalized;
 
-            float horizontalSpread = Random.Range(-throwableExplosibleData.Spread, throwableExplosibleData.Spread);
-            float verticalSpread = Random.Range(-throwableExplosibleData.Spread, throwableExplosibleData.Spread);
+            float horizontalSpread = Random.Range(-_throwableExplosibleData.Spread, _throwableExplosibleData.Spread);
+            float verticalSpread = Random.Range(-_throwableExplosibleData.Spread, _throwableExplosibleData.Spread);
 
             throwDirection = Quaternion.AngleAxis(horizontalSpread, Vector3.up) * throwDirection;
             throwDirection = Quaternion.AngleAxis(verticalSpread, Vector3.right) * throwDirection;
 
-            _rigidbody.velocity = throwDirection * throwableExplosibleData.PrpojectileSpeed;
+            _rigidbody.velocity = throwDirection * _throwableExplosibleData.PrpojectileSpeed;
 
             StartCoroutine(DoEnableCollider());
             StartCoroutine(DoExplode());
@@ -68,49 +69,49 @@ namespace Assets.Scripts.WeaponSystem
 
         private IEnumerator DoExplode()
         {
-            yield return new WaitForSeconds(throwableExplosibleData.ExplosionTime);
+            yield return new WaitForSeconds(_throwableExplosibleData.ExplosionTime);
 
-            int hitCount = Physics.OverlapSphereNonAlloc(transform.position, throwableExplosibleData.Radius, _hitColliders);
+            int hitCount = Physics.OverlapSphereNonAlloc(transform.position, _throwableExplosibleData.Radius, HitColliders);
 
             for (int i = 0; i < hitCount; i++)
             {
-                Collider collider = _hitColliders[i];
+                Collider hitCollider = HitColliders[i];
 
-                float distanceToCenter = Vector3.Distance(transform.position, collider.transform.position);
-                float distanceFactor = Mathf.Clamp01(1 - (distanceToCenter / throwableExplosibleData.Radius));
+                float distanceToCenter = Vector3.Distance(transform.position, hitCollider.transform.position);
+                float distanceFactor = Mathf.Clamp01(1 - (distanceToCenter / _throwableExplosibleData.Radius));
 
-                Vector3 directionToTarget = (collider.transform.position - transform.position).normalized;
+                Vector3 directionToTarget = (hitCollider.transform.position - transform.position).normalized;
 
-                if (Physics.Raycast(transform.position, directionToTarget, out RaycastHit forceHit, throwableExplosibleData.Radius, obstacleLayer))
+                if (Physics.Raycast(transform.position, directionToTarget, out RaycastHit forceHit, _throwableExplosibleData.Radius, obstacleLayer))
                 {
-                    if (forceHit.collider != collider) continue;
+                    if (forceHit.collider != hitCollider) continue;
                 }
 
-                if (collider.attachedRigidbody != null)
+                if (hitCollider.attachedRigidbody != null)
                 {
-                    collider.attachedRigidbody.AddExplosionForce(
-                        throwableExplosibleData.ExplosionPower * distanceFactor,
+                    hitCollider.attachedRigidbody.AddExplosionForce(
+                        _throwableExplosibleData.ExplosionPower * distanceFactor,
                         transform.position,
-                        throwableExplosibleData.Radius,
+                        _throwableExplosibleData.Radius,
                         1.0f,
                         ForceMode.Impulse
                     );
                 }
 
-                if (collider.TryGetComponent<IDamageable>(out var damageable))
+                if (hitCollider.TryGetComponent<IDamageable>(out var damageable))
                 {
-                    if (Physics.Raycast(transform.position, directionToTarget, out RaycastHit damageHit, throwableExplosibleData.Radius, obstacleLayer))
+                    if (Physics.Raycast(transform.position, directionToTarget, out RaycastHit damageHit, _throwableExplosibleData.Radius, obstacleLayer))
                     {
-                        if (damageHit.collider != collider) continue;
+                        if (damageHit.collider != hitCollider) continue;
                     }
 
-                    int scaledDamage = Mathf.RoundToInt(throwableExplosibleData.Damage * distanceFactor);
+                    int scaledDamage = Mathf.RoundToInt(_throwableExplosibleData.Damage * distanceFactor);
 
-                    damageable.Damage(scaledDamage, collider.transform.position, DamageType.Explosion);
+                    damageable.Damage(scaledDamage, hitCollider.transform.position, DamageType.Explosion);
                 }
             }
 
-            GameObject spawnedExplosion = UltimatePool.spawn(explosionPrefab, transform.position, Quaternion.identity);
+            GameObject spawnedExplosion = LeanPool.Spawn(explosionPrefab, transform.position, Quaternion.identity);
 
             spawnedExplosion.transform.parent = null;
 

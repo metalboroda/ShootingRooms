@@ -1,9 +1,10 @@
 ﻿using Assets.Scripts.EventBus;
 using Assets.Scripts.SOs.WeaponSystem;
-using UltimatePooling;
+using Assets.Scripts.WeaponSystem;
+using Lean.Pool;
 using UnityEngine;
 
-namespace Assets.Scripts.WeaponSystem
+namespace WeaponSystem
 {
     public class RangedWeapon : WeaponBase
     {
@@ -55,7 +56,7 @@ namespace Assets.Scripts.WeaponSystem
 
                 muzzleFlash.Play();
 
-                GameObject projectile = UltimatePool.spawn(projectilePrefab, firePoint.position, finalRotation);
+                GameObject projectile = LeanPool.Spawn(projectilePrefab, firePoint.position, finalRotation);
 
                 if (projectile.TryGetComponent<Projectile>(out var projectileComponent))
                 {
