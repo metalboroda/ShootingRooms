@@ -1,23 +1,26 @@
-﻿using Assets.Scripts.Components.Character;
+﻿using System.Collections.Generic;
+using Assets.Scripts.Components.Character;
 using Assets.Scripts.EventBus;
 using Assets.Scripts.WeaponSystem;
-using System.Collections.Generic;
+using Components.Character;
+using EventBus;
 using UnityEngine;
 using WeaponSystem;
 
-namespace Assets.Scripts.Character.Player
+namespace Character.Player
 {
     public class PlayerWeaponHandler : MonoBehaviour
     {
         [SerializeField] private List<GameObject> weaponPrefabs = new List<GameObject>();
         [SerializeField] private List<GameObject> throwablePrefabs = new List<GameObject>();
 
-        [Header("Weapon Layers")]
-        [SerializeField] private LayerMask aimLayer;
+        [Header("Weapon Layers")] [SerializeField]
+        private LayerMask aimLayer;
+
         [SerializeField] private LayerMask ignoreLayer;
 
-        [Header("Weapon Settings")]
-        [SerializeField] private Transform weaponHolderContainer;
+        [Header("Weapon Settings")] [SerializeField]
+        private Transform weaponHolderContainer;
 
         [SerializeField] private float switchCooldown = 0.2f;
         [SerializeField] private float defaultRayDistance = 100f;
@@ -36,8 +39,9 @@ namespace Assets.Scripts.Character.Player
 
         private void Awake()
         {
-            _raycastProvider = new PlayerRaycastProviderComponent(Camera.main, aimLayer, ignoreLayer, defaultRayDistance);
-            _weaponController = new CharacterWeaponControllerComponent(weaponPrefabs, weaponHolderContainer);
+            _raycastProvider =
+                new PlayerRaycastProviderComponent(Camera.main, aimLayer, ignoreLayer, defaultRayDistance);
+            _weaponController = new CharacterWeaponControllerComponent(weaponPrefabs, weaponHolderContainer, transform);
             _throwableController = new CharacterThrowableControllerComponent(throwablePrefabs, weaponHolderContainer);
             _weaponSwitcher = new CharacterWeaponSwitcherComponent(_weaponController, switchCooldown);
 
@@ -89,7 +93,10 @@ namespace Assets.Scripts.Character.Player
         {
             RangedWeapon rangedWeapon = Weapon as RangedWeapon;
 
-            rangedWeapon.Reload();
+            if (rangedWeapon != null)
+            {
+                rangedWeapon.Reload();
+            }
         }
 
         private void HandleWeaponUsage()

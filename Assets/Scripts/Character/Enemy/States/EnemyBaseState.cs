@@ -1,4 +1,5 @@
 using Assets.Scripts.FSM;
+using Character;
 
 namespace Assets.Scripts.Character.Enemy.States
 {

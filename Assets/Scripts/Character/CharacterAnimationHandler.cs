@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts.Character
+namespace Character
 {
     public class CharacterAnimationHandler : MonoBehaviour
     {

@@ -1,8 +1,10 @@
 using System.Collections.Generic;
-using UnityEngine;
+using Assets.Scripts.EventBus;
 using Assets.Scripts.WeaponSystem;
+using EventBus;
+using UnityEngine;
 
-namespace Assets.Scripts.Components.Character
+namespace Components.Character
 {
     public class CharacterWeaponControllerComponent
     {
@@ -10,16 +12,18 @@ namespace Assets.Scripts.Components.Character
         private int _currentWeaponIndex = 0;
 
         private readonly Transform _weaponHolder;
+        private readonly Transform _characterTransform;
         private WeaponBase _currentWeapon;
 
         public WeaponBase CurrentWeapon => _currentWeapon;
         public int WeaponCount => _weaponPrefabs.Count;
         public int CurrentWeaponIndex => _currentWeaponIndex;
 
-        public CharacterWeaponControllerComponent(List<GameObject> weaponPrefabs, Transform weaponHolder)
+        public CharacterWeaponControllerComponent(List<GameObject> weaponPrefabs, Transform weaponHolder, Transform characterTransform)
         {
             _weaponPrefabs = weaponPrefabs;
             _weaponHolder = weaponHolder;
+            _characterTransform = characterTransform;
 
             SpawnWeapon(0);
         }
@@ -37,6 +41,12 @@ namespace Assets.Scripts.Components.Character
 
             _currentWeapon = weaponInstance.GetComponent<WeaponBase>();
             _currentWeaponIndex = index;
+            
+            EventBus<Events.WeaponEquipped>.Raise(new Events.WeaponEquipped
+            {
+                CharacterID = _characterTransform.GetInstanceID(),
+                Weapon = _currentWeapon,
+            });
         }
 
         public void TryAttack(Vector3 targetPoint)

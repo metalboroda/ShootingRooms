@@ -1,5 +1,6 @@
 using Assets.Scripts.EventBus;
 using Components.Audio;
+using EventBus;
 using UnityEngine;
 
 namespace WeaponSystem
@@ -32,7 +33,7 @@ namespace WeaponSystem
 
         private void OnWeaponUsed(Events.WeaponUsed weaponUsed)
         {
-            if (weaponUsed.ID != transform.GetInstanceID()) return;
+            if (weaponUsed.WeaponID != transform.GetInstanceID()) return;
 
             _audioComponent.PlayClipOneShot(shotClip, true);
         }

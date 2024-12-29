@@ -1,6 +1,8 @@
 using Assets.Scripts.Character.Enemy.States;
 using Assets.Scripts.EventBus;
 using Assets.Scripts.FSM;
+using Character;
+using EventBus;
 using UnityEngine;
 
 namespace Assets.Scripts.Character.Enemy

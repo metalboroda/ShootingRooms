@@ -1,7 +1,8 @@
 using Assets.Scripts.EventBus;
+using EventBus;
 using UnityEngine;
 
-namespace Assets.Scripts.WeaponSystem
+namespace WeaponSystem
 {
   public class RangedWeaponAnimationHandler : MonoBehaviour
   {
@@ -32,7 +33,7 @@ namespace Assets.Scripts.WeaponSystem
 
     private void OnWeaponUsed(Events.WeaponUsed weaponUsed)
     {
-      if (weaponUsed.ID != transform.GetInstanceID()) return;
+      if (weaponUsed.WeaponID != transform.GetInstanceID()) return;
 
       CrossfadeAnimation(shootAnimation);
     }

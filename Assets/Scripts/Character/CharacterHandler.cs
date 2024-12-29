@@ -1,5 +1,6 @@
 using Assets.Scripts.EventBus;
 using System.Collections;
+using EventBus;
 using UnityEngine;
 
 namespace Assets.Scripts.Character

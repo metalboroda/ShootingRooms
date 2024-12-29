@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.EventBus;
 using Cinemachine;
+using EventBus;
 using UnityEngine;
 
 namespace Assets.Scripts.GameManagement

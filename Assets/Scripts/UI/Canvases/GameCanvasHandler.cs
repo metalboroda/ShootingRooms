@@ -1,4 +1,5 @@
 using Assets.Scripts.EventBus;
+using EventBus;
 using UnityEngine;
 using UnityEngine.UI;
 

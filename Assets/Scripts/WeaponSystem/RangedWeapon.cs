@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.EventBus;
 using Assets.Scripts.SOs.WeaponSystem;
 using Assets.Scripts.WeaponSystem;
+using EventBus;
 using Lean.Pool;
 using UnityEngine;
 
@@ -51,7 +52,7 @@ namespace WeaponSystem
 
                 EventBus<Events.WeaponUsed>.Raise(new Events.WeaponUsed
                 {
-                    ID = transform.GetInstanceID(),
+                    WeaponID = transform.GetInstanceID(),
                 });
 
                 muzzleFlash.Play();

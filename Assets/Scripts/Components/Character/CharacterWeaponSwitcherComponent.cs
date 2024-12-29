@@ -1,4 +1,5 @@
 using Assets.Scripts.Components.Character;
+using Components.Character;
 using UnityEngine;
 
 public class CharacterWeaponSwitcherComponent

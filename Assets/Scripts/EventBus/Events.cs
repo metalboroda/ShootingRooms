@@ -1,7 +1,9 @@
 using Assets.Scripts.Enums;
+using Assets.Scripts.EventBus;
+using Assets.Scripts.WeaponSystem;
 using UnityEngine;
 
-namespace Assets.Scripts.EventBus
+namespace EventBus
 {
     public static class Events
     {
@@ -61,9 +63,15 @@ namespace Assets.Scripts.EventBus
         #endregion
 
         #region Weapon System
+        public struct WeaponEquipped : IEvent
+        {
+            public int CharacterID;
+            public WeaponBase Weapon;
+        }
+        
         public struct WeaponUsed : IEvent
         {
-            public int ID;
+            public int WeaponID;
         }
 
         public struct PlayerWeaponRecoiled : IEvent { }
