@@ -4,8 +4,8 @@ public class EnemyDeathState : EnemyBaseState
 {
     public override void Enter()
     {
-        CharacterAnimationHandler.CrossfadeAnimation(
-            CharacterAnimationHandler.CharacterAnimationData.RandomDeathAnimation());
+        var animation = CharacterAnimationHandler.CharacterAnimationData.RandomDeathAnimation();
+        CharacterAnimationHandler.CrossfadeAnimation(animation);
 
         CharacterHandler.StopAllRoutines();
     }

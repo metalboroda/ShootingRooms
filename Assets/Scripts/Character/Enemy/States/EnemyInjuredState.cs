@@ -4,11 +4,11 @@ namespace Assets.Scripts.Character.Enemy.States
     {
         public override void Enter()
         {
-            CharacterAnimationHandler.CrossfadeAnimation(
-            CharacterAnimationHandler.CharacterAnimationData.RandomDeathAnimation(), () =>
+            var animation = CharacterAnimationHandler.CharacterAnimationData.RandomDeathAnimation();
+            CharacterAnimationHandler.CrossfadeAnimation(animation, () =>
             {
-                CharacterAnimationHandler.CrossfadeAnimation(
-                      CharacterAnimationHandler.CharacterAnimationData.RandomInjuryAnimation());
+                animation = CharacterAnimationHandler.CharacterAnimationData.RandomInjuryAnimation();
+                CharacterAnimationHandler.CrossfadeAnimation(animation);
             });
 
             CharacterHandler.InjuryDeath();
