@@ -34702,11 +34702,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d91b9105b92e1b49956db555121b6f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPath:
-  - {fileID: 1669701092}
-  - {fileID: 1052565454}
-  - {fileID: 1587190607}
-  showLogs: 1
 --- !u!114 &8400046308385951689
 MonoBehaviour:
   m_ObjectHideFlags: 0

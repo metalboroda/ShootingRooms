@@ -11,9 +11,6 @@ namespace Assets.Scripts.Character.Enemy
     [SelectionBase]
     public class EnemyController : MonoBehaviour
     {
-        [SerializeField] private List<Transform> enemyPath;
-        [SerializeField] private bool showLogs;
-        
         public CharacterHandler CharacterHandler { get; private set; }
         public CharacterAnimationHandler CharacterAnimationHandler { get; private set; }
         public AgentAuthoring NavMeshAgent { get; private set; }
@@ -25,8 +22,6 @@ namespace Assets.Scripts.Character.Enemy
 
         private EventBinding<Events.CharacterInjured> _characterInjured;
         private EventBinding<Events.CharacterDead> _characterDead;
-        
-        private Queue<Transform> _patrolPointsQueue = new();
 
         private void Awake()
         {
@@ -36,9 +31,6 @@ namespace Assets.Scripts.Character.Enemy
 
             _stateMachine = new FiniteStateMachine();
             _stateFactory = new StateFactory<EnemyController>(this);
-            
-            IsPatrol = enemyPath != null && enemyPath.Count > 0;
-            if(IsPatrol) enemyPath.ForEach(_ => _patrolPointsQueue.Enqueue(_));
         }
 
         private void Start()
@@ -96,18 +88,20 @@ namespace Assets.Scripts.Character.Enemy
         public void ChangeState<T>() where T : IState, new()
         {
             var newState = _stateFactory.GetState<T>();
-            if(showLogs) Debug.Log($"Enemy switch state from {_stateMachine.CurrentState.GetType().Name} in {newState.GetType().Name}");
 
             newState.Init(this);
             _stateMachine.ChangeState(newState);
             
         }
 
-        public void SetNextTargetPoint()
+        public void MoveToPosition(Vector3 targetPosition)
         {
-            var point = _patrolPointsQueue.Dequeue();
-            TargetPosition = point.position;
-            _patrolPointsQueue.Enqueue(point);
+            TargetPosition = targetPosition;
+            
+            if (_stateMachine.CurrentState is not EnemyMovementState)
+            {
+                ChangeState<EnemyMovementState>();
+            }
         }
     }
 }
